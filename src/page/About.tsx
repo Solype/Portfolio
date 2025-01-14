@@ -5,7 +5,7 @@ function About() {
         <>
             <section>
                 <h1>About Me</h1>
-                <p>Hello! I'm a passionate developer who loves creating amazing web experiences.</p>
+                <p className="text-lg underline text-gray-600">Hello! I'm a passionate developer who loves creating amazing web experiences.</p>
             </section>
         </>
     )
