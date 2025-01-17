@@ -1,27 +1,51 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Home from './page/Home';
 import Navbar from './composant/Navbar';
 import About from './page/About';
 import Projects from './page/Projects';
 import Contact from './page/Contact';
 
-function App() {
+function AppChild() {
+    const location = useLocation(); // Utiliser useLocation ici
+
     return (
         <>
             <div>
-                <Router>
-                    <Navbar />
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/about" element={<About />} />
-                            <Route path="/projects" element={<Projects />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route path="*" element={<h1>Page Not Found</h1>} />
-                        </Routes>
-                </Router>
+                <Navbar />
+                {/* Le Routes doit être enveloppé avec AnimatePresence pour que les animations fonctionnent */}
+                <AnimatePresence mode="wait">
+                    <Routes location={location} key={location.pathname}>
+                            <Route path="/" element={<MotionWrapper><Home /></MotionWrapper>} />
+                            <Route path="/about" element={<MotionWrapper><About /></MotionWrapper>} />
+                            <Route path="/projects" element={<MotionWrapper><Projects /></MotionWrapper>} />
+                            <Route path="/contact" element={<MotionWrapper><Contact /></MotionWrapper>} />
+                            <Route path="*" element={<MotionWrapper><Home /></MotionWrapper>} />
+                    </Routes>
+                </AnimatePresence>
             </div>
         </>
-    )
+    );
 }
 
-export default App
+// Wrapper pour gérer les animations
+function MotionWrapper({ children }: { children: React.ReactNode }) {
+    return (
+        <motion.div
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: '0%', opacity: 1 }}
+            exit={{ x: '-100%', opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
+export default function App() {
+    return (
+        <Router>
+            <AppChild />
+        </Router>
+    );
+}
