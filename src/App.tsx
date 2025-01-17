@@ -16,11 +16,11 @@ function AppChild() {
                 {/* Le Routes doit être enveloppé avec AnimatePresence pour que les animations fonctionnent */}
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
-                        <Route path="/" element={<MotionWrapper><Home /></MotionWrapper>} />
-                        <Route path="/about" element={<MotionWrapper><About /></MotionWrapper>} />
-                        <Route path="/projects" element={<MotionWrapper><Projects /></MotionWrapper>} />
-                        <Route path="/contact" element={<MotionWrapper><Contact /></MotionWrapper>} />
-                        <Route path="*" element={<MotionWrapper><Home /></MotionWrapper>} />
+                            <Route path="/" element={<MotionWrapper><Home /></MotionWrapper>} />
+                            <Route path="/about" element={<MotionWrapper><About /></MotionWrapper>} />
+                            <Route path="/projects" element={<MotionWrapper><Projects /></MotionWrapper>} />
+                            <Route path="/contact" element={<MotionWrapper><Contact /></MotionWrapper>} />
+                            <Route path="*" element={<MotionWrapper><Home /></MotionWrapper>} />
                     </Routes>
                 </AnimatePresence>
             </div>

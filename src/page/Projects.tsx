@@ -1,16 +1,51 @@
-function Projects() {
+function Project1() {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+        <div className={`relative min-h-screen flex items-center justify-center`}>
+            <div className="text-center p-6 rounded-lg shadow-lg">
+                <h1 className="text-4xl font-bold text-primary mb-4">
+                    Other Section
+                </h1>
+                <p className="text-lg text-secondary">
+                    This is section number.
+                </p>
+            </div>
+        </div>
+    );
+}
+
+
+function Introduction() {
+    return (
+        <div className={`min-h-screen flex items-center justify-center`}>
+            <div className="text-center p-6 rounded-lg shadow-lg">
                 <h1 className="text-4xl font-bold text-primary mb-4">
                     Project section
                 </h1>
                 <p className="text-lg text-secondary">
-                    PROOOOWWWJECT
+                    Welcome to the project section.
                 </p>
-                <button className="mt-6 px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/80">
-                    Contact Me
-                </button>
+                <p className="text-lg text-secondary">
+                    Here you can find all the most technical or interesting projects I have worked on.
+                </p>
+                <p className="text-lg text-secondary">
+                    Scroll down to see more.
+                </p>
+            </div>
+        </div>
+    );
+}
+
+function Projects() {
+    // Crée un tableau avec 20 éléments pour la démonstration
+
+    return (
+
+        <div className="snap-y snap-mandatory overflow-y-scroll h-screen ">
+            <div className="snap-always snap-center" >
+                <Introduction />
+            </div>
+            <div className="snap-always snap-center" >
+                <Project1 />
             </div>
         </div>
     );

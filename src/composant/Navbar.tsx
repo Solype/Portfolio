@@ -1,14 +1,10 @@
-import { Link } from 'react-router-dom';
-import photoFace from '@/assets/Photo.jpg';
-import frenchFlag from '@/assets/Flag_of_France.png';
-import { Button } from '@/components/ui/button';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Link } from "react-router-dom";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip";
+import { Button } from "@/components/ui/button";
+import photoFace from "@/assets/Photo.jpg";
+import frenchFlag from "@/assets/Flag_of_France.png";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 
 function Navbar() {
     const classNameLink = "p-3 hover:bg-accent hover:text-white transition duration-200 ease-in-out w-full text-center rounded-lg";
@@ -18,7 +14,7 @@ function Navbar() {
     }
 
     return (
-        <div className="fixed top-0 left-0 right-0 bg-primary text-background z-50 text-xl font-bold shadow-md">
+        <div className="sticky top-0 left-0 right-0 bg-primary text-background z-50 text-xl font-bold shadow-md">
             <div className="flex justify-between items-center px-4 h-16">
                 <div className="flex gap-4 items-center">
                     <img src={photoFace} className="w-10 h-10 rounded-full" alt="A.JACQUEMET" />
@@ -36,7 +32,9 @@ function Navbar() {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button onClick={redirect} className='w-8 h-full flex justify-center items-center hover:bg-accent'><FaExternalLinkAlt /></Button>
+                                <Button onClick={redirect} className='w-8 h-full flex justify-center items-center hover:bg-accent'>
+                                    <FaExternalLinkAlt />
+                                </Button>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>See source code of this website</p>
