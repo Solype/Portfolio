@@ -1,14 +1,19 @@
 function Projects() {
-  return (
-    <section>
-      <h1>My Projects</h1>
-      <ul>
-        <li>Project 1: A cool website</li>
-        <li>Project 2: An awesome app</li>
-        <li>Project 3: A fun game</li>
-      </ul>
-    </section>
-  );
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+                <h1 className="text-4xl font-bold text-primary mb-4">
+                    Project section
+                </h1>
+                <p className="text-lg text-secondary">
+                    PROOOOWWWJECT
+                </p>
+                <button className="mt-6 px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/80">
+                    Contact Me
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default Projects;

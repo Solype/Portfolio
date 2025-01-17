@@ -52,7 +52,12 @@ export default {
     				'3': 'hsl(var(--chart-3))',
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
-    			}
+    			},
+				background: '#FBFBFF', // blanc
+				primary: '#0B4F6C', // Bleu fonce
+				secondary: '#040F16', // Noir fonce
+				accent: '#B80C09', // Rouge
+				other: '#01BAEF' // Bleu clair
     		}
     	}
     },
