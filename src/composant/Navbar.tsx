@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom';
 import photoFace from '@/assets/Photo.jpg';
 import frenchFlag from '@/assets/Flag_of_France.png';
+import { Button } from '@/components/ui/button';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 function Navbar() {
     const classNameLink = "p-3 hover:bg-accent hover:text-white transition duration-200 ease-in-out w-full text-center rounded-lg";
+
+    function redirect() {
+        window.open("https://github.com/Solype/Portfolio", "_blank");
+    }
 
     return (
         <div className="fixed top-0 left-0 right-0 bg-primary text-background z-50 text-xl font-bold shadow-md">
@@ -14,11 +26,23 @@ function Navbar() {
                     <img src={frenchFlag} className="w-8 h-5 rounded-sm" alt="French Flag" />
                 </div>
 
-                <div className="flex gap-6">
-                    <Link className={classNameLink} to="/">Home</Link>
-                    <Link className={classNameLink} to="/about">About</Link>
-                    <Link className={classNameLink} to="/projects">Projects</Link>
-                    <Link className={classNameLink} to="/contact">Contact</Link>
+                <div className='flex items-center'>
+                    <div className="flex gap-6">
+                        <Link className={classNameLink} to="/">Home</Link>
+                        <Link className={classNameLink} to="/about">About</Link>
+                        <Link className={classNameLink} to="/projects">Projects</Link>
+                        <Link className={classNameLink} to="/contact">Contact</Link>
+                    </div>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button onClick={redirect} className='w-8 h-full flex justify-center items-center hover:bg-accent'><FaExternalLinkAlt /></Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>See source code of this website</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </div>
             </div>
         </div>
