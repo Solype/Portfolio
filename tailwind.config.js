@@ -53,7 +53,7 @@ export default {
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
     			},
-				background: '#FBFBFF', // blanc
+				background: '#F9F9FD', // blanc
 				primary: '#0B4F6C', // Bleu fonce
 				secondary: '#040F16', // Noir fonce
 				accent: '#B80C09', // Rouge
