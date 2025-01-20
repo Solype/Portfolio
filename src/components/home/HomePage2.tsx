@@ -1,9 +1,11 @@
 import autonomusPic from '@/assets/autonomous.png';
-import creativityPic from '@/assets/crea.png';
 import curiosityPic from '@/assets/curious.png';
 import problemPic from '@/assets/problem.png';
 import teamworkPic from '@/assets/teamwork.png';
 import softPic from "@/assets/soft.png"
+import useMediaQuery from '@/hooks/useMediaQuery';
+import { motion } from 'framer-motion';
+import LineGradient from '../LineGradient';
 
 interface HomePage2Props {
     isVisible: boolean;
@@ -22,17 +24,26 @@ const SoftSkill: React.FC<SoftSkillProps> = ({ isVisible, id, name, icon }) => {
     console.log(isVisible);
   
     return (
-        <div className=" mt-10" style={{ opacity: 1 }}>
-            <div className="flex flex-col">
-                <div className="self-center">
-                    <img src={icon} alt="skills" className="z-10 h-40 w-auto" />
-                </div>
+        <motion.div
+            className="md:w-1/3 mt-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+            }}
+        >
+            <div className="relative h-32">
                 <div className="z-10">
                     <p className="font-playfair font-semibold text-5xl">{id}</p>
-                    <p className="font-playfair font-semibold text-3xl mt-3">T{name}</p>
+                    <p className="font-playfair font-semibold text-3xl mt-3">{name}</p>
                 </div>
+                <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]" />
             </div>
-        </div>
+            <img alt="skills" className="z-10 object-fill h-32 w-auto" src={icon} />
+        </motion.div>
     );
 };
 
@@ -53,28 +64,47 @@ const HomePage2: React.FC<HomePage2Props> = ({ isVisible }) => {
 
     const propsSoftSkill : SoftSkillProps[] = [
         { isVisible : isVisible, id : 1, name : "Autonomous", icon : autonomusPic },
-        { isVisible : isVisible, id : 2, name : "Creativity", icon : creativityPic },
-        { isVisible : isVisible, id : 3, name : "Curiosity", icon : curiosityPic },
-        { isVisible : isVisible, id : 4, name : "Problem Solving", icon : problemPic },
-        { isVisible : isVisible, id : 5, name : "Teamwork", icon : teamworkPic },
+        { isVisible : isVisible, id : 2, name : "Curiosity", icon : curiosityPic },
+        { isVisible : isVisible, id : 3, name : "Problem Solving", icon : problemPic },
+        { isVisible : isVisible, id : 4, name : "Teamwork", icon : teamworkPic },
     ]
+    const isAboveLarge = useMediaQuery("(min-width: 1060px)");
 
     return (
-        <div className="min-h-screen pt-10 pb-24">
+        <div className="min-h-screen pt-10 pb-24 p-20">
             <div className="md:flex md:justify-between md:gap-16 mt-32">
-                <div className="md:w-1/3" style={{ opacity: 1, transform: 'none' }}>
-                    <p className="font-semibold text-4xl mb-5">MY <span className="text-red">SOFT</span>  SKILLS</p>
-                </div>
+                <motion.div
+                className="md:w-1/3"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5 }}
+                variants={{
+                    hidden: { opacity: 0, x: -50 },
+                    visible: { opacity: 1, x: 0 },
+                }}
+                >
+                <p className="font-playfair font-semibold text-4xl mb-5">
+                    MY <span className="text-red">SOFT</span>  SKILLS
+                </p>
+                <LineGradient width="w-1/3" />
+                </motion.div>
+
                 <div className="mt-16 md:mt-0">
-                <img
-                    alt="skills"
-                    className="z-10 h-1/2 relative z-0 ml-20 before:absolute before:-top-10 before:-left-10 before:w-full before:h-full before:border-2 before:border-blue before:z-1 before:bg-transparent"
-                    src={softPic}
-                />
+                {isAboveLarge ? (
+                    <div
+                        className="relative z-0 ml-20 before:absolute before:-top-10 before:-left-10
+                        before:w-full before:h-full before:border-2 before:border-blue before:z-[-1]"
+                    >
+                        <img alt="skills" className="z-10" src={softPic} />
+                    </div>
+                ) : (
+                    <img alt="skills" className="z-10" src={softPic} />
+                )}
                 </div>
             </div>
             <div className="justify-center items-center">
-                <div className="lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-5 md:grid md:grid-cols-3 sm:grid sm:grid-cols-2 mt-10 gap-32">
+                <div className="xl:grid xl:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2 sm:grid sm:grid-cols-2 mt-10 gap-32">
                 {propsSoftSkill.map((softSkill, index) => (
                     <SoftSkill key={index} {...softSkill} />
                 ))}

@@ -46,12 +46,12 @@ const HomePage1: React.FC<HomePage1Props> = ({ isVisible }) => {
                     </Card>
                 </motion.div>
             </div>
-            <div className="max-w-1/2 " style={{ width: "50%", height: "100%" }}>
+            <div className="max-w-1/2" style={{ width: "50%" }}>
                 <div className="flex flex-col w-full items-center justify-center">
                     <motion.img
                         src={profile}
                         alt="Profile Picture"
-                        className="border-4 border-white shadow-lg self-center"
+                        className="border-4 border-white shadow-lg items-center justify-center"
                         style={{
                             borderTopLeftRadius: '50%',
                             borderBottomRightRadius: '50%',
