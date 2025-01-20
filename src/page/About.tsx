@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaArrowRight } from "react-icons/fa";
 import profilePic from "@/assets/Photo.jpg";
-import hobbiesPic from "@/assets/climbing.jpg";
+import climbingPic from "@/assets/climbing.jpg";
+import accordionPic from "@/assets/accordion-icon.png";
 import englishIcon from "@/assets/english-icon.png";
 import frenchIcon from "@/assets/Flag_of_France.png";
 import germanIcon from "@/assets/german-flag.jpg";
@@ -15,6 +16,7 @@ import linuxIcon from "@/assets/linux-icon.png";
 import bashIcon from "@/assets/bash-icon.png";
 import javascriptIcon from "@/assets/js-icon.png";
 import dockerIcon from "@/assets/docker-icon.png";
+import archerPic from "@/assets/archery-icon.png";
 
 export default function About() {
     return (
@@ -117,19 +119,27 @@ export default function About() {
                                 <CardHeader>
                                     <CardTitle className="text-2xl font-bold">Music</CardTitle>
                                 </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Accordion
-                                    </p>
+                                <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                    <div className="flex flex-wrap justify-center gap-4">
+                                        <TechnoCard image={accordionPic} nom="Accordion">
+                                            <p>I started playing accordion at 13yo</p>
+                                        </TechnoCard>
+                                    </div>
                                 </CardContent>
                             </Card>
                             <Card>
                                 <CardHeader>
-                                    <CardTitle className="text-2xl font-bold">Sports</CardTitle>
+                                    <CardTitle className="text-2xl font-bold text-center">Sports</CardTitle>
                                 </CardHeader>
-                                <CardContent className="flex flex-col">
-                                    <p>Climbing</p>
-                                    <p>Archery</p>
+                                <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                    <div className="flex flex-wrap justify-center gap-4">
+                                        <TechnoCard image={climbingPic} nom="Climbing">
+                                            <p>I started in September 2024</p>
+                                        </TechnoCard>
+                                        <TechnoCard image={archerPic} nom="Archery">
+                                            <p>My favorite sport</p>
+                                        </TechnoCard>
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
