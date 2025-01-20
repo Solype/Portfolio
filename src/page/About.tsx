@@ -9,6 +9,12 @@ import germanIcon from "@/assets/german-flag.jpg";
 import pythonIcon from "@/assets/python-icon.png";
 import cppIcon from "@/assets/cpp-icon.jpg";
 import reactIcon from "@/assets/react-icon.png";
+import TechnoCard from "@/components/about/Technocard";
+import cIcon from "@/assets/c-icon.png";
+import linuxIcon from "@/assets/linux-icon.png";
+import bashIcon from "@/assets/bash-icon.png";
+import javascriptIcon from "@/assets/js-icon.png";
+import dockerIcon from "@/assets/docker-icon.png";
 
 export default function About() {
     return (
@@ -40,7 +46,7 @@ export default function About() {
                 </Card>
 
                 {/* Language Proficiency Section */}
-                <Card>
+                {/* <Card>
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold">Languages</CardTitle>
                     </CardHeader>
@@ -60,30 +66,42 @@ export default function About() {
                             </div>
                         </div>
                     </CardContent>
+                </Card> */}
+
+                <Card>
+                <CardHeader>
+                        <CardTitle className="text-2xl font-bold">Languages</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col items-center justify-between gap-6">
+                        <div className="flex gap-4 justify-center">
+                            <TechnoCard image={frenchIcon} nom="Français">
+                                Mother tongue
+                            </TechnoCard>
+                            <TechnoCard image={englishIcon} nom="English">
+                                B2/C1
+                            </TechnoCard>
+                            <TechnoCard image={germanIcon} nom="Deutsch">
+                                A2
+                            </TechnoCard>
+                        </div>
+                    </CardContent>
                 </Card>
 
                 {/* Skills Section with Graph */}
                 <Card>
                     <CardHeader>
-                        <CardTitle className="text-2xl font-bold">Technical Skills</CardTitle>
+                        <CardTitle className="text-2xl font-bold">Techo Used</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-2">
-                            <div className="flex items-center gap-2">
-                                <img src={cppIcon} alt="C++" className="w-8 h-8" />
-                                <span><strong>Expert:</strong> C, C++, Python</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <img src={pythonIcon} alt="Python" className="w-8 h-8" />
-                                <span><strong>Proficient:</strong> React.js, JavaScript</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <img src={reactIcon} alt="React" className="w-8 h-8" />
-                                <span><strong>Familiar:</strong> Bash, Assembly</span>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-1/2">
-                            <canvas id="skillsChart" className="w-full"></canvas>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            <TechnoCard image={cppIcon} nom="C++"/>
+                            <TechnoCard image={pythonIcon} nom="Python"/>
+                            <TechnoCard image={cIcon} nom="C"/>
+                            <TechnoCard image={reactIcon} nom="React"/>
+                            <TechnoCard image={javascriptIcon} nom="JavaScript"/>
+                            <TechnoCard image={bashIcon} nom="Bash"/>
+                            <TechnoCard image={linuxIcon} nom="Linux"/>
+                            <TechnoCard image={dockerIcon} nom="Docker"/>
                         </div>
                     </CardContent>
                 </Card>
@@ -93,16 +111,28 @@ export default function About() {
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold">Hobbies</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-2">
-                            <p><strong>Music:</strong> Accordion</p>
-                            <p><strong>Sports:</strong> Archery, Rock Climbing</p>
+                    <CardContent className="flex flex-col items-center justify-between gap-6">
+                        <div className="flex gap-4 justify-center">
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="text-2xl font-bold">Music</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>
+                                        Accordion
+                                    </p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="text-2xl font-bold">Sports</CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex flex-col">
+                                    <p>Climbing</p>
+                                    <p>Archery</p>
+                                </CardContent>
+                            </Card>
                         </div>
-                        <img
-                            src={hobbiesPic}
-                            alt="Hobbies Image"
-                            className="rounded-lg shadow-md border-2 border-gray-300 w-60"
-                        />
                     </CardContent>
                 </Card>
             </div>
