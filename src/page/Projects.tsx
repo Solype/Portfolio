@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Project1 from "@/components/projects/Project1";
 import Introduction from "@/components/projects/Introduction";
 import AreaProject from "@/components/projects/Area";
+import ArcadeProject from "@/components/projects/Arcade";
 
 function Projects() {
     const [visibleMaxIndex, setVisibleMaxIndex] = useState<number>(0);
@@ -34,7 +35,7 @@ function Projects() {
         return () => observer.disconnect();
     }, []);
 
-    const components = [Introduction, Project1, AreaProject];
+    const components = [Introduction, Project1, AreaProject, ArcadeProject];
 
     return (
         <div className="snap-y snap-mandatory overflow-y-scroll h-screen bg-background">
