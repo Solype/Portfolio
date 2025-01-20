@@ -1,19 +1,49 @@
-// import joke1 from "@/assets/joke1.jpg"
+import HomePage1 from "@/components/home/HomePage1";
+import HomePage0 from "@/components/home/HomePage0";
+import { useState, useEffect, useRef } from "react";
+import HomePage2 from "@/components/home/HomePage2";
+
 
 function Home() {
+    const [visibleMaxIndex, setVisibleMaxIndex] = useState<number>(0);
+    const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+
+    function extractNumber(divId : string) {
+        const match = divId.match(/\d+/); // Cherche les chiffres dans la chaîne
+        return match ? parseInt(match[0], 10) : null; // Convertit en entier
+    }
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                console.log(entries[0].target.id);
+                const tmp : number | null = extractNumber(entries[0].target.id);
+                console.log(tmp, visibleMaxIndex);
+                if (tmp != null) {
+                    console.log("update");
+                    setVisibleMaxIndex((prevIdex) => Math.max(prevIdex, tmp));
+                }
+            },
+            { threshold: 0.6 } // Trigger visibility at 60%
+        );
+
+        sectionsRef.current.forEach((section) => {
+            if (section) observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    const components = [HomePage0, HomePage1, HomePage2];
+
     return (
-        <div className="min-h-screen bg-background flex items-center justify-center">
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <h1 className="text-4xl font-bold text-primary mb-4">
-                    Ambroise Jacquemet
-                </h1>
-                <p className="text-lg text-secondary">
-                    Greetings ! I'm an Epitech Student 
-                </p>
-                <button className="mt-6 px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/80">
-                    Contact Me
-                </button>
-            </div>
+        <div className="overflow-y-scroll h-screen bg-background">
+            {components.map((Component, index) => (
+                <div key={index} id={"DIV" + index} ref={(el) => (sectionsRef.current[index] = el)}>
+                    <Component isVisible={ index <= visibleMaxIndex} />
+                </div>
+            ))}
         </div>
     );
 }

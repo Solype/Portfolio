@@ -57,7 +57,8 @@ export default {
 				primary: '#0B4F6C', // Bleu fonce
 				secondary: '#040F16', // Noir fonce
 				accent: '#B80C09', // Rouge
-				other: '#01BAEF' // Bleu clair
+				other: '#01BAEF', // Bleu clair
+				otherDarkBlue: '#01002C', // Bleu fonce
     		}
     	}
     },

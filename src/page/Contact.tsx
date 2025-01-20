@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { FaGithub, FaEnvelope, FaPhoneAlt, FaLinkedin, FaDiscord } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedin, FaDiscord } from "react-icons/fa";
 
 function Contact() {
     return (
