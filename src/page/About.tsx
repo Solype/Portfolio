@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaArrowRight } from "react-icons/fa";
-import profilePic from "@/assets/Photo.jpg"; // Replace with your image path
-import hobbiesPic from "@/assets/climbing.jpg"; // Replace with your hobbies image path
-import englishIcon from "@/assets/english-icon.png"; // Replace with actual language icon
-import frenchIcon from "@/assets/Flag_of_France.png"; // Replace with actual language icon
-import germanIcon from "@/assets/german-flag.jpg"; // Replace with actual language icon
-import pythonIcon from "@/assets/python-icon.png"; // Replace with actual tech icon
-import cppIcon from "@/assets/cpp-icon.jpg"; // Replace with actual tech icon
-import reactIcon from "@/assets/react-icon.png"; // Replace with actual tech icon
+import profilePic from "@/assets/Photo.jpg";
+import hobbiesPic from "@/assets/climbing.jpg";
+import englishIcon from "@/assets/english-icon.png";
+import frenchIcon from "@/assets/Flag_of_France.png";
+import germanIcon from "@/assets/german-flag.jpg";
+import pythonIcon from "@/assets/python-icon.png";
+import cppIcon from "@/assets/cpp-icon.jpg";
+import reactIcon from "@/assets/react-icon.png";
 
 export default function About() {
     return (
@@ -25,7 +25,7 @@ export default function About() {
                                 Hi! I'm a passionate developer who loves solving problems and learning new technologies. 
                                 My expertise spans low-level programming, automation, and modern web frameworks.
                             </p>
-                            <a href="/assets/AmbroiseCV.pdf" download>
+                            <a href="src/assets/AmbroiseJACQUEMET_CV.pdf" download>
                                 <Button className="mt-4">
                                     My CV <FaArrowRight className="ml-2" />
                                 </Button>
