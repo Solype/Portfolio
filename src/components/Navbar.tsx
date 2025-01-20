@@ -71,14 +71,14 @@ function Navbar() {
                     </div>
                     <TooltipProvider>
                         <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button onClick={redirect} className="w-8 h-full flex justify-center items-center hover:bg-accent">
-                                <FaExternalLinkAlt />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>See source code of this website</p>
-                        </TooltipContent>
+                            <TooltipTrigger asChild>
+                                <Button onClick={redirect} className="w-8 h-full flex justify-center items-center hover:bg-accent">
+                                    <FaExternalLinkAlt />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-accent text-background py-2 px-4 rounded">
+                                <p className="text-center text-sm">See source code of this website</p>
+                            </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                 </div>
