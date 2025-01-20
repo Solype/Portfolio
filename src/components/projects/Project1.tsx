@@ -50,6 +50,9 @@ function Project1({ isVisible }: { isVisible: boolean }) {
                     <p className="text-lg text-gray-600 italic">
                         A raytracer calculates how light interacts with objects in a scene to create realistic shadows, reflections, and refractions.
                     </p>
+                    <p>
+                        It was made in CPP.
+                    </p>
                 </div>
 
                 <div className="relative">
