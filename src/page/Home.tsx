@@ -2,6 +2,7 @@ import HomePage1 from "@/components/home/HomePage1";
 import HomePage0 from "@/components/home/HomePage0";
 import { useState, useEffect, useRef } from "react";
 import HomePage2 from "@/components/home/HomePage2";
+import LineGradient from "@/components/LineGradient";
 
 
 function Home() {
@@ -37,12 +38,26 @@ function Home() {
 
     const components = [HomePage0, HomePage1, HomePage2];
 
+    function getClassName(index: number) {
+        if (index > 1) {
+            return "w-5/6 mx-auto";
+        }
+        return "w-full";
+    }
+
     return (
         <div className="overflow-y-scroll h-screen bg-background">
             {components.map((Component, index) => (
-                <div key={index} id={"DIV" + index} ref={(el) => (sectionsRef.current[index] = el)}>
+                <>
+                {
+                    (index > 1) && (
+                        <LineGradient width="w-full" />
+                    )
+                }
+                <div className={getClassName(index)} key={index} id={"DIV" + index} ref={(el) => (sectionsRef.current[index] = el)}>
                     <Component isVisible={ index <= visibleMaxIndex} />
                 </div>
+                </>
             ))}
         </div>
     );
