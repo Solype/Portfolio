@@ -3,6 +3,8 @@ import HomePage0 from "@/components/home/HomePage0";
 import { useState, useEffect, useRef } from "react";
 import HomePage2 from "@/components/home/HomePage2";
 import LineGradient from "@/components/LineGradient";
+import HomePage3 from "@/components/home/HomePage3";
+import HomePage4 from "@/components/home/HomePage4";
 
 
 function Home() {
@@ -36,7 +38,7 @@ function Home() {
         return () => observer.disconnect();
     }, []);
 
-    const components = [HomePage0, HomePage1, HomePage2];
+    const components = [HomePage0, HomePage1, HomePage2, HomePage3, HomePage4];
 
     function getClassName(index: number) {
         if (index > 1) {
@@ -59,6 +61,19 @@ function Home() {
                 </div>
                 </>
             ))}
+            <LineGradient />
+            <footer className="border-t border-yellow p-4">
+                <div className=" px-10">
+                    <div className="md:flex justify-center md:justify-between text-center ">
+                        <div className="flex items-end gap-2">
+                            <p className="font-playfair font-semibold text-2xl text-yellow">by Ambroise JACQUEMET</p>
+                            <p className="font-playfair text-s text-yellow">with React js &amp; Tailwind</p>
+                        </div>
+                        <div className="flex gap-3 justify-center md:justify-start">
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }

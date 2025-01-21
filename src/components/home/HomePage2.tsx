@@ -36,7 +36,7 @@ const SoftSkill: React.FC<SoftSkillProps> = ({ isVisible, id, name, content }) =
                     <p className="font-playfair font-semibold text-5xl">{id}</p>
                     <p className="font-playfair font-semibold text-3xl mt-3">{name}</p>
                 </div>
-                <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]" />
+                <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0"/>
             </div>
             <p className="mt-5">
                 {content}
