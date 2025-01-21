@@ -1,5 +1,5 @@
 import HomePage1 from "@/components/home/HomePage1";
-import HomePage0 from "@/components/home/HomePage0";
+// import HomePage0 from "@/components/home/HomePage0";
 import { useState, useEffect, useRef } from "react";
 import HomePage2 from "@/components/home/HomePage2";
 import LineGradient from "@/components/LineGradient";
@@ -38,7 +38,7 @@ function Home() {
         return () => observer.disconnect();
     }, []);
 
-    const components = [HomePage0, HomePage1, HomePage2, HomePage3, HomePage4];
+    const components = [HomePage1, HomePage2, HomePage3, HomePage4];
 
     function getClassName(index: number) {
         if (index > 1) {
@@ -52,9 +52,7 @@ function Home() {
             {components.map((Component, index) => (
                 <>
                 {
-                    (index > 1) && (
-                        <LineGradient width="w-full" />
-                    )
+                    (index > 1) && <LineGradient width="w-full" /> 
                 }
                 <div className={getClassName(index)} key={index} id={"DIV" + index} ref={(el) => (sectionsRef.current[index] = el)}>
                     <Component isVisible={ index <= visibleMaxIndex} />

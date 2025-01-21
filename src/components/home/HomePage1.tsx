@@ -1,72 +1,74 @@
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
-import profile from "@/assets/Photo.jpg";
+import ProfilePic from "@/assets/Photo.jpg";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-
-interface HomePage1Props {
-    isVisible: boolean;
-}
-
-
-const HomePage1: React.FC<HomePage1Props> = ({ isVisible }) => {
-    console.log(isVisible);
-
+const HomePage1 = () => {
+    const isAboveLarge = useMediaQuery("(min-width: 1060px)");
     return (
-        <div className="min-h-screen flex flex-row min-w-full max-w-4xl bg-gradient-to-b from-otherDarkBlue via-other to-background p-10">
-            <div className="flex flex-wrap justify-center items-center" style={{ width: "50%" }}>
-                <motion.div
-                    className="flex flex-col"
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                >
-                    <Card className="relative border border-gray-200 overflow-hidden group w-full">
-                        <CardHeader className="text-center w-full">
-                            <CardTitle className="text-2xl font-bold">Ambroise JACQUEMET</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex flex-col items-center">
-                            <p>Hello, I am an Epitech Student and a full-stack developer.</p>
-                            <p> For now I am based in Berlin, but maybe tomorrow I will be in your city, who knows ?</p>
-                            <p>I am currently looking for an intership !</p>
-                        </CardContent>
-                        <CardFooter className="w-full justify-center">
-                            <CardDescription className="text-center">
-                                <p className="text-lg text-gray-400">
-                                    Welcome to my portfolio !
-                                </p>
-                            </CardDescription>
-                        </CardFooter>
-                    </Card>
-                </motion.div>
-            </div>
-            <div className="max-w-1/2" style={{ width: "50%" }}>
-                <div className="flex flex-col w-full items-center justify-center">
-                    <motion.img
-                        src={profile}
-                        alt="Profile Picture"
-                        className="border-4 border-white shadow-lg items-center justify-center"
-                        style={{
-                            borderTopLeftRadius: '50%',
-                            borderBottomRightRadius: '50%',
-                            width: '50%',
-                            height: '50%',
-                        }}
-                        whileHover={{
-                            borderTopLeftRadius: '0%',
-                            borderBottomRightRadius: '0%',
-                            borderTopRightRadius: '50%',
-                            borderBottomLeftRadius: '50%',
-                        }}/>
+        <div className="bg-gradient-to-b from-primary via-other to-background" style={{ height: "80vh" }}>
+            <section
+                id="home"
+                className="w-5/6 mx-auto md:flex md:justify-between md:items-center gap-16 md:h-full py-10"
+            >
+                {/* IMAGE SECTION */}
+                <div className="basis-3/5 z-10 mt-16 md:mt-32 flex justify-center md:order-2">
+                        {isAboveLarge ? (
+                            <motion.img
+                            src={ProfilePic}
+                            alt="Profile Picture"
+                            className="border-4 border-white shadow-lg items-center justify-center"
+                            style={{
+                                borderTopLeftRadius: '50%',
+                                borderBottomRightRadius: '50%',
+                            }}
+                            whileHover={{
+                                borderTopLeftRadius: '0%',
+                                borderBottomRightRadius: '0%',
+                                borderTopRightRadius: '50%',
+                                borderBottomLeftRadius: '50%',
+                            }}/>
+                        ) : (
+                        <img
+                            alt="profile"
+                            className="z-10 w-full max-w-[400px] md:max-w-[600px]"
+                            src={ProfilePic}
+                        />
+                        )}
                 </div>
-            </div>
+
+                {/* MAIN TEXT */}
+                <div className="z-30 basis-2/5 mt-12 md:mt-32">
+                    {/* HEADINGS */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.5 }}
+                        variants={{
+                            hidden: { opacity: 0, x: -50 },
+                            visible: { opacity: 1, x: 0 },
+                        }}
+                    >
+                        <p className="text-6xl font-playfair z-10 text-center md:text-start">
+                            Ambroise {""}
+                            <span
+                                className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush
+                            before:absolute before:-left-[25px] before:-top-[70px] before:z-[-1]"
+                        >
+                            JACQUEMET
+                            </span>
+                        </p>
+
+                        <p className="mt-10 mb-7 text-sm text-center md:text-start">
+                            Hello, I am an Epitech Student and a full-stack developer.
+                            For now I am based in Berlin, but maybe tomorrow I will be in your city, who knows ?
+                            I am currently looking for an intership !
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
         </div>
+
     );
 };
 

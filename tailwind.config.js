@@ -12,6 +12,9 @@ export default {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
+			content: {
+				brush: "url('./assets/brush.png')",
+			},
     		colors: {
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
