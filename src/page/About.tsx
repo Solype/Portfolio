@@ -47,42 +47,19 @@ export default function About() {
                     </CardContent>
                 </Card>
 
-                {/* Language Proficiency Section */}
-                {/* <Card>
-                    <CardHeader>
-                        <CardTitle className="text-2xl font-bold">Languages</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex flex-col md:flex-row items-center gap-6">
-                        <div className="space-y-2 text-secondary">
-                            <div className="flex items-center gap-2">
-                                <img src={englishIcon} alt="English" className="w-8 h-8" />
-                                <span><strong>English:</strong> B2/C1</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <img src={frenchIcon} alt="French" className="w-8 h-8" />
-                                <span><strong>French:</strong> Native</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <img src={germanIcon} alt="German" className="w-8 h-8" />
-                                <span><strong>German:</strong> A2</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card> */}
-
                 <Card>
                 <CardHeader>
                         <CardTitle className="text-2xl font-bold">Languages</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col items-center justify-between gap-6">
                         <div className="flex gap-4 justify-center">
-                            <TechnoCard image={frenchIcon} nom="Français">
+                            <TechnoCard image={frenchIcon} nom="Français" delay={0.2}>
                                 Mother tongue
                             </TechnoCard>
-                            <TechnoCard image={englishIcon} nom="English">
+                            <TechnoCard image={englishIcon} nom="English" delay={0.4}>
                                 B2/C1
                             </TechnoCard>
-                            <TechnoCard image={germanIcon} nom="Deutsch">
+                            <TechnoCard image={germanIcon} nom="Deutsch" delay={0.6}>
                                 A2
                             </TechnoCard>
                         </div>
@@ -96,14 +73,14 @@ export default function About() {
                     </CardHeader>
                     <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="flex flex-wrap justify-center gap-4">
-                            <TechnoCard image={cppIcon} nom="C++"/>
-                            <TechnoCard image={pythonIcon} nom="Python"/>
-                            <TechnoCard image={cIcon} nom="C"/>
-                            <TechnoCard image={reactIcon} nom="React"/>
-                            <TechnoCard image={javascriptIcon} nom="JavaScript"/>
-                            <TechnoCard image={bashIcon} nom="Bash"/>
-                            <TechnoCard image={linuxIcon} nom="Linux"/>
-                            <TechnoCard image={dockerIcon} nom="Docker"/>
+                            <TechnoCard image={cppIcon} nom="C++" delay={0}/>
+                            <TechnoCard image={pythonIcon} nom="Python" delay={0.1}/>
+                            <TechnoCard image={cIcon} nom="C" delay={0.2}/>
+                            <TechnoCard image={reactIcon} nom="React" delay={0.4}/>
+                            <TechnoCard image={javascriptIcon} nom="JavaScript" delay={0.5}/>
+                            <TechnoCard image={bashIcon} nom="Bash" delay={0.6}/>
+                            <TechnoCard image={linuxIcon} nom="Linux" delay={0.7}/>
+                            <TechnoCard image={dockerIcon} nom="Docker" delay={0.8}/>
                         </div>
                     </CardContent>
                 </Card>
