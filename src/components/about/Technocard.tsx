@@ -1,9 +1,11 @@
 import { Card, CardFooter } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 interface propTypes {
     image: string;
     nom: string;
     children?: React.ReactNode | null;
+    delay?: number;
 };
 
 function CardImage({ image, nom, children }: propTypes) {
@@ -32,16 +34,27 @@ function CardImage({ image, nom, children }: propTypes) {
     );
 }
 
-function TechnoCard({ image, nom, children }: propTypes) {
+function TechnoCard({ image, nom, children, delay }: propTypes) {
     return (
-        <Card className="relative max-w-xs border border-gray-200 overflow-hidden group">
-            <CardImage image={image} nom={nom}>
-                {children}
-            </CardImage>
-            <CardFooter className="text-center w-full justify-center">
-                <h2>{nom}</h2>
-            </CardFooter>
-        </Card>
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: delay, duration: 0.5 }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+            }}
+        >
+            <Card className="relative max-w-xs border border-gray-200 overflow-hidden group">
+                <CardImage image={image} nom={nom}>
+                    {children}
+                </CardImage>
+                <CardFooter className="text-center w-full justify-center">
+                    <h2>{nom}</h2>
+                </CardFooter>
+            </Card>
+        </motion.div>
     );
 }
 export default TechnoCard;

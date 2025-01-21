@@ -12,6 +12,9 @@ export default {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
+			content: {
+				brush: "url('./assets/brush.png')",
+			},
     		colors: {
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
@@ -57,7 +60,8 @@ export default {
 				primary: '#0B4F6C', // Bleu fonce
 				secondary: '#040F16', // Noir fonce
 				accent: '#B80C09', // Rouge
-				other: '#01BAEF' // Bleu clair
+				other: '#01BAEF', // Bleu clair
+				otherDarkBlue: '#01002C', // Bleu fonce
     		}
     	}
     },

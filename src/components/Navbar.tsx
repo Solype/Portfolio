@@ -36,7 +36,7 @@ function DropdownNavBar() {
                         <DropdownMenuLabel>Navigate</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <Link to="/"><DropdownMenuItem>Home</DropdownMenuItem></Link>
-                        <Link to="about"><DropdownMenuItem>About</DropdownMenuItem></Link>
+                        <Link to="about"><DropdownMenuItem>Tech</DropdownMenuItem></Link>
                         <Link to="projects"><DropdownMenuItem>Projects</DropdownMenuItem></Link>
                         <Link to="contact"><DropdownMenuItem>Contact</DropdownMenuItem></Link>
                     </DropdownMenuContent>
@@ -65,7 +65,7 @@ function Navbar() {
                 <div className="flex items-center hidden md:flex">
                     <div className="flex gap-6">
                         <Link className={classNameLink} to="/">Home</Link>
-                        <Link className={classNameLink} to="/about">About</Link>
+                        <Link className={classNameLink} to="/about">Tech</Link>
                         <Link className={classNameLink} to="/projects">Projects</Link>
                         <Link className={classNameLink} to="/contact">Contact</Link>
                     </div>
