@@ -1,13 +1,17 @@
 import { Timeline, TimelineEntry } from "../ui/timeline";
-import NDP_icon from "@/assets/NDP.png";
-import Epitech_icon from "@/assets/epitech.png";
-import Epitech_berlin1 from "@/assets/epitech_berlin1.jpg";
-import Epitech_berlin2 from "@/assets/epitech_berlin2.jpg";
-import Area_image1 from "@/assets/Area_image1.png";
-import RType_image1 from "@/assets/Rtype_image1.png";
-import EpitechBarcelona1 from "@/assets/Epitech_Barcelona1.jpg"
-import EpitechBarcelona2 from "@/assets/Epitech_Barcelona2.jpg"
+import NDPIcon from "@/assets/NDP.png";
+import EpitechIcon from "@/assets/epitech.png";
+import EpitechBerlin1 from "@/assets/epitech_berlin1.jpg";
+import EpitechBerlin2 from "@/assets/epitech_berlin2.jpg";
+import AreaImage1 from "@/assets/Area_image1.png";
+import RTypeImage1 from "@/assets/Rtype_image1.png";
+import EpitechBarcelona1 from "@/assets/Epitech_Barcelona1.jpg";
+import EpitechBarcelona2 from "@/assets/Epitech_Barcelona2.jpg";
 import ArcadeImage1 from "@/assets/Arcade1.png";
+import RaytracerImage1 from "@/assets/raytracer.jpg";
+import EpitechParis1 from "@/assets/epitech_paris1.jpg";
+import MyRPG1 from "@/assets/MyRPG1.png"
+import Dante from "@/assets/dante.png";
 
 function HomePage4() {
     const image_className = "rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]";
@@ -24,10 +28,10 @@ function HomePage4() {
                         In this year, i have been able to work on projects like Area and RType, that you can discover in the projects section.
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                        <img src={Epitech_berlin1} alt="epitech berlin image 1" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_berlin2} alt="epitech berlin image 2" width={500} height={500} className={image_className}/>
-                        <img src={Area_image1} alt="Area project image" width={500} height={500} className={image_className}/>
-                        <img src={RType_image1} alt="RType project image" width={500} height={500} className={image_className}/>
+                        <img src={EpitechBerlin1} alt="epitech berlin image 1" width={500} height={500} className={image_className}/>
+                        <img src={EpitechBerlin2} alt="epitech berlin image 2" width={500} height={500} className={image_className}/>
+                        <img src={AreaImage1} alt="Area project image" width={500} height={500} className={image_className}/>
+                        <img src={RTypeImage1} alt="RType project image" width={500} height={500} className={image_className}/>
                     </div>
                 </div>
             )
@@ -54,7 +58,7 @@ function HomePage4() {
                         <img src={EpitechBarcelona1} alt="Epitech Barcelona image 1" width={500} height={500} className={image_className}/>
                         <img src={EpitechBarcelona2} alt="Epitech Barcelona image 2" width={500} height={500} className={image_className}/>
                         <img src={ArcadeImage1} alt="Arcade project image" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
+                        <img src={RaytracerImage1} alt="hero template" width={500} height={500} className={image_className}/>
                     </div>
                 </div>
             )
@@ -80,12 +84,10 @@ function HomePage4() {
                             ✅ Use of the languages XSLT and Javascript
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                    </div>
+                    <p>
+                        The goal of the intership was to create a viewer to visuallize XML files. those files are
+                        not human readable, or not easy to read.
+                    </p>
                 </div>
             )
         },
@@ -97,11 +99,16 @@ function HomePage4() {
                         I started my studies at Epitech Paris. I am currently a student in computer science.
                         I am currently my a 3rd year in computer science.
                     </p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={Epitech_icon} alt="hero template" width={500} height={500} className={image_className}/>
+                    <p>
+                        I have been able to work on projects like MyRPG, that you can discover in the projects
+                        section.
+                    </p>
+                    <div className="gap-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <img src={EpitechParis1} alt="Epitech Paris image 1" width={500} height={500} className={image_className}/>
+                            <img src={MyRPG1} alt="hero template" width={500} height={500} className={image_className}/>
+                        </div>
+                        <img src={EpitechIcon} alt="hero template" width={1000} height={500} className={image_className}/>
                     </div>
                 </div>
             )
@@ -114,12 +121,7 @@ function HomePage4() {
                         I finished my French Baccalaureat with IT and Mathematics specialities. I finised with good mentions.
                         I passed the Baccalaureat in the High School of Enghien "Notre Dame Providence".
                     </p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <img src={NDP_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={NDP_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={NDP_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                        <img src={NDP_icon} alt="hero template" width={500} height={500} className={image_className}/>
-                    </div>
+                    <img src={NDPIcon} alt="hero template" width={500} height={500} className={image_className}/>
                 </div>
             )
         }
