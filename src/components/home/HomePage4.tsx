@@ -103,7 +103,7 @@ function HomePage4() {
                         I have been able to work on projects like MyRPG, that you can discover in the projects
                         section.
                     </p>
-                    <div className="gap-4">
+                    <div className="gap-4 grid grid-cols-1">
                         <div className="grid grid-cols-2 gap-4">
                             <img src={EpitechParis1} alt="Epitech Paris image 1" width={500} height={500} className={image_className}/>
                             <img src={MyRPG1} alt="hero template" width={500} height={500} className={image_className}/>
