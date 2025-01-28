@@ -3,7 +3,6 @@ import HomePage1 from "@/components/home/HomePage1";
 import { useState, useEffect, useRef } from "react";
 import HomePage2 from "@/components/home/HomePage2";
 import LineGradient from "@/components/LineGradient";
-import HomePage3 from "@/components/home/HomePage3";
 import HomePage4 from "@/components/home/HomePage4";
 
 
@@ -38,7 +37,7 @@ function Home() {
         return () => observer.disconnect();
     }, []);
 
-    const components = [HomePage1, HomePage2, HomePage3, HomePage4];
+    const components = [HomePage1, HomePage2, HomePage4];
 
     function getClassName(index: number) {
         if (index > 1) {
