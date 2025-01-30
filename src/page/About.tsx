@@ -12,10 +12,10 @@ import cppIcon from "@/assets/cpp-icon.jpg";
 import reactIcon from "@/assets/react-icon.png";
 import TechnoCard from "@/components/about/Technocard";
 import cIcon from "@/assets/c-icon.png";
-import linuxIcon from "@/assets/linux-icon.png";
-import bashIcon from "@/assets/bash-icon.png";
+// import linuxIcon from "@/assets/linux-icon.png";
+// import bashIcon from "@/assets/bash-icon.png";
 import javascriptIcon from "@/assets/js-icon.png";
-import dockerIcon from "@/assets/docker-icon.png";
+// import dockerIcon from "@/assets/docker-icon.png";
 // import archerPic from "@/assets/archery-icon.png";
 
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
@@ -23,7 +23,7 @@ import {
     BellIcon,
     CalendarIcon,
     FileTextIcon,
-    GlobeIcon,
+    // GlobeIcon,
     InputIcon,
 } from "@radix-ui/react-icons";
 
