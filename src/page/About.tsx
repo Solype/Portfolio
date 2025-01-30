@@ -7,16 +7,17 @@
 // import englishIcon from "@/assets/english-icon.png";
 // import frenchIcon from "@/assets/Flag_of_France.png";
 // import germanIcon from "@/assets/german-flag.jpg";
-// import pythonIcon from "@/assets/python-icon.png";
-// import cppIcon from "@/assets/cpp-icon.jpg";
-// import reactIcon from "@/assets/react-icon.png";
-// import TechnoCard from "@/components/about/Technocard";
-// import cIcon from "@/assets/c-icon.png";
-// import linuxIcon from "@/assets/linux-icon.png";
-// import bashIcon from "@/assets/bash-icon.png";
-// import javascriptIcon from "@/assets/js-icon.png";
-// import dockerIcon from "@/assets/docker-icon.png";
+import pythonIcon from "@/assets/python-icon.png";
+import cppIcon from "@/assets/cpp-icon.jpg";
+import reactIcon from "@/assets/react-icon.png";
+import TechnoCard from "@/components/about/Technocard";
+import cIcon from "@/assets/c-icon.png";
+import linuxIcon from "@/assets/linux-icon.png";
+import bashIcon from "@/assets/bash-icon.png";
+import javascriptIcon from "@/assets/js-icon.png";
+import dockerIcon from "@/assets/docker-icon.png";
 // import archerPic from "@/assets/archery-icon.png";
+
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 import {
     BellIcon,
@@ -29,51 +30,69 @@ import {
 
 const features = [
     {
-      Icon: FileTextIcon,
-      name: "Save your files",
-      description: "We automatically save your files as you type.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+        Icon: FileTextIcon,
+        name: "Programming languages",
+        description: "Here are the main programming languages I know.",
+        cta: "Learn more",
+        background: <div className="inline-flex flex-wrap items-center justify-between gap-4 m-4">
+                                    <TechnoCard image={cppIcon} nom="C++" delay={0}/>
+                                    <TechnoCard image={pythonIcon} nom="Python" delay={0.1}/>
+                                    <TechnoCard image={cIcon} nom="C" delay={0.2}/>
+                                    <TechnoCard image={reactIcon} nom="React" delay={0.4}/>
+                                    <TechnoCard image={javascriptIcon} nom="JavaScript" delay={0.5}/>
+                                    {/* <TechnoCard image={bashIcon} nom="Bash" delay={0.6}/> */}
+                                    {/* <TechnoCard image={linuxIcon} nom="Linux" delay={0.7}/> */}
+                                    {/* <TechnoCard image={dockerIcon} nom="Docker" delay={0.8}/> */}
+                                </div>,
+        className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
-      Icon: InputIcon,
-      name: "Full text search",
-      description: "Search through all your files in one place.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+        Icon: InputIcon,
+        name: "Full text search",
+        description: "Search through all your files in one place.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     },
     {
-      Icon: GlobeIcon,
-      name: "Multilingual",
-      description: "Supports 100+ languages and counting.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+        Icon: CalendarIcon,
+        name: "Calendar",
+        description: "Use the calendar to filter your files by date.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
     },
+    // {
+    //   Icon: GlobeIcon,
+    //   name: "Multilingual",
+    //   description: "Supports 100+ languages and counting.",
+    //   href: "/",
+    //   cta: "Learn more",
+    //   background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    //   className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    // },
     {
-      Icon: CalendarIcon,
-      name: "Calendar",
-      description: "Use the calendar to filter your files by date.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-    },
-    {
-      Icon: BellIcon,
-      name: "Notifications",
-      description:
-        "Get notified when someone shares a file or mentions you in a comment.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-    },
+        Icon: BellIcon,
+        name: "Notifications",
+        description:
+          "Get notified when someone shares a file or mentions you in a comment.",
+        href: "/",
+        cta: "Learn more",
+        background: <img className="absolute -right-20 -top-20 opacity-60" />,
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
+    }
+    // {
+    //   Icon: BellIcon,
+    //   name: "Notifications",
+    //   description:
+    //     "Get notified when someone shares a file or mentions you in a comment.",
+    //   href: "/",
+    //   cta: "Learn more",
+    //   background: <img className="absolute -right-20 -top-20 opacity-60"/>,
+    //   className: "lg:col-start-1 lg:col-end-4 lg:row-start-4 lg:row-end-4",
+    // },
 ];
 
 function BentoDemo() {
@@ -88,8 +107,9 @@ function BentoDemo() {
 
 export default function About() {
     return (
-        <div className="flex items-center justify-center" style={{ height: "90vh"}}>
-            <BentoDemo/>
+        <div className="gap-8">
+              <div className="m-8"/>
+              <BentoDemo/>
         </div>
     )
 }
