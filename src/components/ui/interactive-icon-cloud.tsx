@@ -40,6 +40,11 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string, onClick?: (e: 
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff"
   const minContrastRatio = theme === "dark" ? 2 : 1.2
 
+  const onIconClick = (e: any) => {
+    e.preventDefault();
+    onClick && onClick(e.target);
+  }
+
   return renderSimpleIcon({
     icon,
     bgHex,
@@ -50,7 +55,7 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string, onClick?: (e: 
       href: undefined,
       target: undefined,
       rel: undefined,
-      onClick: (e: any) => {e.preventDefault(); onClick && onClick(e.target)},
+      onClick: onIconClick,
     },
   })
 }

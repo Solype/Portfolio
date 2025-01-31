@@ -1,99 +1,88 @@
 import { IconCloud } from "@/components/ui/interactive-icon-cloud"
-import { Minus, Plus } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
+import React, { useRef, useState, useEffect } from "react";
 
-export function DrawerDemo() {
-
-    return (
-        <Drawer>
-            <DrawerTrigger asChild>
-                <Button variant="outline">Open Drawer</Button>
-            </DrawerTrigger>
-            <DrawerContent>
-                <div className="mx-auto w-full max-w-sm">
-                <DrawerHeader>
-                    <DrawerTitle>Move Goal</DrawerTitle>
-                    <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-                </DrawerHeader>
-                <div className="p-4 pb-0">
-                    <div className="flex items-center justify-center space-x-2">
-                    <Button
-                        variant="outline"
-                        size="icon"
-                        className="h-8 w-8 shrink-0 rounded-full"
-                    >
-                        <Minus />
-                        <span className="sr-only">Decrease</span>
-                    </Button>
-                    <div className="flex-1 text-center">
-                        <div className="text-7xl font-bold tracking-tighter">
-                            coucou
-                        </div>
-                        <div className="text-[0.70rem] uppercase text-muted-foreground">
-                            Calories/day
-                        </div>
-                    </div>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="h-8 w-8 shrink-0 rounded-full"
-                        >
-                            <Plus />
-                            <span className="sr-only">Increase</span>
-                        </Button>
-                    </div>
-                </div>
-                    <DrawerFooter>
-                        <Button>Submit</Button>
-                        <DrawerClose asChild>
-                            <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                    </DrawerFooter>
-                </div>
-            </DrawerContent>
-        </Drawer>
-    )
+interface drawerProps {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+    title: string;
 }
 
-
 const slugs = [
-  "typescript",
-  "javascript",
-  "react",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "nextdotjs",
-  "mysql",
-  "cplusplus",
-  "c",
-  "python",
-  "docker",
-  "git",
-  "jira",
-  "github",
-  "gnubash",
-  "linux",
-  "sqlite",
-  "fastapi"
+    "typescript",
+    "javascript",
+    "react",
+    "html5",
+    "css3",
+    "nodedotjs",
+    "nextdotjs",
+    "mysql",
+    "cplusplus",
+    "c",
+    "python",
+    "docker",
+    "git",
+    "jira",
+    "github",
+    "gnubash",
+    "linux",
+    "sqlite",
+    "fastapi"
 ]
 
+const slugs2 = {
+    "typescript": "TypeScript",
+    "javascript": "JavaScript",
+    "react": <div><h2>React</h2><p>I usually use React for my personal projects.</p><p>This Portfolio is made with React and shadcn/ui</p></div>,
+    "html5": "HTML5",
+    "css3": "CSS3",
+    "nodedotjs": "Node.js",
+    "nextdotjs": "Next.js",
+    "mysql": "MySQL",
+    "cplusplus": "C++",
+    "c": "C",
+    "python": "Python",
+    "docker": "Docker",
+    "git": "Git",
+    "jira": "Jira",
+    "github": "GitHub",
+    "gnubash": "GNU Bash",
+    "linux": "Linux",
+    "sqlite": "SQLite",
+    "fastapi": "FastAPI",
+}
+
+interface TitleProps {
+    titleSetter: React.MutableRefObject<((title: string) => void) | undefined>;
+}
+
+const Title = React.memo(({ titleSetter }: TitleProps) => {
+    const [title, setTitle] = useState("")
+
+    useEffect(() => {
+        titleSetter.current = setTitle
+    }, [])
+    return (
+        <div className="flex items-center justify-center">
+            {title}
+        </div>
+    );
+});
+
 export function IconCloudDemo() {
+    const titleRefSetter = useRef<((title: string) => void) | undefined>()
+
     return (
         <div className="w-full items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
-            <IconCloud iconSlugs={slugs} onIconClick={(e : any) => console.log(e)} />
-            <DrawerDemo />
+            <IconCloud 
+                iconSlugs={slugs} 
+                onIconClick={(e: any) => {
+                    if (titleRefSetter.current) {
+                        titleRefSetter.current(e.title);
+                    }
+                }} 
+            />
+            <Title titleSetter={titleRefSetter} />
         </div>
-    )
+    );
 }
