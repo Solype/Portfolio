@@ -3,6 +3,7 @@ import Project1 from "@/components/projects/Project1";
 import Introduction from "@/components/projects/Introduction";
 import AreaProject from "@/components/projects/Area";
 import ArcadeProject from "@/components/projects/Arcade";
+import { IconCloudDemo } from "@/components/projects/CarouselProject";
 
 function Projects() {
     const [visibleMaxIndex, setVisibleMaxIndex] = useState<number>(0);
@@ -39,7 +40,8 @@ function Projects() {
 
     return (
         <div className="snap-y snap-mandatory overflow-y-scroll h-screen bg-background">
-            {components.map((Component, index) => (
+            <IconCloudDemo />
+            {/* {components.map((Component, index) => (
                 <div
                     key={index}
                     id={"DIV" + index}
@@ -48,7 +50,7 @@ function Projects() {
                 >
                     <Component isVisible={ index <= visibleMaxIndex} />
                 </div>
-            ))}
+            ))} */}
         </div>
     );
 }
