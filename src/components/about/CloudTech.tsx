@@ -16,7 +16,10 @@ const slugs = [
   "git",
   "jira",
   "github",
-  "visualstudiocode",
+  "gnubash",
+  "linux",
+  "sqlite",
+  "fastapi"
 ]
 
 export function IconCloudDemo() {
