@@ -7,17 +7,18 @@
 // import englishIcon from "@/assets/english-icon.png";
 // import frenchIcon from "@/assets/Flag_of_France.png";
 // import germanIcon from "@/assets/german-flag.jpg";
-import pythonIcon from "@/assets/python-icon.png";
-import cppIcon from "@/assets/cpp-icon.jpg";
-import reactIcon from "@/assets/react-icon.png";
-import TechnoCard from "@/components/about/Technocard";
-import cIcon from "@/assets/c-icon.png";
+// import pythonIcon from "@/assets/python-icon.png";
+// import cppIcon from "@/assets/cpp-icon.jpg";
+// import reactIcon from "@/assets/react-icon.png";
+// import TechnoCard from "@/components/about/Technocard";
+// import cIcon from "@/assets/c-icon.png";
 // import linuxIcon from "@/assets/linux-icon.png";
 // import bashIcon from "@/assets/bash-icon.png";
-import javascriptIcon from "@/assets/js-icon.png";
+// import javascriptIcon from "@/assets/js-icon.png";
 // import dockerIcon from "@/assets/docker-icon.png";
 // import archerPic from "@/assets/archery-icon.png";
 
+import { IconCloudDemo } from "@/components/about/CloudTech";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 import {
     BellIcon,
@@ -34,16 +35,7 @@ const features = [
         name: "Programming languages",
         description: "Here are the main programming languages I know.",
         cta: "Learn more",
-        background: <div className="inline-flex flex-wrap items-center justify-between gap-4 m-4">
-                                    <TechnoCard image={cppIcon} nom="C++" delay={0}/>
-                                    <TechnoCard image={pythonIcon} nom="Python" delay={0.1}/>
-                                    <TechnoCard image={cIcon} nom="C" delay={0.2}/>
-                                    <TechnoCard image={reactIcon} nom="React" delay={0.4}/>
-                                    <TechnoCard image={javascriptIcon} nom="JavaScript" delay={0.5}/>
-                                    {/* <TechnoCard image={bashIcon} nom="Bash" delay={0.6}/> */}
-                                    {/* <TechnoCard image={linuxIcon} nom="Linux" delay={0.7}/> */}
-                                    {/* <TechnoCard image={dockerIcon} nom="Docker" delay={0.8}/> */}
-                                </div>,
+        background: <IconCloudDemo />,
         className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
