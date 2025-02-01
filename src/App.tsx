@@ -14,7 +14,7 @@ function AppChild() {
             <div>
                 <Navbar />
                 {/* Le Routes doit être enveloppé avec AnimatePresence pour que les animations fonctionnent */}
-                <AnimatePresence mode="wait">
+                {/* <AnimatePresence> */}
                     <Routes location={location} key={location.pathname}>
                             <Route path="/" element={<MotionWrapper><Home /></MotionWrapper>} />
                             <Route path="/about" element={<MotionWrapper><About /></MotionWrapper>} />
@@ -22,7 +22,7 @@ function AppChild() {
                             <Route path="/contact" element={<MotionWrapper><Contact /></MotionWrapper>} />
                             <Route path="*" element={<MotionWrapper><Home /></MotionWrapper>} />
                     </Routes>
-                </AnimatePresence>
+                {/* </AnimatePresence> */}
             </div>
         </>
     );
@@ -31,14 +31,16 @@ function AppChild() {
 // Wrapper pour gérer les animations
 function MotionWrapper({ children }: { children: React.ReactNode }) {
     return (
-        <motion.div
-            initial={{ x: '100%', opacity: 0 }}
-            animate={{ x: '0%', opacity: 1 }}
-            exit={{ x: '-100%', opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-        >
+        // <motion.div
+        //     initial={{ x: '100%', opacity: 0 }}
+        //     animate={{ x: '0%', opacity: 1 }}
+        //     exit={{ x: '-100%', opacity: 0 }}
+        //     transition={{ duration: 0.5, ease: 'easeInOut' }}
+        // >
+        <>
             {children}
-        </motion.div>
+        </>
+        // </motion.div>
     );
 }
 

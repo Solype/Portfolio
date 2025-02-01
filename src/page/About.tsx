@@ -122,10 +122,10 @@ export default function About() {
     return (
         <div className="flex flex-col lg:flex-row items-center lg:justify-between px-8 py-12 gap-8">
             {/* IconCloudDemo à gauche */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+            <div className="w-full lg:w-1/2">
                 <IconCloudDemo />
             </div>
-            <div className="w-full lg:w-1/2 flex flex-col gap-6">
+            <div className="w-full lg:w-1/2 gap-6">
                 <LayoutGridDemo />
             </div>
         </div>
