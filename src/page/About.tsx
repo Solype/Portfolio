@@ -1,110 +1,138 @@
-// import { Button } from "@/components/ui/button";
-// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// import { FaArrowRight } from "react-icons/fa";
-// import profilePic from "@/assets/Photo.jpg";
-// import climbingPic from "@/assets/climbing.jpg";
-// import accordionPic from "@/assets/accordion-icon.png";
-// import englishIcon from "@/assets/english-icon.png";
-// import frenchIcon from "@/assets/Flag_of_France.png";
-// import germanIcon from "@/assets/german-flag.jpg";
-// import pythonIcon from "@/assets/python-icon.png";
-// import cppIcon from "@/assets/cpp-icon.jpg";
-// import reactIcon from "@/assets/react-icon.png";
-// import TechnoCard from "@/components/about/Technocard";
-// import cIcon from "@/assets/c-icon.png";
-// import linuxIcon from "@/assets/linux-icon.png";
-// import bashIcon from "@/assets/bash-icon.png";
-// import javascriptIcon from "@/assets/js-icon.png";
-// import dockerIcon from "@/assets/docker-icon.png";
-// import archerPic from "@/assets/archery-icon.png";
+import climbingPic from "@/assets/climbing.jpg";
+import accordionPic from "@/assets/accordion-icon.png";
+import englishIcon from "@/assets/english-flag.jpg";
+import frenchIcon from "@/assets/french-flag.jpg";
+import germanIcon from "@/assets/german-flag.jpg";
+import archerPic from "@/assets/archery-icon.png";
 
 import { IconCloudDemo } from "@/components/about/CloudTech";
-import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
-import {
-    BellIcon,
-    CalendarIcon,
-    FileTextIcon,
-    // GlobeIcon,
-    InputIcon,
-} from "@radix-ui/react-icons";
+// import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { LayoutGrid } from "@/components/ui/layout-grid";
 
-
-const features = [
-    {
-        Icon: FileTextIcon,
-        name: "Programming languages",
-        description: "Here are the main programming languages I know.",
-        cta: "Learn more",
-        background: <IconCloudDemo />,
-        className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
-    },
-    {
-        Icon: InputIcon,
-        name: "Full text search",
-        description: "Search through all your files in one place.",
-        href: "/",
-        cta: "Learn more",
-        background: <img className="absolute -right-20 -top-20 opacity-60" />,
-        className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    },
-    {
-        Icon: CalendarIcon,
-        name: "Calendar",
-        description: "Use the calendar to filter your files by date.",
-        href: "/",
-        cta: "Learn more",
-        background: <img className="absolute -right-20 -top-20 opacity-60" />,
-        className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-    },
-    // {
-    //   Icon: GlobeIcon,
-    //   name: "Multilingual",
-    //   description: "Supports 100+ languages and counting.",
-    //   href: "/",
-    //   cta: "Learn more",
-    //   background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    //   className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
-    // },
-    {
-        Icon: BellIcon,
-        name: "Notifications",
-        description:
-          "Get notified when someone shares a file or mentions you in a comment.",
-        href: "/",
-        cta: "Learn more",
-        background: <img className="absolute -right-20 -top-20 opacity-60" />,
-        className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-    }
-    // {
-    //   Icon: BellIcon,
-    //   name: "Notifications",
-    //   description:
-    //     "Get notified when someone shares a file or mentions you in a comment.",
-    //   href: "/",
-    //   cta: "Learn more",
-    //   background: <img className="absolute -right-20 -top-20 opacity-60"/>,
-    //   className: "lg:col-start-1 lg:col-end-4 lg:row-start-4 lg:row-end-4",
-    // },
-];
-
-function BentoDemo() {
+export function LayoutGridDemo() {
     return (
-        <BentoGrid className="lg:grid-rows-3">
-            {features.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-            ))}
-        </BentoGrid>
+        <div className="h-screen py-20 w-full">
+            <LayoutGrid cards={cards} />
+        </div>
     );
 }
 
+const SkeletonOne = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                House in the woods
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                A serene and tranquil retreat, this house in the woods offers a peaceful
+                escape from the hustle and bustle of city life.
+            </p>
+        </div>
+    );
+};
+
+const SkeletonTwo = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                House above the clouds
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                Perched high above the world, this house offers breathtaking views and a
+                unique living experience. It&apos;s a place where the sky meets home,
+                and tranquility is a way of life.
+            </p>
+        </div>
+    );
+};
+const SkeletonThree = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                Greens all over
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                A house surrounded by greenery and nature&apos;s beauty. It&apos;s the
+                perfect place to relax, unwind, and enjoy life.
+            </p>
+        </div>
+    );
+};
+const SkeletonFour = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                Rivers are serene
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                A house by the river is a place of peace and tranquility. It&apos;s the
+                perfect place to relax, unwind, and enjoy life.
+            </p>
+        </div>
+    );
+};
+
+const cards = [
+    {
+        id: 1,
+        content: <SkeletonOne />,
+        className: "col-span-1",
+        thumbnail: frenchIcon
+    },
+    {
+        id: 2,
+        content: <SkeletonTwo />,
+        className: "col-span-1",
+        thumbnail: englishIcon
+    },
+    {
+        id: 3,
+        content: <SkeletonThree />,
+        className: "col-span-1",
+        thumbnail: germanIcon
+    },
+    {
+        id: 4,
+        content: <SkeletonFour />,
+        className: "col-span-1",
+        thumbnail: climbingPic
+    },
+    {
+        id: 5,
+        content: <SkeletonFour />,
+        className: "col-span-1",
+        thumbnail: archerPic
+    },
+    {
+        id: 6,
+        content: <SkeletonFour />,
+        className: "col-span-1",
+        thumbnail: accordionPic
+    }
+];
+
+
+
+
 export default function About() {
     return (
-        <div className="gap-8">
-              <div className="m-8"/>
-              <BentoDemo/>
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between px-8 py-12 gap-8">
+            {/* IconCloudDemo à gauche */}
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+                <IconCloudDemo />
+            </div>
+            <div className="w-full lg:w-1/2 flex flex-col gap-6">
+                <LayoutGridDemo />
+            </div>
         </div>
-    )
+    );
 }
+
+
 
 // export default function About() {
 //     return (

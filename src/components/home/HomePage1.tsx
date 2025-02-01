@@ -1,17 +1,14 @@
-import useMediaQuery from "@/hooks/useMediaQuery";
-import { motion } from "framer-motion";
-import ProfilePic from "@/assets/Photo.jpg";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero"
 
 const HomePage1 = () => {
-    const isAboveLarge = useMediaQuery("(min-width: 1060px)");
     return (
         <div className="bg-gradient-to-b from-primary via-other to-background gap-16" style={{ height: "90vh" }}>
             <HeroGeometric
                 badge="3rd year in computer science"
                 title1="Ambroise Jacquemet"
                 title2="Full Stack Developer"
-                />
+                comment="Ready to code again the world"
+            />
             <div className="m-8"/>
         </div>
         // <div className="bg-gradient-to-b from-primary via-other to-background" style={{ height: "80vh" }}>

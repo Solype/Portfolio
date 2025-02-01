@@ -48,7 +48,7 @@ function TechnoCard({ isOpen, setOpen, stepContent }: TechnoCardProps) {
 
                     {/* Utilisations */}
                     <div>
-                        <p className="text-lg font-semibold">Utilisations :</p>
+                        <p className="text-lg font-semibold">Utilisations and projects :</p>
                         <ul className="list-disc list-inside text-gray-700">
                             {stepContent.uses.map((use, index) => (
                                 <li key={index}>{use}</li>

@@ -8,10 +8,7 @@ const slugs = [
     "typescript",
     "javascript",
     "react",
-    "html5",
-    "css3",
     "nodedotjs",
-    "nextdotjs",
     "mysql",
     "cplusplus",
     "c",
@@ -32,10 +29,9 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         description: "A JavaScript library for building reactive and high-performance user interfaces.",
         level: "Advanced",
         uses: [
-            "Building Single Page Applications (SPA)",
-            "Using with Next.js for Server-Side Rendering (SSR)",
+            "Building Single Page Applications",
             "Creating dynamic and reactive interfaces",
-            "Developing mobile apps with React Native"
+            "This website is built with React.js, more specifically Vite.js"
         ],
         image: "react"
     },
@@ -53,24 +49,13 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
     "JavaScript": { 
         title: "JavaScript",
         description: "The primary programming language for web development.",
-        level: "Advanced",
+        level: "Intermediate",
         uses: [
-            "Frontend development with React, Vue, Angular",
+            "Frontend development with React",
             "Backend development with Node.js",
             "DOM manipulation and user interactions"
         ],
         image: "javascript"
-    },
-    "Next.js": { 
-        title: "Next.js",
-        description: "A React framework for server-side rendering and static site generation.",
-        level: "Intermediate",
-        uses: [
-            "Improving performance with SSR and SSG",
-            "Creating SEO-friendly websites",
-            "Using API routes for lightweight backend functionality"
-        ],
-        image: "nextdotjs"
     },
     "Node.js": { 
         title: "Node.js",
@@ -79,7 +64,7 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         uses: [
             "Developing RESTful APIs and microservices",
             "Building real-time applications with WebSockets",
-            "Running JavaScript on the server side"
+            "I used node.js multiple times for backend development"
         ],
         image: "nodedotjs"
     },
@@ -90,29 +75,30 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         uses: [
             "Storing and managing structured data",
             "Handling relational databases for web applications",
-            "Optimizing queries for better performance"
+            "Optimizing queries for better performance",
+            "I used MySQL especially with python for backend development"
         ],
         image: "mysql"
     },
     "C++": { 
         title: "C++",
         description: "A powerful high-performance programming language used for system and game development.",
-        level: "Intermediate",
+        level: "Advanced",
         uses: [
             "Developing high-performance applications",
-            "Game development with Unreal Engine",
-            "System programming and embedded systems"
+            "Game development, by building an ecs engine and multiplayer server",
+            "Also used for concurrent programming"
         ],
         image: "cplusplus"
     },
     "C": { 
         title: "C",
         description: "A foundational programming language known for its efficiency and low-level memory access.",
-        level: "Intermediate",
+        level: "Advanced",
         uses: [
-            "Developing operating systems and embedded systems",
-            "Writing high-performance applications",
-            "System-level programming"
+            "I have done a lot of projects in C, you can see them in the projects section",
+            "Well understanding the low level of the system",
+            "I am currently working on An Http server with C"
         ],
         image: "c"
     },
@@ -122,7 +108,7 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         level: "Advanced",
         uses: [
             "Data science and machine learning",
-            "Backend development with Django and Flask",
+            "Backend development with FastAPI and Flask",
             "Automation and scripting"
         ],
         image: "python"
@@ -134,7 +120,8 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         uses: [
             "Containerizing applications for portability",
             "Managing microservices architectures",
-            "CI/CD pipeline integration"
+            "CI/CD pipeline integration",
+            "I usually use it for Web Development, to encapsulate the frontend and backend applications"
         ],
         image: "docker"
     },
@@ -163,7 +150,7 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
     "GitHub": { 
         title: "GitHub",
         description: "A cloud-based platform for hosting and collaborating on Git repositories.",
-        level: "Advanced",
+        level: "Intermediate",
         uses: [
             "Hosting and managing open-source projects",
             "Collaborative coding with pull requests and issues",
@@ -188,15 +175,14 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         level: "Intermediate",
         uses: [
             "Server management and deployment",
-            "System administration and shell scripting",
-            "Cybersecurity and penetration testing"
+            "Shell scripting"
         ],
         image: "linux"
     },
     "SQLite": { 
         title: "SQLite",
         description: "A lightweight, file-based relational database system.",
-        level: "Intermediate",
+        level: "Familiar",
         uses: [
             "Storing data in mobile and embedded applications",
             "Local database management for small-scale projects",
@@ -211,32 +197,10 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         uses: [
             "Developing fast and scalable APIs",
             "Building real-time applications with WebSockets",
-            "Integrating with machine learning models"
+            "I used FastAPI multiple times for backend development"
         ],
         image: "fastapi"
     },
-    "HTML5": { 
-        title: "HTML5",
-        description: "The latest version of HTML, used for structuring web content.",
-        level: "Advanced",
-        uses: [
-            "Building modern web applications",
-            "Integrating multimedia elements",
-            "Creating semantic and accessible webpages"
-        ],
-        image: "html5"
-    },
-    "CSS3": { 
-        title: "CSS3",
-        description: "A styling language used to design visually appealing web pages.",
-        level: "Advanced",
-        uses: [
-            "Creating responsive web designs",
-            "Adding animations and effects",
-            "Styling user interfaces"
-        ],
-        image: "css3"
-    }
 };
 
 
@@ -276,7 +240,7 @@ export function IconCloudDemo() {
     const titleRefSetter = useRef<((title: string) => void) | undefined>()
 
     return (
-        <div className="w-full items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
+        <div className="h-full items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
             <IconCloud 
                 iconSlugs={slugs} 
                 onIconClick={(e: any) => {
