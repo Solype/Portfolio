@@ -1,60 +1,64 @@
-import { Card, CardFooter } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog";
 
-interface propTypes {
+export interface TechnoCardStepContentProps {
+    title: string;
+    description: string | React.ReactNode;
+    level: string; // Niveau de compétence
+    uses: string[]; // Liste des utilisations
     image: string;
-    nom: string;
-    children?: React.ReactNode | null;
-    delay?: number;
-};
+}
 
-function CardImage({ image, nom, children }: propTypes) {
-    const imageClassname = children ? "w-full h-full object-cover group-hover:brightness-50 group-hover:opacity-50 bg-white" :
-        "w-full h-full object-cover bg-white";
+export interface TechnoCardProps {
+    isOpen: boolean;
+    setOpen: (isOpen: boolean) => void;
+    stepContent: TechnoCardStepContentProps;
+}
 
+function TechnoCard({ isOpen, setOpen, stepContent }: TechnoCardProps) {
     return (
-        <div>
-            {image && (
-                <div className="w-full h-32 bg-black">
-                    <img
-                        className={imageClassname}
-                        src={image}
-                        alt={nom || "Card image"}
+        <Dialog onOpenChange={(open) => setOpen(open)} open={isOpen}>
+            <DialogContent className="gap-0 p-0">
+                {/* Image */}
+                <div className="p-4 bg-gray-100 flex justify-center items-center">
+                    <img 
+                        className="w-24 h-24 object-contain" 
+                        src={`https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${stepContent.image}.svg`} 
+                        alt={stepContent.image} 
                     />
                 </div>
-            )}
-            { children &&
-                <div className="flex flex-col justify-end bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-100">
-                    <div className="p-4 absolute inset-0 text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {children}
+
+                {/* Contenu principal */}
+                <div className="space-y-4 px-6 pb-6 pt-3">
+                    <DialogHeader>
+                        <DialogTitle className="text-xl font-bold">{stepContent.title}</DialogTitle>
+                        <DialogDescription className="text-gray-600">{stepContent.description}</DialogDescription>
+                    </DialogHeader>
+
+                    {/* Niveau de compétence */}
+                    <div className="border-l-4 border-blue-500 pl-4">
+                        <p className="text-lg font-semibold">Niveau :</p>
+                        <p className="text-gray-700">{stepContent.level}</p>
+                    </div>
+
+                    {/* Utilisations */}
+                    <div>
+                        <p className="text-lg font-semibold">Utilisations and projects :</p>
+                        <ul className="list-disc list-inside text-gray-700">
+                            {stepContent.uses.map((use, index) => (
+                                <li key={index}>{use}</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
-            }
-        </div>
+            </DialogContent>
+        </Dialog>
     );
 }
 
-function TechnoCard({ image, nom, children, delay }: propTypes) {
-    return (
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ delay: delay, duration: 0.5 }}
-            variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-            }}
-        >
-            <Card className="relative max-w-xs border border-gray-200 overflow-hidden group">
-                <CardImage image={image} nom={nom}>
-                    {children}
-                </CardImage>
-                <CardFooter className="text-center w-full justify-center">
-                    <h2>{nom}</h2>
-                </CardFooter>
-            </Card>
-        </motion.div>
-    );
-}
-export default TechnoCard;
+export { TechnoCard };
