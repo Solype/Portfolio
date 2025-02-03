@@ -17,60 +17,85 @@ export function LayoutGridDemo() {
     );
 }
 
-const SkeletonOne = () => {
+const FrenchSkeleton = () => {
     return (
         <div>
             <p className="font-bold md:text-4xl text-xl text-white">
-                House in the woods
+                French
             </p>
             <p className="font-normal text-base text-white"></p>
             <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-                A serene and tranquil retreat, this house in the woods offers a peaceful
-                escape from the hustle and bustle of city life.
+                This is my mother tongue.
             </p>
         </div>
     );
 };
 
-const SkeletonTwo = () => {
+const EnglishSkeleton = () => {
     return (
         <div>
             <p className="font-bold md:text-4xl text-xl text-white">
-                House above the clouds
+                English
             </p>
             <p className="font-normal text-base text-white"></p>
             <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-                Perched high above the world, this house offers breathtaking views and a
-                unique living experience. It&apos;s a place where the sky meets home,
-                and tranquility is a way of life.
+                My level in English is around C1.
             </p>
         </div>
     );
 };
-const SkeletonThree = () => {
+const GermanSkeleton = () => {
     return (
         <div>
             <p className="font-bold md:text-4xl text-xl text-white">
-                Greens all over
+                German
             </p>
             <p className="font-normal text-base text-white"></p>
             <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-                A house surrounded by greenery and nature&apos;s beauty. It&apos;s the
-                perfect place to relax, unwind, and enjoy life.
+                I have a basic understanding of German. Level A2
             </p>
         </div>
     );
 };
-const SkeletonFour = () => {
+const ClimbingSkeleton = () => {
     return (
         <div>
             <p className="font-bold md:text-4xl text-xl text-white">
-                Rivers are serene
+                Climbing
             </p>
             <p className="font-normal text-base text-white"></p>
             <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-                A house by the river is a place of peace and tranquility. It&apos;s the
-                perfect place to relax, unwind, and enjoy life.
+                I started recently climbing. I like this sport. I started in Berlin at the
+                Bertablock climbing gym.
+            </p>
+        </div>
+    );
+};
+
+const ArcherSkeleton = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                Archery
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                I did archery from 2018 to 2021. I'm looking forward to do it again.
+            </p>
+        </div>
+    );
+};
+
+const AccordionSkeleton = () => {
+    return (
+        <div>
+            <p className="font-bold md:text-4xl text-xl text-white">
+                Accordion
+            </p>
+            <p className="font-normal text-base text-white"></p>
+            <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+                I'm learning accordion from 2016. But due to my travel in Europe,
+                it started to be hard to continue. But i try my best to play it from time to time.
             </p>
         </div>
     );
@@ -79,37 +104,37 @@ const SkeletonFour = () => {
 const cards = [
     {
         id: 1,
-        content: <SkeletonOne />,
+        content: <FrenchSkeleton />,
         className: "col-span-1",
         thumbnail: frenchIcon
     },
     {
         id: 2,
-        content: <SkeletonTwo />,
+        content: <EnglishSkeleton />,
         className: "col-span-1",
         thumbnail: englishIcon
     },
     {
         id: 3,
-        content: <SkeletonThree />,
+        content: <GermanSkeleton />,
         className: "col-span-1",
         thumbnail: germanIcon
     },
     {
         id: 4,
-        content: <SkeletonFour />,
+        content: <ClimbingSkeleton />,
         className: "col-span-1",
         thumbnail: climbingPic
     },
     {
         id: 5,
-        content: <SkeletonFour />,
+        content: <ArcherSkeleton />,
         className: "col-span-1",
         thumbnail: archerPic
     },
     {
         id: 6,
-        content: <SkeletonFour />,
+        content: <AccordionSkeleton />,
         className: "col-span-1",
         thumbnail: accordionPic
     }
@@ -125,7 +150,7 @@ export default function About() {
             <div className="w-full lg:w-1/2">
                 <IconCloudDemo />
             </div>
-            <div className="w-full lg:w-1/2 gap-6">
+            <div className="w-full lg:w-1/2 gap-6 lg:h-1/2">
                 <LayoutGridDemo />
             </div>
         </div>
