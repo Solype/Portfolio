@@ -1,20 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import Project1 from "@/components/projects/Project1";
-import Introduction from "@/components/projects/Introduction";
-import AreaProject from "@/components/projects/Area";
-import ArcadeProject from "@/components/projects/Arcade";
-// import Autoplay from "embla-carousel-autoplay"
-// import {
-//     Carousel,
-//     CarouselContent,
-//     CarouselItem,
-//     CarouselNext,
-//     CarouselPrevious
-// } from "@/components/ui/carousel";
-// import {
-//     Card,
-//     CardContent
-// } from "@/components/ui/card";
+import Autoplay from "embla-carousel-autoplay"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious
+} from "@/components/ui/carousel";
+
+import { AuthorCard, AuthorCardProps } from "@/components/ui/content-card"
+import { ArcadeProject, AreaProject } from "@/components/projects/Projects";
 
 function Projects() {
     const [visibleMaxIndex, setVisibleMaxIndex] = useState<number>(0);
@@ -47,40 +42,35 @@ function Projects() {
         return () => observer.disconnect();
     }, []);
 
-    const components = [Introduction, Project1, AreaProject, ArcadeProject];
 
-    console.log(components);
+    const list_cpp_project = [ ArcadeProject ];
+    const list_web_project = [ AreaProject ];
+
+    const list_of_list_project = [ list_cpp_project, list_web_project ];
+
     return (
-        // <div className="py-20 w-4/5 mx-auto">
-        //     <Carousel opts={{ loop: true, axis: "x" }} plugins={[Autoplay({delay: 5000})]}>
-        //         <CarouselContent className="-ml-1">
-        //             {Array.from({ length: 5 }).map((_, index) => (
-        //                 <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-        //                     <div className="p-1">
-        //                         <Card>
-        //                             <CardContent className="flex aspect-square items-center justify-center p-6">
-        //                             <span className="text-2xl font-semibold">{index + 1}</span>
-        //                             </CardContent>
-        //                         </Card>
-        //                     </div>
-        //                 </CarouselItem>
-        //             ))}
-        //         </CarouselContent>
-        //         <CarouselPrevious />
-        //         <CarouselNext />
-        //     </Carousel>
-        // </div>
-        <div className="snap-y snap-mandatory overflow-y-scroll h-screen bg-background">
-            {components.map((Component, index) => (
-                <div
-                    key={index}
-                    id={"DIV" + index}
-                    className="snap-always snap-center"
-                    ref={(el) => (sectionsRef.current[index] = el)}
-                >
-                    <Component isVisible={ index <= visibleMaxIndex} />
-                </div>
-            ))}
+        <div className="py-20 w-4/5 mx-auto gap-4">
+            {
+                list_of_list_project.map((list_project : AuthorCardProps[], index) => (
+                    <Carousel key={index} opts={{ loop: true, axis: "x" }} plugins={[Autoplay({delay: 3000})]}>
+                        <CarouselContent className="-ml-1">
+                            {list_project.map((project: AuthorCardProps, index) => (
+                                <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+                                    <div className="p-1">
+                                        <AuthorCard
+                                            backgroundImage={project.backgroundImage}
+                                            author={project.author}
+                                            content={project.content}
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
+                ))
+            }
         </div>
     );
 }
