@@ -21,10 +21,10 @@ export const AuthorCard = ({
   content
 }: AuthorCardProps) => {
   return (
-    <div className="max-w-xs w-full group/card">
+    <div className="max-w-md w-full group/card">
       <div
         className={cn(
-          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between bg-cover",
+          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-lg mx-auto flex flex-col justify-between bg-cover bg-center",
           className
         )}
         style={{ backgroundImage: `url(${backgroundImage})` }}
