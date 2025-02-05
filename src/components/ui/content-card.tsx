@@ -51,7 +51,7 @@ export const AuthorCard = ({
           <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
             {content.title}
           </h1>
-          <p className="font-normal text-sm text-gray-50 relative z-10 my-4 
+          <p className="font-normal text-sm text-gray-50 relative z-10 group-hover/card:my-4 
             opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out 
             group-hover/card:opacity-100 group-hover/card:max-h-40">
             {content.description}

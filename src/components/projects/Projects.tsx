@@ -3,6 +3,9 @@ import AreaImage from "@/assets/Area2.png";
 import ArcadeImage from "@/assets/Arcade2.png";
 import RaytracerImage from "@/assets/raytracer.jpg";
 import MyRPGImage from "@/assets/MyRPG1.png";
+import RTypeImage from "@/assets/RtypeScreenShot.png";
+import PlazzaImage from "@/assets/PlazzaImage.png";
+import GomokuImage from "@/assets/gomoku.jpg";
 
 function composeImageUrl(imageName: string): string {
     return `https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${imageName}.svg`;
@@ -42,6 +45,51 @@ export const ArcadeProject: ProjectType = {
         },
     }
 };
+
+export const RTypeProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C++",
+            avatar: composeImageUrl("cplusplus"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: RTypeImage,
+        content: {
+            title: "R-Type",
+            description: "Space shooter game, game engine and multiplayer"
+        },
+    }
+}
+
+export const PlazzaProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C++",
+            avatar: composeImageUrl("cplusplus"),
+            readTime: "2nd year project"
+        },
+        backgroundImage: PlazzaImage,
+        content: {
+            title: "Plazza",
+            description: "Concurrent Programming project ! Thread and Process, let's cook some food"
+        },
+    }
+}
+
+export const GomokuProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C++",
+            avatar: composeImageUrl("cplusplus"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: GomokuImage,
+        content: {
+            title: "Gomoku",
+            description: "IA and concurrent programming project ! Let's master the Gomoku game with the random"
+        },
+    }
+}
 
 export const RaytracerProject: ProjectType = {
     cardProps: {
