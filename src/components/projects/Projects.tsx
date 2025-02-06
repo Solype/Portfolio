@@ -9,6 +9,7 @@ import GomokuImage from "@/assets/projects/gomoku.jpg";
 import PortfolioImage from "@/assets/projects/Portfolio.png";
 import SoulConnectionImage from "@/assets/projects/SoulConnection.png";
 import EpiTrelloImage from "@/assets/projects/EpiTrello.png";
+import MannheimImage from "@/assets/projects/Mannheim.png";
 
 function composeImageUrl(imageName: string): string {
     return `https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${imageName}.svg`;
@@ -165,6 +166,21 @@ export const EpiTrelloProject: ProjectType = {
         content: {
             title: "EpiTrello",
             description: "Trello clone, update of the task in real time by websocket"
+        },
+    }
+}
+
+export const MannheimProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Web language",
+            avatar: composeImageUrl("react"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: MannheimImage,
+        content: {
+            title: "Mannheim",
+            description: "Mannheim website, for RP games with my friends"
         },
     }
 }

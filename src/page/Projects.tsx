@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Autoplay from "embla-carousel-autoplay"
 import {
     Carousel,
     CarouselContent,
@@ -7,39 +6,68 @@ import {
     CarouselNext,
     CarouselPrevious
 } from "@/components/ui/carousel";
-
+import { motion } from "framer-motion";
 import { AuthorCard } from "@/components/ui/content-card"
-import { ArcadeProject, AreaProject, EpiTrelloProject, GomokuProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
+import { ArcadeProject, AreaProject, EpiTrelloProject, GomokuProject, MannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
+
 type GroupOfProjects = {
     nameCategory: string;
     projects: ProjectType[];
 }
 
 function CarouselProject ({ list_project, index }: { list_project: GroupOfProjects; index: number; }) {
+
+    const prevButtonRef = useRef<HTMLButtonElement>(null);
+
+    const handlePrevClick = () => {
+        if (prevButtonRef.current) {
+            prevButtonRef.current.click(); // Simule un clic sur le bouton précédent
+        }
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handlePrevClick();
+        }, 5000)
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="flex justify-center">
             <Carousel key={index} opts={{
                     loop: true,
                 }}
                 className="w-full"
-                plugins={[Autoplay({delay: 5000})]}
             >
                 <CarouselContent className="-ml-1">
-                    {list_project.projects.map((project: ProjectType, index) => (
-                        <CarouselItem key={index} className="basis-1/3">
-                            <div className="p-1">
-                                <AuthorCard
-                                    backgroundImage={project.cardProps.backgroundImage}
-                                    author={project.cardProps.author}
-                                    content={project.cardProps.content}
-                                />
-                            </div>
-                        </CarouselItem>
-                    ))}
+                    {list_project.projects.map((project: ProjectType, index) => {
+                        // Générer une animation aléatoire pour chaque élément
+                        const randomX = (Math.random() - 0.5) * 100; // Déplacement entre -50px et 50px
+                        const randomY = (Math.random() - 0.5) * 100; // Déplacement entre -50px et 50px
+                        const randomDelay = Math.random() * 0.5; // Délai entre 0s et 0.5s
+
+                        return (
+                            <CarouselItem key={index} className="basis-1/3">
+                                <motion.div
+                                    className="p-1"
+                                    initial={{ opacity: 0, x: randomX, y: randomY }}
+                                    animate={{ opacity: 1, x: 0, y: 0 }}
+                                    transition={{ duration: 0.7, ease: "easeOut", delay: randomDelay }}
+                                >
+                                    <AuthorCard
+                                        backgroundImage={project.cardProps.backgroundImage}
+                                        author={project.cardProps.author}
+                                        content={project.cardProps.content}
+                                    />
+                                </motion.div>
+                            </CarouselItem>
+                        );
+                    })}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious ref={(index % 2 === 0) ? prevButtonRef : null}/>
+                <CarouselNext ref={(index % 2 === 1) ? prevButtonRef : null}/>
             </Carousel>
         </div>
     )
@@ -78,7 +106,7 @@ function Projects() {
     }, []);
 
     const list_cpp_project: GroupOfProjects = { nameCategory: "CPP", projects: [ ArcadeProject, RaytracerProject, RTypeProject, PlazzaProject, GomokuProject ] };
-    const list_web_project: GroupOfProjects = { nameCategory: "Web", projects: [ AreaProject, PortfolioProject, SurvivorPoolTek3Project, EpiTrelloProject ] };
+    const list_web_project: GroupOfProjects = { nameCategory: "Web", projects: [ AreaProject, PortfolioProject, SurvivorPoolTek3Project, EpiTrelloProject, MannheimProject ] };
     const list_c_project: GroupOfProjects = { nameCategory: "C", projects: [ MyRPGProject ] };
 
     const list_of_list_project_tech = [ list_cpp_project, list_web_project, list_c_project ];
@@ -92,10 +120,23 @@ function Projects() {
             {projectsList.map((list_project: GroupOfProjects, index) => (
                 <div key={index} className="space-y-6">
                     <div>
-                        <h2 className="text-2xl text-center font-semibold">{list_project.nameCategory}</h2>
+                        <motion.h2
+                            className="text-2xl text-center font-semibold"
+                            initial={{ opacity: 0, y: -30 }} // Commence caché et décalé vers le haut
+                            animate={{ opacity: 1, y: 0 }} // Arrive en douceur
+                            transition={{ duration: 0.6, ease: "easeOut", delay: Math.random() * 0.5 }} // Délai aléatoire
+                        >
+                            {list_project.nameCategory}
+                        </motion.h2>
                         <CarouselProject list_project={list_project} index={index} />
                     </div>
-                    <LineGradient width="w-full" />
+                    <motion.div
+                        initial={{ opacity: 0, scaleX: 0 }} // Commence invisible et rétréci
+                        animate={{ opacity: 1, scaleX: 1 }} // Apparition en élargissement
+                        transition={{ duration: 0.8, ease: "easeOut", delay: Math.random() * 0.5 }} // Délai aléatoire
+                    >
+                        <LineGradient width="w-full" />
+                    </motion.div>
                 </div>
             ))}
         </div>
