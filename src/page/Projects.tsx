@@ -11,6 +11,15 @@ import { AuthorCard } from "@/components/ui/content-card"
 import { ArcadeProject, AreaProject, EpiTrelloProject, GomokuProject, MannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
 
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle
+} from "@/components/ui/dialog";
+import { Feature } from "@/components/ui/feature-with-image-carousel";
+
 type GroupOfProjects = {
     nameCategory: string;
     projects: ProjectType[];
@@ -77,7 +86,7 @@ function Projects() {
     const [visibleMaxIndex, setVisibleMaxIndex] = useState<number>(0);
     const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
     const [ projectsList, setProjectsList ] = useState<GroupOfProjects[]>([]);
-
+    const [ modalOpen, setModalOpen ] = useState<boolean>(false);
 
     function extractNumber(divId : string) {
         const match = divId.match(/\d+/); // Cherche les chiffres dans la chaîne
@@ -125,6 +134,7 @@ function Projects() {
                             initial={{ opacity: 0, y: -30 }} // Commence caché et décalé vers le haut
                             animate={{ opacity: 1, y: 0 }} // Arrive en douceur
                             transition={{ duration: 0.6, ease: "easeOut", delay: Math.random() * 0.5 }} // Délai aléatoire
+                            onClick={() => setModalOpen(true)}
                         >
                             {list_project.nameCategory}
                         </motion.h2>
@@ -139,6 +149,17 @@ function Projects() {
                     </motion.div>
                 </div>
             ))}
+            <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+                <DialogContent className="w-screen max-w-full h-screen flex flex-col justify-center items-center">
+                    <DialogHeader>
+                        <DialogTitle>Modal title</DialogTitle>
+                        <DialogDescription>Modal description</DialogDescription>
+                    </DialogHeader>
+                    <div className="w-screen max-w-full h-screen flex flex-col justify-center items-center">
+                        <Feature />
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
 
     );
