@@ -8,6 +8,7 @@ import PlazzaImage from "@/assets/projects/PlazzaImage.png";
 import GomokuImage from "@/assets/projects/gomoku.jpg";
 import PortfolioImage from "@/assets/projects/Portfolio.png";
 import SoulConnectionImage from "@/assets/projects/SoulConnection.png";
+import EpiTrelloImage from "@/assets/projects/EpiTrello.png";
 
 function composeImageUrl(imageName: string): string {
     return `https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${imageName}.svg`;
@@ -149,6 +150,21 @@ export const SurvivorPoolTek3Project: ProjectType = {
         content: {
             title: "Soul Connection",
             description: "SurvivorPoolTek3 website, having true client to communicate with"
+        },
+    }
+}
+
+export const EpiTrelloProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Web language",
+            avatar: composeImageUrl("react"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: EpiTrelloImage,
+        content: {
+            title: "EpiTrello",
+            description: "Trello clone, update of the task in real time by websocket"
         },
     }
 }

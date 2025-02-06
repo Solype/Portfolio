@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { AuthorCard } from "@/components/ui/content-card"
-import { ArcadeProject, AreaProject, GomokuProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
+import { ArcadeProject, AreaProject, EpiTrelloProject, GomokuProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
 type GroupOfProjects = {
     nameCategory: string;
@@ -78,7 +78,7 @@ function Projects() {
     }, []);
 
     const list_cpp_project: GroupOfProjects = { nameCategory: "CPP", projects: [ ArcadeProject, RaytracerProject, RTypeProject, PlazzaProject, GomokuProject ] };
-    const list_web_project: GroupOfProjects = { nameCategory: "Web", projects: [ AreaProject, PortfolioProject, SurvivorPoolTek3Project ] };
+    const list_web_project: GroupOfProjects = { nameCategory: "Web", projects: [ AreaProject, PortfolioProject, SurvivorPoolTek3Project, EpiTrelloProject ] };
     const list_c_project: GroupOfProjects = { nameCategory: "C", projects: [ MyRPGProject ] };
 
     const list_of_list_project_tech = [ list_cpp_project, list_web_project, list_c_project ];
