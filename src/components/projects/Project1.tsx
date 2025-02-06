@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import raytracer_photo1 from "@/assets/raytracer.jpg";
+import raytracer_photo1 from "@/assets/projects/raytracer.jpg";
 import { Button } from "@/components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect } from "react";

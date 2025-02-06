@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
-import Arcade1 from "@/assets/Arcade1.png";
-import Arcade2 from "@/assets/Arcade2.png";
+import Arcade1 from "@/assets/projects/ARcade1.png";
+import Arcade2 from "@/assets/projects/ARcade2.png";
 import { Button } from "@/components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect } from "react";

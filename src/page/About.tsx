@@ -1,9 +1,9 @@
-import climbingPic from "@/assets/climbing.jpg";
-import accordionPic from "@/assets/accordion-icon.png";
-import englishIcon from "@/assets/english-flag.jpg";
-import frenchIcon from "@/assets/french-flag.jpg";
-import germanIcon from "@/assets/german-flag.jpg";
-import archerPic from "@/assets/archery-icon.png";
+import climbingPic from "@/assets/hobbies/climbing.jpg";
+import accordionPic from "@/assets/hobbies/accordion-icon.png";
+import englishIcon from "@/assets/country/english-flag.jpg";
+import frenchIcon from "@/assets/country/french-flag.jpg";
+import germanIcon from "@/assets/country/german-flag.jpg";
+import archerPic from "@/assets/hobbies/archery-icon.png";
 
 import { IconCloudDemo } from "@/components/about/CloudTech";
 // import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";

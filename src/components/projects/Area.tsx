@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
-import Area1 from "@/assets/Area1.png";
-import Area2 from "@/assets/Area2.png";
+import Area1 from "@/assets/projects/ARea1.png";
+import Area2 from "@/assets/projects/ARea2.png";
 import { Button } from "@/components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect } from "react";

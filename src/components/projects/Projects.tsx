@@ -1,11 +1,13 @@
 import { AuthorCardProps } from "@/components/ui/content-card";
-import AreaImage from "@/assets/Area2.png";
-import ArcadeImage from "@/assets/Arcade2.png";
-import RaytracerImage from "@/assets/raytracer.jpg";
-import MyRPGImage from "@/assets/MyRPG1.png";
-import RTypeImage from "@/assets/RtypeScreenShot.png";
-import PlazzaImage from "@/assets/PlazzaImage.png";
-import GomokuImage from "@/assets/gomoku.jpg";
+import AreaImage from "@/assets/projects/Area2.png";
+import ArcadeImage from "@/assets/projects/Arcade2.png";
+import RaytracerImage from "@/assets/projects/raytracer.jpg";
+import MyRPGImage from "@/assets/projects/MyRPG1.png";
+import RTypeImage from "@/assets/projects/RtypeScreenShot.png";
+import PlazzaImage from "@/assets/projects/PlazzaImage.png";
+import GomokuImage from "@/assets/projects/gomoku.jpg";
+import PortfolioImage from "@/assets/projects/Portfolio.png";
+import SoulConnectionImage from "@/assets/projects/SoulConnection.png";
 
 function composeImageUrl(imageName: string): string {
     return `https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${imageName}.svg`;
@@ -120,3 +122,33 @@ export const MyRPGProject: ProjectType = {
         },
     }
 };
+
+export const PortfolioProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Web language",
+            avatar: composeImageUrl("react"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: PortfolioImage,
+        content: {
+            title: "Portfolio",
+            description: "The portfolio website you are reading right now"
+        },
+    }
+};
+
+export const SurvivorPoolTek3Project: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Web language",
+            avatar: composeImageUrl("react"),
+            readTime: "3rd year project"
+        },
+        backgroundImage: SoulConnectionImage,
+        content: {
+            title: "Soul Connection",
+            description: "SurvivorPoolTek3 website, having true client to communicate with"
+        },
+    }
+}

@@ -2,7 +2,7 @@ import emailjs from 'emailjs-com';
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import contactUsPic from "@/assets/contact-us.jpg"
+import contactUsPic from "@/assets/other/contact-us.jpg"
 import { Button } from '@/components/ui/button';
 import Footer from '@/components/contactus/other';
 
