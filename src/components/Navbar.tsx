@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip";
 import { Button } from "@/components/ui/button";
 import photoFace from "@/assets/Photo.jpg";
-import frenchFlag from "@/assets/Flag_of_France.png";
+import frenchFlag from "@/assets/country/Flag_of_France.png";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { useState } from "react";

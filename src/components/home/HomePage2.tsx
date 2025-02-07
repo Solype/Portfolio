@@ -1,4 +1,4 @@
-import softPic from "@/assets/soft.png"
+import softPic from "@/assets/skills/soft.png";
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { motion } from 'framer-motion';
 import LineGradient from '../LineGradient';
