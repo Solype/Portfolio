@@ -32,9 +32,10 @@ function Feature({
               <h2 className="text-xl md:text-3xl lg:text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
                 {title}
               </h2>
-              <p className="text-lg  max-w-xl lg:max-w-sm leading-relaxed tracking-tight text-muted-foreground  text-left">
-                {description}
+              <p className="text-lg p-4 max-w-xl lg:max-w-sm leading-relaxed tracking-tight text-muted-foreground text-left max-h-80 overflow-y-auto">
+                  {description}
               </p>
+
             </div>
           </div>
           <div className="w-full max-w-full px-6">

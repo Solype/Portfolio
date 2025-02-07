@@ -1,5 +1,9 @@
+import { Button } from "@/components/ui/button";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 import { AuthorCardProps } from "@/components/ui/content-card";
-import { FeatureProps } from "../ui/feature-with-image-carousel";
+import { FeatureProps } from "@/components/ui/feature-with-image-carousel";
+
 import AreaImage from "@/assets/projects/Area2.png";
 import ArcadeImage from "@/assets/projects/Arcade2.png";
 import RaytracerImage from "@/assets/projects/raytracer.jpg";
@@ -21,6 +25,8 @@ export type ProjectType = {
     projectProps?: FeatureProps
 }
 
+
+
 export const AreaProject: ProjectType = {
     cardProps: {
         author : {
@@ -33,6 +39,31 @@ export const AreaProject: ProjectType = {
             title: "Area",
             description: "An automation of API"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Area",
+        description:    <div className="space-y-4">
+                            <p className="text-xl text-gray-700">
+                                Area is all about API integration and automation. Built using <strong>React Native</strong>, <strong>ViteJs</strong>, and <strong>Python</strong>.
+                                The goal was to create a dynamic and responsive application that simplifies interactions between various APIs, making complex workflows more accessible to users.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                For this project, we have integrated powerful APIs such as <strong>GMail</strong>, <strong>Discord</strong>, <strong>Spotify</strong>, 
+                                <strong>Weather</strong>, and <strong>ChatGPT</strong>. These integrations allow users to automate daily tasks effortlessly.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                One of the key features of Area is its flexibility in creating custom automation flows. Users can define triggers and actions across different services.
+                            </p>
+                            <Button
+                                onClick={() => window.open("https://github.com/Nalistas/Raytracer", "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Source Code</span>
+                            </Button>
+                        </div>,
+        images: [AreaImage]
     }
 };
 
@@ -48,6 +79,28 @@ export const ArcadeProject: ProjectType = {
             title: "Arcade",
             description: "Platformer game, using dynamic library"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Arcade",
+        description:    <div className="space-y-4">
+                            <p className="text-xl text-gray-700">
+                                Arcade is a modular gaming project where you can play classic games like <strong>Pacman</strong> and <strong>Snake</strong>.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The highlight of the project is the ability to switch between different 
+                                graphical libraries such as <strong>ncurse</strong>, <strong>SFML</strong>, 
+                                and <strong>SDL2</strong>, dynamically during gameplay. The graphics and games can be changed without restarting the program at all.
+                            </p>
+                            <Button
+                                onClick={() => window.open("https://github.com/Nalistas/Arcade", "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Source Code</span>
+                            </Button>
+                        </div>,
+        images: [ArcadeImage]
     }
 };
 
@@ -125,6 +178,13 @@ export const RaytracerProject: ProjectType = {
                         <p>
                             It was made in CPP.
                         </p>
+                        <Button
+                            onClick={() => window.open("https://github.com/Nalistas/Raytracer", "_blank")}
+                            className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                        >
+                            <FaExternalLinkAlt />
+                            <span>Source Code</span>
+                        </Button>
                     </div>,
         images: [RaytracerImage]
     }

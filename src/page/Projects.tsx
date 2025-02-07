@@ -13,10 +13,7 @@ import LineGradient from "@/components/LineGradient";
 
 import {
     Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle
+    DialogContent
 } from "@/components/ui/dialog";
 import { Feature, FeatureProps } from "@/components/ui/feature-with-image-carousel";
 
@@ -142,10 +139,6 @@ function Projects() {
             ))}
             <Dialog open={modalOpen && featurePropsCurrent != null} onOpenChange={setModalOpen}>
                 <DialogContent className="w-screen max-w-full h-screen-3/4 flex flex-col justify-center items-center">
-                    <DialogHeader>
-                        <DialogTitle>Modal title</DialogTitle>
-                        <DialogDescription>Modal description</DialogDescription>
-                    </DialogHeader>
                     <div className="w-screen max-w-full h-screen-3/4 flex flex-col justify-center items-center">
                         {
                             featurePropsCurrent && (
