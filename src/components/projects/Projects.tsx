@@ -1,4 +1,5 @@
 import { AuthorCardProps } from "@/components/ui/content-card";
+import { FeatureProps } from "../ui/feature-with-image-carousel";
 import AreaImage from "@/assets/projects/Area2.png";
 import ArcadeImage from "@/assets/projects/Arcade2.png";
 import RaytracerImage from "@/assets/projects/raytracer.jpg";
@@ -17,7 +18,7 @@ function composeImageUrl(imageName: string): string {
 
 export type ProjectType = {
     cardProps: AuthorCardProps,
-    projectProps?: AuthorCardProps
+    projectProps?: FeatureProps
 }
 
 export const AreaProject: ProjectType = {
@@ -182,5 +183,11 @@ export const MannheimProject: ProjectType = {
             title: "Mannheim",
             description: "Mannheim website, for RP games with my friends"
         },
+    },
+    projectProps: {
+        badge : "Personal project",
+        title: "Mannheim",
+        description: "Mannheim website, for RP games with my friends",
+        images: [MannheimImage]
     }
 }
