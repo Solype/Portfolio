@@ -108,6 +108,25 @@ export const RaytracerProject: ProjectType = {
             title: "Raytracer",
             description: "Trace lightrays through a scene in 3D"
         },
+    },
+    projectProps: {
+        badge : "Epitech project",
+        title: "Raytracer",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            This is one of the most interesting projects in terms of mathematics and computer graphics.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The objective of this project was to build a <span className="font-italic">raytracer</span>, a program that renders 3D scenes by simulating the physics of light rays.
+                        </p>
+                        <p className="text-lg text-gray-600 italic">
+                            A raytracer calculates how light interacts with objects in a scene to create realistic shadows, reflections, and refractions.
+                        </p>
+                        <p>
+                            It was made in CPP.
+                        </p>
+                    </div>,
+        images: [RaytracerImage]
     }
 };
 

@@ -76,7 +76,7 @@ function CarouselProject ({
                         const randomDelay = Math.random() * 0.5;
 
                         return (
-                            <CarouselItem key={index} className="basis-1/3" onClick={() => handleOnClick(project)}>
+                            <CarouselItem key={index} className="xl:basis-1/3 md:basis-1/2 basis-1/1" onClick={() => handleOnClick(project)}>
                                 <motion.div
                                     className="p-1"
                                     initial={{ opacity: 0, x: randomX, y: randomY }}
