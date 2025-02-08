@@ -1,10 +1,12 @@
 import emailjs from 'emailjs-com';
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import contactUsPic from "@/assets/other/contact-us.jpg"
 import { Button } from '@/components/ui/button';
 import Footer from '@/components/contactus/other';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { useState } from 'react';
 
 const Contact = () => {
     const {
@@ -12,15 +14,23 @@ const Contact = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async (e : any) => {
-        e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+    const [ alertOpen, setAlertOpen ] = useState(false);
+    const [ alertSuccess, setAlertSuccess ] = useState<boolean>(false);
 
+    const onSubmit = async (e : any) => {
+        e.preventDefault();
         emailjs.sendForm('service_f24tlra', 'template_9kapuey', e.target, 'RN0f5n96xAOQ3lyVE')
             .then(() => {
-                window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
-            }, (error) => {
-                console.log(error.text);
+                setAlertSuccess(true);
+            }).catch(() => {
+                setAlertSuccess(false);
+            }).finally(() => {
+                setAlertOpen(true);
+                setTimeout(() => {
+                    setAlertOpen(false);
+                }, 3000);
             });
+        e.target.reset();
     };
 
     return (
@@ -137,6 +147,24 @@ const Contact = () => {
                     </motion.div>
                 </div>
             </section>
+            <AnimatePresence>
+                {alertOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed bottom-5 right-5"
+                        >
+                            <Alert className="flex justify-between items-center p-4 rounded-lg shadow-md" variant={alertSuccess ? "default" : "destructive"}>
+                                <div>
+                                    <AlertTitle className="font-bold">{alertSuccess ? "Success" : "Error"}</AlertTitle>
+                                    <AlertDescription>{alertSuccess ? "Message sent successfully!" : "An error occurred while sending the message."}</AlertDescription>
+                                </div>
+                            </Alert>
+                        </motion.div>
+                )}
+            </AnimatePresence>
             <Footer />
         </div>
     );
