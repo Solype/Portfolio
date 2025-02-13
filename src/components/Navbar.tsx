@@ -3,9 +3,10 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix
 import { Button } from "@/components/ui/button";
 import photoFace from "@/assets/Photo.jpg";
 import frenchFlag from "@/assets/country/Flag_of_France.png";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaDownload } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { useState } from "react";
+import CV from "@/assets/other/AmbroiseJACQUEMET_CV.pdf";
 
 import {
     DropdownMenu,
@@ -36,7 +37,7 @@ function DropdownNavBar() {
                         <DropdownMenuLabel>Navigate</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <Link to="/"><DropdownMenuItem>Home</DropdownMenuItem></Link>
-                        <Link to="about"><DropdownMenuItem>Tech</DropdownMenuItem></Link>
+                        <Link to="about"><DropdownMenuItem>About</DropdownMenuItem></Link>
                         <Link to="projects"><DropdownMenuItem>Projects</DropdownMenuItem></Link>
                         <Link to="contact"><DropdownMenuItem>Contact</DropdownMenuItem></Link>
                     </DropdownMenuContent>
@@ -61,16 +62,18 @@ function Navbar() {
             return base_name + " bg-primary text-white hover:bg-accent";
         }
     }
-        
 
     return (
         <div className="sticky top-0 left-0 right-0 bg-primary text-background z-50 text-xl font-bold shadow-md">
             <div className="flex justify-between items-center px-4 h-16">
-                <div className="flex gap-4 items-center">
-                    <img src={photoFace} className="w-10 h-10 rounded-full" alt="A.JACQUEMET" />
-                    <p className="text-lg font-semibold">A.JACQUEMET</p>
-                    <img src={frenchFlag} className="w-8 h-5 rounded-sm" alt="French Flag" />
-                </div>
+                    <div className="flex gap-4 items-center">
+                        <img src={photoFace} className="w-10 h-10 rounded-full" alt="A.JACQUEMET" />
+                        <p className="text-lg font-semibold">A.JACQUEMET</p>
+                        <img src={frenchFlag} className="w-8 h-5 rounded-sm" alt="French Flag" />
+                        <Button className="h-full flex justify-center items-center gap-2 hover:bg-accent" onClick={() => window.open(CV, "_blank")}>
+                            <p>CV</p><FaDownload className="w-4 h-4"/>
+                        </Button>
+                    </div>
 
                 <div className="flex items-center hidden md:flex">
                     <div className="flex gap-6">
