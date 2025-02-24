@@ -55,13 +55,13 @@ export const AreaProject: ProjectType = {
                             <p className="text-lg text-gray-600">
                                 One of the key features of Area is its flexibility in creating custom automation flows. Users can define triggers and actions across different services.
                             </p>
-                            <Button
+                            {/* <Button
                                 onClick={() => window.open("https://github.com/Nalistas/Raytracer", "_blank")}
                                 className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
                             >
                                 <FaExternalLinkAlt />
                                 <span>Source Code</span>
-                            </Button>
+                            </Button> */}
                         </div>,
         images: [AreaImage]
     }
@@ -116,6 +116,27 @@ export const RTypeProject: ProjectType = {
             title: "R-Type",
             description: "Space shooter game, game engine and multiplayer"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "R-Type",
+        description:    <div className="space-y-4">
+                            <p className="text-xl text-gray-700">
+                                R-Type is a space shooter game that features multiplayer capabilities.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The goal of the project was to create an ECS engine to handle the game's entities and components.
+                                It also includes networking capabilities, allowing players to connect to a server and play together.
+                            </p>
+                            <Button
+                                onClick={() => window.open("https://github.com/Nalistas/RType", "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Source Code</span>
+                            </Button>
+                        </div>,
+        images: [RTypeImage]
     }
 }
 
@@ -131,6 +152,27 @@ export const PlazzaProject: ProjectType = {
             title: "Plazza",
             description: "Concurrent Programming project ! Thread and Process, let's cook some food"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Plazza",
+        description:    <div className="space-y-4">
+                            <p className="text-xl text-gray-700">
+                                Plazza is a concurrent programming project that focuses on thread and process management.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The main challenge of the project is to design and implement a multi-threaded and multi-processed system.
+                                Using IPC (Inter-Process Communication) to share data between threads and processes.
+                            </p>
+                            <Button
+                                onClick={() => window.open("https://github.com/Nalistas/Plazza", "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Source Code</span>
+                            </Button>
+                        </div>,
+        images: [PlazzaImage]
     }
 }
 
@@ -146,6 +188,27 @@ export const GomokuProject: ProjectType = {
             title: "Gomoku",
             description: "IA and concurrent programming project ! Let's master the Gomoku game with the random"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Gomoku",
+        description:    <div className="space-y-4">
+                            <p className="text-xl text-gray-700">
+                                Gomoku project is not about recoding a game, that would be too easy. the goal is to create an bot that play the best moves possible.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The main challenge was to choose and implement the best algorithm to play the game. We choose to master the randomness and
+                                use the Monte Carlo algorithm. And using a thread-pool to parallelize the computation and fasten the bot. 
+                            </p>
+                            <Button
+                                onClick={() => window.open("https://github.com/Nalistas/Gomoku", "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Source Code</span>
+                            </Button>
+                        </div>,
+        images: [GomokuImage]
     }
 }
 
@@ -247,6 +310,23 @@ export const EpiTrelloProject: ProjectType = {
             title: "EpiTrello",
             description: "Trello clone, update of the task in real time by websocket"
         },
+    },
+    projectProps: {
+        badge : "Epitech project",
+        title: "EpiTrello",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            This is one of the most interesting projects in terms of web development.
+                        </p>
+                        <Button
+                            onClick={() => window.open("https://github.com/Nalistas/EpiTrello", "_blank")}
+                            className="flex items-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-accent transition-all"
+                        >
+                            <FaExternalLinkAlt />
+                            <span>Source Code</span>
+                        </Button>
+                    </div>,
+        images: [EpiTrelloImage]
     }
 }
 
