@@ -43,7 +43,7 @@ function Feature({
               <CarouselContent>
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex rounded-md aspect-video bg-muted items-center justify-center p-6">
+                    <div className="flex rounded-md aspect-video bg-muted items-center justify-center p-6 max-h-96">
                       <img src={image} alt={`Image ${index}`} />
                     </div>
                   </CarouselItem>
