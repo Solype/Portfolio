@@ -20,10 +20,20 @@ const slugs = [
     "gnubash",
     "linux",
     "sqlite",
-    "fastapi"
+    "fastapi",
+    "rust"
 ]
 
 const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
+    "Rust": {
+        title: "Rust",
+        description: "Rust is a fast, memory-safe systems programming language designed to provide high performance without sacrificing safety.",
+        level: "familiar",
+        uses: [
+            "Create video game using the library 'bevy'"
+        ],
+        image: "rust"
+    },
     "React": { 
         title: "React.js",
         description: "A JavaScript library for building reactive and high-performance user interfaces.",

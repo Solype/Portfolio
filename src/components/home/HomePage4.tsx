@@ -10,11 +10,51 @@ import EpitechBarcelona2 from "@/assets/school/epitech_Barcelona2.jpg";
 import ArcadeImage1 from "@/assets/projects/Arcade1.png";
 import RaytracerImage1 from "@/assets/projects/raytracer.jpg";
 import EpitechParis1 from "@/assets/school/epitech_paris1.jpg";
-import MyRPG1 from "@/assets/projects/MyRPG1.png"
+import MyRPG1 from "@/assets/projects/MyRPG1.png";
+import Allinappli from "@/assets/school/all-in-appli-logo.png";
+import CAUDragoon from "@/assets/school/CAU-dragoon.jpg";
+import CAULogo from "@/assets/school/CAU-logo.png";
+import CAUCampus from "@/assets/school/CAU-campus-map.png";
+
 
 function HomePage4() {
     const image_className = "rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]";
     const data : TimelineEntry[] = [
+        {
+            title: "Sep 2025 to Jun 2026 : Exchange at Chung Ang Universit",
+            content: (
+                <div>
+                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+                        My school plans the fourth year of its student aboard, in international campuses or partner universities.
+                        I chose - and was admitted in - Chung Ang University in Seoul, South Korea for this year.
+                    </p>
+                    <div className="gap-4 grid grid-cols-1">
+                        <div className="grid grid-cols-2 gap-4">
+                            <img src={CAUCampus} alt="CAU campus map" width={500} height={500} className={image_className}/>
+                            <img src={CAUDragoon} alt="CAU dragoon" width={500} height={500} className={image_className}/>
+                        </div>
+                        <img src={CAULogo} alt="CAU logo" width={1000} height={500} className={image_className}/>
+                    </div>
+                </div>
+            )
+        },
+        {
+            title: "Apr-Aug 2025 : intership at All-In-Appli",
+            content: (<div className="flex flex-col items-center">
+                        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4 text-center">
+                            Back in France, I completed an internship at All-In-Appli, a company that manages and hosts websites for various associations and syndicates.
+                        </p>
+                        <div>
+                            In this intership, i was able to manage multiple sites, as well as migrate them from a server to another.
+                        </div>
+                        <img
+                            src={Allinappli}
+                            alt="All-In-Appli company showcase"
+                            className={image_className}
+                            style={{ maxWidth: '25%', height: 'auto' }}
+                        />
+                    </div>)
+        },
         {
             title: "Sep-Mar 2025 : Epitech Berlin",
             content: (
