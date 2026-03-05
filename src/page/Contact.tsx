@@ -1,4 +1,4 @@
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
