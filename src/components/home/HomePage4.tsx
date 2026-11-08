@@ -11,7 +11,7 @@ import EpitechBarcelona1 from "@/assets/journey/epitech-barcelona-1.webp";
 import EpitechBarcelona2 from "@/assets/journey/epitech-barcelona-2.webp";
 import EpitechBerlin1 from "@/assets/journey/epitech-berlin-1.webp";
 import EpitechBerlin2 from "@/assets/journey/epitech-berlin-2.webp";
-import AreaImage from "@/assets/projects/area-1.webp";
+import AreaImage from "@/assets/projects/area-2.webp";
 import RTypeImage from "@/assets/projects/rtype-1.webp";
 import ArcadeImage from "@/assets/projects/arcade-1.webp";
 import RaytracerImage from "@/assets/projects/raytracer.webp";

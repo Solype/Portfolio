@@ -5,7 +5,6 @@ import { AuthorCardProps } from "@/components/ui/content-card";
 import { FeatureProps } from "@/components/ui/feature-with-image-carousel";
 
 import AreaImage from "@/assets/projects/area-2.webp";
-import AreaImage2 from "@/assets/projects/area-1.webp";
 import ArcadeImage from "@/assets/projects/arcade-2.webp";
 import ArcadeImage2 from "@/assets/projects/arcade-1.webp";
 import RaytracerImage from "@/assets/projects/raytracer.webp";
@@ -81,7 +80,7 @@ export const AreaProject: ProjectType = {
                                 One of the key features of Area is its flexibility in creating custom automation flows. Users can define triggers and actions across different services.
                             </p>
                         </div>,
-        images: [AreaImage, AreaImage2],
+        images: [AreaImage],
         contributors: [ME, HUGO, SATINE]
     }
 };
