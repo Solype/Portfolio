@@ -7,14 +7,52 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+export interface Contributor {
+  login: string;
+  name?: string | null;
+}
+
 export interface FeatureProps {
   badge: string;
   title: string;
   description: string | React.ReactNode;
   images: string[];
+  contributors?: Contributor[];
 }
 
-function Feature({ badge, title, description, images }: FeatureProps) {
+function Contributors({ contributors }: { contributors: Contributor[] }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+        Contributors
+      </p>
+      <div className="flex flex-wrap gap-3">
+        {contributors.map(({ login, name }) => (
+          <a
+            key={login}
+            href={`https://github.com/${login}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={name ? `${name} (@${login})` : `@${login}`}
+            className="flex items-center gap-2 rounded-full border bg-background py-1 pl-1 pr-3 text-sm transition-colors hover:bg-muted"
+          >
+            <img
+              src={`https://github.com/${login}.png?size=64`}
+              alt=""
+              width={28}
+              height={28}
+              loading="lazy"
+              className="h-7 w-7 rounded-full object-cover"
+            />
+            <span>{name || login}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Feature({ badge, title, description, images, contributors }: FeatureProps) {
   return (
     <div className="w-full py-8 lg:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
@@ -26,6 +64,7 @@ function Feature({ badge, title, description, images }: FeatureProps) {
           <div className="text-base md:text-lg leading-relaxed tracking-tight text-muted-foreground text-left max-h-80 overflow-y-auto">
             {description}
           </div>
+          {contributors && contributors.length > 0 && <Contributors contributors={contributors} />}
         </div>
         {images.length > 0 && (
           <div className="w-full px-10">

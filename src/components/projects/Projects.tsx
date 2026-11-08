@@ -18,9 +18,12 @@ import PortfolioImage from "@/assets/projects/portfolio.webp";
 import SoulConnectionImage from "@/assets/projects/soul-connection.webp";
 import EpiTrelloImage from "@/assets/projects/epitrello.webp";
 import MannheimImage from "@/assets/projects/mannheim.webp";
+import NewMannheimImage1 from "@/assets/projects/newmannheim-1.webp";
+import NewMannheimImage2 from "@/assets/projects/newmannheim-2.webp";
+import NewMannheimImage3 from "@/assets/projects/newmannheim-3.webp";
+import NewMannheimImage4 from "@/assets/projects/newmannheim-4.webp";
 import KrcImage from "@/assets/projects/krc.webp";
 import AsteroidImage from "@/assets/projects/asteroid.webp";
-import CHttpImage from "@/assets/projects/c-http.webp";
 import FtraceImage from "@/assets/projects/ftrace.webp";
 
 function SourceLink({ href, label = "Source code" }: { href: string; label?: string }) {
@@ -33,6 +36,12 @@ function SourceLink({ href, label = "Source code" }: { href: string; label?: str
         </Button>
     );
 }
+
+const ME = { login: "Solype", name: "Ambroise Jacquemet" };
+const HUGO = { login: "ugeaux", name: "Hugo Tesson" };
+const SATINE = { login: "Satineee", name: "Satine Fouque" };
+const ETIENNE = { login: "Tounn10", name: "Etienne Namur" };
+const LUCIA = { login: "luciajd", name: "Lucia Jimenez Diaz" };
 
 function composeImageUrl(imageName: string): string {
     return `https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/${imageName}.svg`;
@@ -72,7 +81,8 @@ export const AreaProject: ProjectType = {
                                 One of the key features of Area is its flexibility in creating custom automation flows. Users can define triggers and actions across different services.
                             </p>
                         </div>,
-        images: [AreaImage, AreaImage2]
+        images: [AreaImage, AreaImage2],
+        contributors: [ME, HUGO, SATINE]
     }
 };
 
@@ -101,9 +111,14 @@ export const ArcadeProject: ProjectType = {
                                 graphical libraries such as <strong>ncurses</strong>, <strong>SFML</strong>, 
                                 and <strong>SDL2</strong>, dynamically during gameplay. The graphics and games can be changed without restarting the program at all.
                             </p>
-                            <SourceLink href="https://github.com/Nalistas/Arcade" />
+                            <p className="text-lg text-gray-600">
+                                The graphics and game interfaces were designed in collaboration with another group
+                                (Satine Fouque, Romain Pichon, Hugo Tesson and Nicolas Loiseau), so our libraries and games are interchangeable.
+                            </p>
+                            <SourceLink href="https://github.com/Solype/Arcade" />
                         </div>,
-        images: [ArcadeImage, ArcadeImage2]
+        images: [ArcadeImage, ArcadeImage2],
+        contributors: [ME, ETIENNE, LUCIA]
     }
 };
 
@@ -135,11 +150,12 @@ export const RTypeProject: ProjectType = {
                                 I later extracted the core of this ECS (entity registry, sparse component arrays, zipper iterator) into a small standalone C++ library.
                             </p>
                             <div className="flex flex-wrap gap-2">
-                                <SourceLink href="https://github.com/Nalistas/RType" />
+                                <SourceLink href="https://github.com/Solype/Rtype" />
                                 <SourceLink href="https://github.com/Solype/Cpp_basic_ecs" label="Standalone ECS" />
                             </div>
                         </div>,
-        images: [RTypeImage, RTypeImage2]
+        images: [RTypeImage, RTypeImage2],
+        contributors: [ME, HUGO, SATINE]
     }
 }
 
@@ -167,9 +183,10 @@ export const PlazzaProject: ProjectType = {
                                 The main challenge of the project is to design and implement a multi-threaded and multi-processed system.
                                 It uses IPC (inter-process communication) to share data between threads and processes.
                             </p>
-                            <SourceLink href="https://github.com/Nalistas/Plazza" />
+                            <SourceLink href="https://github.com/Solype/Plazza" />
                         </div>,
-        images: [PlazzaImage]
+        images: [PlazzaImage],
+        contributors: [ME, SATINE]
     }
 }
 
@@ -197,9 +214,10 @@ export const GomokuProject: ProjectType = {
                                 The main challenge was choosing and implementing the right algorithm. We chose to master randomness with
                                 Monte Carlo tree search, and used a thread pool to parallelise the computation and speed up the bot.
                             </p>
-                            <SourceLink href="https://github.com/Nalistas/Gomoku" />
+                            <SourceLink href="https://github.com/Solype/Gomoku" />
                         </div>,
-        images: [GomokuImage]
+        images: [GomokuImage],
+        contributors: [ME, HUGO, SATINE]
     }
 }
 
@@ -233,11 +251,12 @@ export const RaytracerProject: ProjectType = {
                             Written in C++. As a follow-up, I started a GPU version that runs the rendering in OpenCL kernels.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <SourceLink href="https://github.com/Nalistas/Raytracer" />
+                            <SourceLink href="https://github.com/Solype/Raytracer" />
                             <SourceLink href="https://github.com/Solype/GPU_raytracer" label="GPU version" />
                         </div>
                     </div>,
-        images: [RaytracerImage]
+        images: [RaytracerImage],
+        contributors: [ME, ETIENNE, LUCIA, HUGO, SATINE]
     }
 };
 
@@ -316,9 +335,10 @@ export const EpiTrelloProject: ProjectType = {
                         <p className="text-xl text-gray-700">
                             This is one of the most interesting projects in terms of web development.
                         </p>
-                        <SourceLink href="https://github.com/Nalistas/EpiTrello" />
+                        <SourceLink href="https://github.com/Solype/EpiTrello" />
                     </div>,
-        images: [EpiTrelloImage]
+        images: [EpiTrelloImage],
+        contributors: [ME]
     }
 }
 
@@ -327,38 +347,73 @@ export const MannheimProject: ProjectType = {
         author : {
             name: "Web language",
             avatar: composeImageUrl("react"),
-            readTime: "Personal project"
+            readTime: "Personal project, V1"
         },
         backgroundImage: MannheimImage,
         content: {
-            title: "Mannheim",
-            description: "Character builder and live game tables for our tabletop RPG"
+            title: "Mannheim (V1)",
+            description: "Website for our tabletop RPG, written by hand with friends"
         },
     },
     projectProps: {
-        badge : "Personal project",
-        title: "Mannheim",
+        badge : "Personal project · V1",
+        title: "Mannheim (V1)",
         description: <div className="space-y-4">
                         <p className="text-xl text-gray-700">
-                            A full-stack companion app for Mannheim, the tabletop role-playing game I play with my friends.
+                            The first version of the companion website for Mannheim, the tabletop role-playing game I play with my friends.
                         </p>
                         <p className="text-lg text-gray-600">
-                            Players create characters, NPCs and monsters checked live against the rulebook, print character sheets
-                            and import or export them as JSON. Game masters open shared <strong>rooms</strong> with invitations,
-                            chat and live tracking of damage and statuses over <strong>WebSockets</strong>; hidden information is
-                            filtered on the server.
+                            Built in <strong>TypeScript</strong> with two friends from the group, and written entirely by hand,
+                            without any AI assistance. It is the ancestor of NewMannheim, the V2.
                         </p>
-                        <p className="text-lg text-gray-600">
-                            The new version runs on <strong>FastAPI</strong>, <strong>SQLAlchemy</strong> and <strong>PostgreSQL</strong>,
-                            with a <strong>React 19</strong>, <strong>Vite</strong> and <strong>Tailwind</strong> front end,
-                            Docker Compose, and an Android build.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            <SourceLink href="https://github.com/Solype/Ul-s-World" label="New version" />
-                            <SourceLink href="https://github.com/Solype/Mannheim" label="First version" />
-                        </div>
+                        <SourceLink href="https://github.com/Solype/Mannheim" />
                     </div>,
-        images: [MannheimImage]
+        images: [MannheimImage],
+        contributors: [ME, SATINE, HUGO]
+    }
+}
+
+export const NewMannheimProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Python · React",
+            avatar: composeImageUrl("fastapi"),
+            readTime: "Personal project, V2"
+        },
+        backgroundImage: NewMannheimImage1,
+        content: {
+            title: "NewMannheim (V2)",
+            description: "Tabletop RPG companion: rule-checked character builder and live game rooms"
+        },
+    },
+    projectProps: {
+        badge : "Personal project · V2 · built with Claude Code",
+        title: "NewMannheim (V2)",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            The V2 of our tabletop RPG companion. Players build characters, NPCs and monsters in a step-by-step
+                            editor that checks them against the game rules as they go, and keeps track of the points and money left.
+                            It also has a searchable rules reader, printable character sheets and JSON export/import.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Any account can open a <strong>game room</strong> as game master: players join with an invite code,
+                            characters in play get health gauges, statuses and a damage calculator with armor and penetration, and the
+                            GM decides whether monsters are hidden, visible or revealed, filtered per player on the server.
+                            Chat, presence and gauges update live over <strong>WebSockets</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            <strong>FastAPI</strong>, SQLAlchemy 2 and <strong>PostgreSQL</strong> on the back end;
+                            <strong> React 19</strong>, TypeScript, Tailwind 4 and shadcn/ui on the front end, with API types generated
+                            from OpenAPI. Deployed with Docker Compose, plus a self-updating <strong>Android</strong> app.
+                        </p>
+                        <p className="text-lg text-gray-600 italic">
+                            Unlike the V1, this version was built mostly through AI-assisted coding with Claude Code,
+                            with hooks that run the tests and type checks after every change.
+                        </p>
+                        <SourceLink href="https://github.com/Solype/Ul-s-World" />
+                    </div>,
+        images: [NewMannheimImage1, NewMannheimImage2, NewMannheimImage3, NewMannheimImage4],
+        contributors: [ME]
     }
 }
 
@@ -398,7 +453,8 @@ export const KrcProject: ProjectType = {
                             <SourceLink href="https://github.com/Solype/CAUCompilerClassSpring2026" label="Class project" />
                         </div>
                     </div>,
-        images: [KrcImage]
+        images: [KrcImage],
+        contributors: [ME]
     }
 }
 
@@ -428,38 +484,13 @@ export const AsteroidProject: ProjectType = {
                         </p>
                         <SourceLink href="https://github.com/Solype/Asteroid" />
                     </div>,
-        images: [AsteroidImage]
-    }
-}
-
-export const CHttpProject: ProjectType = {
-    cardProps: {
-        author : {
-            name: "C",
-            avatar: composeImageUrl("c"),
-            readTime: "Personal project"
-        },
-        backgroundImage: CHttpImage,
-        content: {
-            title: "C_HTTP",
-            description: "HTTP server library in C with a router and select()-based I/O"
-        },
-    },
-    projectProps: {
-        badge : "Personal project",
-        title: "C_HTTP",
-        description: <div className="space-y-4">
-                        <p className="text-xl text-gray-700">
-                            An HTTP/1.1 server library written from scratch in <strong>C</strong>.
-                        </p>
-                        <p className="text-lg text-gray-600">
-                            It parses requests and headers, builds responses with automatic 404/500 pages, routes requests through a
-                            route tree with wildcards, and handles connections with non-blocking <strong>select()</strong> I/O and
-                            a growable request buffer.
-                        </p>
-                        <SourceLink href="https://github.com/Solype/C_HTTP" />
-                    </div>,
-        images: [CHttpImage]
+        images: [AsteroidImage],
+        contributors: [
+            ME,
+            { login: "Popochounet", name: "Adrien Audiard" },
+            { login: "Mael-RABOT", name: "Maël Rabot" },
+            { login: "zaotic165", name: "Zaotic" },
+        ]
     }
 }
 
@@ -488,8 +519,9 @@ export const FtraceProject: ProjectType = {
                             It uses <strong>ptrace</strong>, reads registers following the x86-64 calling convention and resolves
                             function names from the ELF dynamic symbols (PLT/GOT). A bonus mode exports the call graph and renders it as an image.
                         </p>
-                        <SourceLink href="https://github.com/Nalistas/Ftrace" />
+                        <SourceLink href="https://github.com/Solype/Ftrace" />
                     </div>,
-        images: [FtraceImage]
+        images: [FtraceImage],
+        contributors: [ME]
     }
 }

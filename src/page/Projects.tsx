@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { AuthorCard } from "@/components/ui/content-card"
-import { ArcadeProject, AreaProject, AsteroidProject, CHttpProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
+import { ArcadeProject, AreaProject, AsteroidProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, NewMannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
 
 import {
@@ -32,8 +32,8 @@ interface CarouselProjectProps {
 const projectsList: GroupOfProjects[] = [
     { nameCategory: "Rust", projects: [ KrcProject, AsteroidProject ] },
     { nameCategory: "C++", projects: [ ArcadeProject, RaytracerProject, RTypeProject, PlazzaProject, GomokuProject ] },
-    { nameCategory: "Web", projects: [ MannheimProject, AreaProject, EpiTrelloProject, SurvivorPoolTek3Project, PortfolioProject ] },
-    { nameCategory: "C", projects: [ CHttpProject, FtraceProject, MyRPGProject ] },
+    { nameCategory: "Web", projects: [ NewMannheimProject, MannheimProject, AreaProject, EpiTrelloProject, SurvivorPoolTek3Project, PortfolioProject ] },
+    { nameCategory: "C", projects: [ FtraceProject, MyRPGProject ] },
 ];
 
 function CarouselProject ({
@@ -141,12 +141,7 @@ function Projects() {
                 <DialogContent className="max-h-[85vh] overflow-y-auto w-[95vw] max-w-6xl flex flex-col justify-center items-center">
                     {
                         featurePropsCurrent && (
-                            <Feature
-                                badge={featurePropsCurrent.badge}
-                                title={featurePropsCurrent.title}
-                                description={featurePropsCurrent.description}
-                                images={featurePropsCurrent.images}
-                            />
+                            <Feature {...featurePropsCurrent} />
                         )
                     }
                 </DialogContent>
