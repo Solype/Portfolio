@@ -21,6 +21,9 @@ import NewMannheimImage1 from "@/assets/projects/newmannheim-1.webp";
 import NewMannheimImage2 from "@/assets/projects/newmannheim-2.webp";
 import NewMannheimImage3 from "@/assets/projects/newmannheim-3.webp";
 import NewMannheimImage4 from "@/assets/projects/newmannheim-4.webp";
+import SolypengineImage1 from "@/assets/projects/solypengine-1.webp";
+import SolypengineImage2 from "@/assets/projects/solypengine-2.webp";
+import SolypengineImage3 from "@/assets/projects/solypengine-3.webp";
 import KrcImage from "@/assets/projects/krc.webp";
 import AsteroidImage from "@/assets/projects/asteroid.webp";
 import FtraceImage from "@/assets/projects/ftrace.webp";
@@ -412,6 +415,46 @@ export const NewMannheimProject: ProjectType = {
                         <SourceLink href="https://github.com/Solype/Ul-s-World" />
                     </div>,
         images: [NewMannheimImage1, NewMannheimImage2, NewMannheimImage3, NewMannheimImage4],
+        contributors: [ME]
+    }
+}
+
+export const SolypengineProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C++",
+            avatar: composeImageUrl("cplusplus"),
+            readTime: "Personal project, 2026"
+        },
+        backgroundImage: SolypengineImage1,
+        content: {
+            title: "Solypengine",
+            description: "C++20 parallel-ECS game engine with plugin renderers and its own 3D physics"
+        },
+    },
+    projectProps: {
+        badge : "Personal project · R-Type rework",
+        title: "Solypengine",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A C++20 game engine I wrote on my own after Epitech's R-Type, to see how much better I could do than the
+                            engine I built in 3rd year. Its demo, <strong>Bullet Hell 3D</strong>, is a third-person arena shooter with
+                            animated robots and physics-driven crates.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The core is a <strong>parallel ECS</strong>: a scheduler groups systems into parallel batches from the
+                            components they declare, on a fixed 60 Hz tick. Renderers and games are <strong>shared libraries</strong>
+                            loaded at runtime, so the engine can also run headless.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The <strong>raylib</strong> renderer does GPU skeletal animation (glTF), dynamic lights, shadow maps, fog and
+                            hot-reloaded shaders; a second renderer draws the same 3D world as coloured ASCII art in a terminal.
+                            The in-house 3D physics uses a sequential-impulse solver with sleeping bodies and raycasts. Builds on Linux
+                            and Windows. Networking (authoritative UDP server) is next on the roadmap.
+                        </p>
+                        <p className="text-sm text-gray-500 italic">Private repository.</p>
+                    </div>,
+        images: [SolypengineImage1, SolypengineImage2, SolypengineImage3],
         contributors: [ME]
     }
 }

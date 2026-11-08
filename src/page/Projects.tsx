@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { AuthorCard } from "@/components/ui/content-card"
-import { ArcadeProject, AreaProject, AsteroidProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, NewMannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
+import { ArcadeProject, AreaProject, AsteroidProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, NewMannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SolypengineProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
 
 import {
@@ -31,7 +31,7 @@ interface CarouselProjectProps {
 
 const projectsList: GroupOfProjects[] = [
     { nameCategory: "Rust", projects: [ KrcProject, AsteroidProject ] },
-    { nameCategory: "C++", projects: [ ArcadeProject, RaytracerProject, RTypeProject, PlazzaProject, GomokuProject ] },
+    { nameCategory: "C++", projects: [ SolypengineProject, RTypeProject, ArcadeProject, RaytracerProject, PlazzaProject, GomokuProject ] },
     { nameCategory: "Web", projects: [ NewMannheimProject, MannheimProject, AreaProject, EpiTrelloProject, SurvivorPoolTek3Project, PortfolioProject ] },
     { nameCategory: "C", projects: [ FtraceProject, MyRPGProject ] },
 ];
