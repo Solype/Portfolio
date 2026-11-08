@@ -10,34 +10,34 @@ function Footer() {
 
                 <div className="flex flex-wrap justify-center items-center gap-4">
                     <p className="text-primary">You can also find me on:</p>
-                    <a href="https://github.com/Solype" target="_blank" rel="noopener noreferrer">
-                        <Button className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                    <Button asChild className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        <a href="https://github.com/Solype" target="_blank" rel="noopener noreferrer">
                             <FaGithub />
                             GitHub
-                        </Button>
-                    </a>
-                    <a href="mailto:ambroise.jacqemet-ramirez-vega@epitech.eu">
-                        <Button className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        </a>
+                    </Button>
+                    <Button asChild className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        <a href="mailto:ambroise.jacquemet-ramirez-vega@epitech.eu">
                             <FaEnvelope />
-                            Outlook
-                        </Button>
-                    </a>
-                    <a href="https://discord.com/users/solype" target="_blank" rel="noopener noreferrer">
-                        <Button className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                            Email
+                        </a>
+                    </Button>
+                    <Button asChild className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        <a href="https://discord.com/users/solype" target="_blank" rel="noopener noreferrer">
                             <FaDiscord />
                             Discord
-                        </Button>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ambroise-jacquemet-a07610266/" target="_blank" rel="noopener noreferrer">
-                        <Button className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        </a>
+                    </Button>
+                    <Button asChild className="flex items-center gap-2 bg-primary text-white hover:bg-accent">
+                        <a href="https://www.linkedin.com/in/ambroise-jacquemet-a07610266/" target="_blank" rel="noopener noreferrer">
                             <FaLinkedin />
                             LinkedIn
-                        </Button>
-                    </a>
+                        </a>
+                    </Button>
                 </div>
 
-                <p className="text-lg text-center">
-                    &copy; 2023 Ambroise Jacquemet. All rights reserved.
+                <p className="text-lg text-center text-primary">
+                    &copy; {new Date().getFullYear()} Ambroise Jacquemet. All rights reserved.
                 </p>
             </div>
         </footer>

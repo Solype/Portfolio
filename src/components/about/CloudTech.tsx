@@ -107,8 +107,8 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         level: "Advanced",
         uses: [
             "I have done a lot of projects in C, you can see them in the projects section",
-            "Well understanding the low level of the system",
-            "I am currently working on An Http server with C"
+            "Solid understanding of low-level systems",
+            "Built an HTTP server in C"
         ],
         image: "c"
     },

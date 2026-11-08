@@ -2,17 +2,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Languages } from "lucide-react";
 import { IconCloudDemo } from "@/components/about/CloudTech";
 
-import climbingPic from "@/assets/hobbies/climbing.jpg";
-import accordionPic from "@/assets/hobbies/accordion-icon.png";
-import englishIcon from "@/assets/country/english-flag.jpg";
-import frenchIcon from "@/assets/country/french-flag.jpg";
-import germanIcon from "@/assets/country/german-flag.jpg";
-import archerPic from "@/assets/hobbies/archery-icon.png";
+import climbingPic from "@/assets/hobbies/climbing.webp";
+import accordionPic from "@/assets/hobbies/accordion.webp";
+import englishIcon from "@/assets/country/flag-uk.webp";
+import frenchIcon from "@/assets/country/flag-france.webp";
+import germanIcon from "@/assets/country/flag-germany.webp";
+import archerPic from "@/assets/hobbies/archery.webp";
 import { motion } from "framer-motion";
 
 export default function About() {
     return (
-        <div className="flex flex-col lg:flex-row items-center lg:justify-between px-12 py-16 gap-12">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between px-6 md:px-12 py-16 gap-12">
             {/* Left side - IconCloud */}
             <motion.div 
                 className="w-full lg:w-1/2"
@@ -48,39 +48,42 @@ export default function About() {
                             </h3>
 
                             {/* Language proficiency */}
-                            <div className="flex flex-col transition-opacity grid grid-cols-3 w-full">
+                            <div className="grid grid-cols-3 w-full overflow-hidden rounded-lg">
                                 {/* French */}
-                                <div className="relative group w-full bg-otherDarkBlue">
+                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
                                     <img 
                                         src={frenchIcon} 
                                         alt="French" 
-                                        className="w-full h-32 transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110" 
+                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
+                                        loading="lazy" 
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                                         🇫🇷 French: Native
                                     </div>
                                 </div>
 
                                 {/* English */}
-                                <div className="relative group w-full bg-otherDarkBlue">
+                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
                                     <img 
                                         src={englishIcon} 
                                         alt="English" 
-                                        className="w-full h-32 transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110" 
+                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
+                                        loading="lazy" 
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                                         🇬🇧 English: B2/C1
                                     </div>
                                 </div>
 
                                 {/* German */}
-                                <div className="relative group w-full bg-otherDarkBlue">
+                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
                                     <img 
                                         src={germanIcon} 
                                         alt="German" 
-                                        className="w-full h-32 transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110" 
+                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
+                                        loading="lazy" 
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                                         🇩🇪 German: A2/B1
                                     </div>
                                 </div>
@@ -91,7 +94,7 @@ export default function About() {
 
                 {/* Hobbies */}
                 <motion.div 
-                    className="border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    className="rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all"
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
                     transition={{ duration: 0.6 }}
@@ -100,15 +103,15 @@ export default function About() {
                         <h3 className="text-xl font-semibold">Hobbies</h3>
                         <div className="grid grid-cols-3 gap-6">
                             <div className="flex flex-col items-center">
-                                <img src={accordionPic} alt="Accordion" width={60} height={60} className="rounded-lg" />
+                                <img src={accordionPic} alt="Accordion" width={64} height={64} loading="lazy" className="h-16 w-16 object-contain rounded-lg" />
                                 <span className="text-gray-700 text-lg mt-2">Accordion</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <img src={climbingPic} alt="Climbing" width={60} height={60} className="rounded-lg" />
+                                <img src={climbingPic} alt="Climbing" width={64} height={64} loading="lazy" className="h-16 w-16 object-contain rounded-lg" />
                                 <span className="text-gray-700 text-lg mt-2">Climbing</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <img src={archerPic} alt="Archery" width={60} height={60} className="rounded-lg" />
+                                <img src={archerPic} alt="Archery" width={64} height={64} loading="lazy" className="h-16 w-16 object-contain rounded-lg" />
                                 <span className="text-gray-700 text-lg mt-2">Archery</span>
                             </div>
                         </div>

@@ -1,173 +1,171 @@
 import { Timeline, TimelineEntry } from "../ui/timeline";
-import NDPIcon from "@/assets/school/NDP.png";
-import EpitechIcon from "@/assets/school/epitech.png";
-import EpitechBerlin1 from "@/assets/school/epitech_berlin1.jpg";
-import EpitechBerlin2 from "@/assets/school/epitech_berlin2.jpg";
-import AreaImage1 from "@/assets/projects/Area_image1.png";
-import RTypeImage1 from "@/assets/projects/Rtype_image1.png";
-import EpitechBarcelona1 from "@/assets/school/epitech_Barcelona1.jpg";
-import EpitechBarcelona2 from "@/assets/school/epitech_Barcelona2.jpg";
-import ArcadeImage1 from "@/assets/projects/Arcade1.png";
-import RaytracerImage1 from "@/assets/projects/raytracer.jpg";
-import EpitechParis1 from "@/assets/school/epitech_paris1.jpg";
-import MyRPG1 from "@/assets/projects/MyRPG1.png";
-import Allinappli from "@/assets/school/all-in-appli-logo.png";
-import CAUDragoon from "@/assets/school/CAU-dragoon.jpg";
-import CAULogo from "@/assets/school/CAU-logo.png";
-import CAUCampus from "@/assets/school/CAU-campus-map.png";
+import NDPLogo from "@/assets/journey/ndp-logo.webp";
+import EpitechLogo from "@/assets/journey/epitech-logo.webp";
+import SafranLogo from "@/assets/journey/safran-logo.webp";
+import AllInAppliLogo from "@/assets/journey/all-in-appli-logo.webp";
+import CAULogo from "@/assets/journey/cau-logo.webp";
+import CAUCampus from "@/assets/journey/cau-campus-map.webp";
+import CAUDragoon from "@/assets/journey/cau-dragoon.webp";
+import EpitechParis1 from "@/assets/journey/epitech-paris-1.webp";
+import EpitechBarcelona1 from "@/assets/journey/epitech-barcelona-1.webp";
+import EpitechBarcelona2 from "@/assets/journey/epitech-barcelona-2.webp";
+import EpitechBerlin1 from "@/assets/journey/epitech-berlin-1.webp";
+import EpitechBerlin2 from "@/assets/journey/epitech-berlin-2.webp";
+import AreaImage from "@/assets/projects/area-1.webp";
+import RTypeImage from "@/assets/projects/rtype-1.webp";
+import ArcadeImage from "@/assets/projects/arcade-1.webp";
+import RaytracerImage from "@/assets/projects/raytracer.webp";
+import MyRPGImage from "@/assets/projects/myrpg.webp";
 
+const textClass = "text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4";
 
-function HomePage4() {
-    const image_className = "rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]";
-    const data : TimelineEntry[] = [
-        {
-            title: "Sep 2025 to Jun 2026 : Exchange at Chung Ang Universit",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        My school plans the fourth year of its student aboard, in international campuses or partner universities.
-                        I chose - and was admitted in - Chung Ang University in Seoul, South Korea for this year.
-                    </p>
-                    <div className="gap-4 grid grid-cols-1">
-                        <div className="grid grid-cols-2 gap-4">
-                            <img src={CAUCampus} alt="CAU campus map" width={500} height={500} className={image_className}/>
-                            <img src={CAUDragoon} alt="CAU dragoon" width={500} height={500} className={image_className}/>
-                        </div>
-                        <img src={CAULogo} alt="CAU logo" width={1000} height={500} className={image_className}/>
-                    </div>
-                </div>
-            )
-        },
-        {
-            title: "Apr-Aug 2025 : intership at All-In-Appli",
-            content: (<div className="flex flex-col items-center">
-                        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4 text-center">
-                            Back in France, I completed an internship at All-In-Appli, a company that manages and hosts websites for various associations and syndicates.
-                        </p>
-                        <div>
-                            In this intership, i was able to manage multiple sites, as well as migrate them from a server to another.
-                        </div>
-                        <img
-                            src={Allinappli}
-                            alt="All-In-Appli company showcase"
-                            className={image_className}
-                            style={{ maxWidth: '25%', height: 'auto' }}
-                        />
-                    </div>)
-        },
-        {
-            title: "Sep-Mar 2025 : Epitech Berlin",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        Thanks to the international track i follow, I have done my third year at Epitech Berlin.
-                        Doing a lot of long project, I have learned how to work on a project that last several months.
-                    </p>
-                    <div>
-                        In this year, i have been able to work on projects like Area and RType, that you can discover in the projects section.
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <img src={EpitechBerlin1} alt="epitech berlin image 1" width={500} height={500} className={image_className}/>
-                        <img src={EpitechBerlin2} alt="epitech berlin image 2" width={500} height={500} className={image_className}/>
-                        <img src={AreaImage1} alt="Area project image" width={500} height={500} className={image_className}/>
-                        <img src={RTypeImage1} alt="RType project image" width={500} height={500} className={image_className}/>
-                    </div>
-                </div>
-            )
-        },
-        {
-            title: "Jan-Jun 2024 : Epitech Barcelona",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        Due to my study, and more precisely, due to the international track i follow, I have done my
-                        second year at Epitech Barcelona.
-                    </p>
-                    <div>
-                        <p>
-                            For the first time, in Barcelona, I studied abroad, far from France. However, I was able to
-                            learn a lot in this year. Especially the c++ language.
-                        </p>
-                        <p>
-                            I have been able to work on projects like Arcade, that you can discover in the projects
-                            section.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <img src={EpitechBarcelona1} alt="Epitech Barcelona image 1" width={500} height={500} className={image_className}/>
-                        <img src={EpitechBarcelona2} alt="Epitech Barcelona image 2" width={500} height={500} className={image_className}/>
-                        <img src={ArcadeImage1} alt="Arcade project image" width={500} height={500} className={image_className}/>
-                        <img src={RaytracerImage1} alt="hero template" width={500} height={500} className={image_className}/>
-                    </div>
-                </div>
-            )
-        },
-        {
-            title: "Mar-Dec 2023 : Intership",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        I worked as a software developer at the French company Safran. 
-                    </p>
-                    <div className="mb-8">
-                        <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Working Experience as a Software Developer
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Autonomous Learning
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Serious development
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Use of the languages XSLT and Javascript
-                        </div>
-                    </div>
-                    <p>
-                        The goal of the intership was to create a viewer to visuallize XML files. those files are
-                        not human readable, or not easy to read.
-                    </p>
-                </div>
-            )
-        },
-        {
-            title: "Oct 2022 : Epitech Paris",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        I started my studies at Epitech Paris. I am currently a student in computer science.
-                        I am currently my a 3rd year in computer science.
-                    </p>
-                    <p>
-                        I have been able to work on projects like MyRPG, that you can discover in the projects
-                        section.
-                    </p>
-                    <div className="gap-4 grid grid-cols-1">
-                        <div className="grid grid-cols-2 gap-4">
-                            <img src={EpitechParis1} alt="Epitech Paris image 1" width={500} height={500} className={image_className}/>
-                            <img src={MyRPG1} alt="hero template" width={500} height={500} className={image_className}/>
-                        </div>
-                        <img src={EpitechIcon} alt="hero template" width={1000} height={500} className={image_className}/>
-                    </div>
-                </div>
-            )
-        },
-        {
-            title: "Mar 2022 : Baccalaureat",
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                        I finished my French Baccalaureat with IT and Mathematics specialities. I finised with good mentions.
-                        I passed the Baccalaureat in the High School of Enghien "Notre Dame Providence".
-                    </p>
-                    <img src={NDPIcon} alt="hero template" width={500} height={500} className={image_className}/>
-                </div>
-            )
-        }
-    ]
+/** Photo or screenshot: fills its grid cell with a fixed 16:9 ratio. */
+function Photo({ src, alt }: { src: string; alt: string }) {
     return (
-        <Timeline data={data} />
+        <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className="w-full aspect-video object-cover rounded-lg shadow-md"
+        />
     );
 }
 
-export default HomePage4
+/** Logo: never cropped, centred on a light card of fixed height. */
+function Logo({ src, alt }: { src: string; alt: string }) {
+    return (
+        <div className="flex items-center justify-center h-24 md:h-32 w-full rounded-lg bg-white shadow-md p-4">
+            <img src={src} alt={alt} loading="lazy" className="max-h-full max-w-full object-contain" />
+        </div>
+    );
+}
+
+function Gallery({ children }: { children: React.ReactNode }) {
+    return <div className="grid grid-cols-2 gap-4 mt-4">{children}</div>;
+}
+
+function HomePage4() {
+    const data: TimelineEntry[] = [
+        {
+            title: "Sep 2025 – Jun 2026: Exchange at Chung-Ang University",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        My school sends its fourth-year students abroad, to international campuses or partner universities.
+                        I chose, and was admitted to, Chung-Ang University in Seoul, South Korea, for this year.
+                    </p>
+                    <Logo src={CAULogo} alt="Chung-Ang University logo" />
+                    <Gallery>
+                        <Photo src={CAUCampus} alt="Chung-Ang University campus map" />
+                        <Photo src={CAUDragoon} alt="Chung-Ang University dragon statue" />
+                    </Gallery>
+                </div>
+            ),
+        },
+        {
+            title: "Apr – Aug 2025: Internship at All-In-Appli",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        Back in France, I completed an internship at All-In-Appli, a company that manages and hosts
+                        websites for associations and trade unions.
+                    </p>
+                    <p className={textClass}>
+                        During this internship, I managed several websites and migrated them from one server to another.
+                    </p>
+                    <Logo src={AllInAppliLogo} alt="All-In-Appli logo" />
+                </div>
+            ),
+        },
+        {
+            title: "Sep 2024 – Mar 2025: Epitech Berlin",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        Thanks to the international track I follow, I spent my third year at Epitech Berlin.
+                        Working on many long projects, I learned how to drive a project that lasts several months.
+                    </p>
+                    <p className={textClass}>
+                        This year I worked on projects like Area and R-Type, which you can discover in the projects section.
+                    </p>
+                    <Gallery>
+                        <Photo src={EpitechBerlin1} alt="Epitech Berlin campus" />
+                        <Photo src={EpitechBerlin2} alt="Epitech Berlin" />
+                        <Photo src={AreaImage} alt="Area project" />
+                        <Photo src={RTypeImage} alt="R-Type project" />
+                    </Gallery>
+                </div>
+            ),
+        },
+        {
+            title: "Jan – Jun 2024: Epitech Barcelona",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        As part of the international track, I spent the second half of my second year at Epitech Barcelona.
+                    </p>
+                    <p className={textClass}>
+                        It was my first time studying abroad, far from France, and I learned a lot, especially C++.
+                        I worked on projects like Arcade and Raytracer, which you can discover in the projects section.
+                    </p>
+                    <Gallery>
+                        <Photo src={EpitechBarcelona1} alt="Epitech Barcelona campus" />
+                        <Photo src={EpitechBarcelona2} alt="Epitech Barcelona" />
+                        <Photo src={ArcadeImage} alt="Arcade project" />
+                        <Photo src={RaytracerImage} alt="Raytracer project" />
+                    </Gallery>
+                </div>
+            ),
+        },
+        {
+            title: "Mar – Dec 2023: Internship at Safran",
+            content: (
+                <div>
+                    <p className={textClass}>I worked as a software developer at the French company Safran.</p>
+                    <ul className="mb-4 space-y-1 text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+                        <li>✅ Professional experience as a software developer</li>
+                        <li>✅ Autonomous learning</li>
+                        <li>✅ Production-grade development</li>
+                        <li>✅ XSLT and JavaScript</li>
+                    </ul>
+                    <p className={textClass}>
+                        The goal of the internship was to build a viewer for XML files that are hard for humans to read.
+                    </p>
+                    <Logo src={SafranLogo} alt="Safran logo" />
+                </div>
+            ),
+        },
+        {
+            title: "Oct 2022: Epitech Paris",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        I started my computer science studies at Epitech Paris, where I worked on projects like MyRPG,
+                        which you can discover in the projects section.
+                    </p>
+                    <Logo src={EpitechLogo} alt="Epitech logo" />
+                    <Gallery>
+                        <Photo src={EpitechParis1} alt="Epitech Paris campus" />
+                        <Photo src={MyRPGImage} alt="MyRPG project" />
+                    </Gallery>
+                </div>
+            ),
+        },
+        {
+            title: "Mar 2022: Baccalauréat",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        I graduated from the French Baccalauréat with Computer Science and Mathematics specialities,
+                        with honours, at the Notre-Dame Providence high school in Enghien.
+                    </p>
+                    <Logo src={NDPLogo} alt="Notre-Dame Providence logo" />
+                </div>
+            ),
+        },
+    ];
+
+    return <Timeline data={data} />;
+}
+
+export default HomePage4;

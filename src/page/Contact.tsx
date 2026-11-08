@@ -2,40 +2,47 @@ import emailjs from '@emailjs/browser';
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
-import contactUsPic from "@/assets/other/contact-us.jpg"
+import contactUsPic from "@/assets/contact/contact-us.webp"
 import { Button } from '@/components/ui/button';
 import Footer from '@/components/contactus/other';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useState } from 'react';
 
+type ContactFormValues = {
+    name: string;
+    email: string;
+    message: string;
+};
+
 const Contact = () => {
     const {
         register,
-        formState: { errors },
-    } = useForm();
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<ContactFormValues>();
 
     const [ alertOpen, setAlertOpen ] = useState(false);
     const [ alertSuccess, setAlertSuccess ] = useState<boolean>(false);
 
-    const onSubmit = async (e : any) => {
-        e.preventDefault();
-        emailjs.sendForm('service_f24tlra', 'template_9kapuey', e.target, 'RN0f5n96xAOQ3lyVE')
-            .then(() => {
-                setAlertSuccess(true);
-            }).catch(() => {
-                setAlertSuccess(false);
-            }).finally(() => {
-                setAlertOpen(true);
-                setTimeout(() => {
-                    setAlertOpen(false);
-                }, 3000);
-            });
-        e.target.reset();
+    const onSubmit = async ({ name, email, message }: ContactFormValues) => {
+        try {
+            await emailjs.send('service_f24tlra', 'template_9kapuey', { name, email, message }, { publicKey: 'RN0f5n96xAOQ3lyVE' });
+            setAlertSuccess(true);
+            reset();
+        } catch {
+            setAlertSuccess(false);
+        } finally {
+            setAlertOpen(true);
+            setTimeout(() => {
+                setAlertOpen(false);
+            }, 3000);
+        }
     };
 
     return (
         <div className='w-5/6 mx-auto'>
-            <section id="contact" className="contact py-48 w-full" style={{ height: "85vh"}}>
+            <section id="contact" className="contact min-h-[85vh] py-24 md:py-32 w-full">
                 {/* HEADINGS */}
                 <motion.div
                     initial="hidden"
@@ -49,7 +56,7 @@ const Contact = () => {
                     className="flex justify-end w-full"
                 >
                     <div>
-                        <p className="font-playfair font-semibold text-4xl"><span className="text-yellow">CONTACT ME</span> TO GET STARTED</p>
+                        <p className="font-playfair font-semibold text-4xl"><span className="text-accent">CONTACT ME</span> TO GET STARTED</p>
                         <div className="flex md:justify-end my-5"><LineGradient width="w-1/2" /></div>
                     </div>
                 </motion.div>
@@ -67,7 +74,7 @@ const Contact = () => {
                         }}
                         className="basis-1/2 flex justify-center"
                     >
-                        <img src={contactUsPic} alt="contact" />
+                        <img src={contactUsPic} alt="contact" className="w-full max-w-lg h-auto object-contain rounded-xl" loading="lazy" />
                     </motion.div>
 
                     <motion.div
@@ -81,14 +88,9 @@ const Contact = () => {
                         }}
                         className="basis-1/2 mt-10 md:mt-0"
                     >
-                    <form
-                        target="_blank"
-                        onSubmit={onSubmit}
-                        action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
-                        method="POST"
-                    >
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <input
-                            className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-opaque-black p-3"
+                            className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-gray-500 p-3"
                             type="text"
                             placeholder="NAME"
                             {...register("name", {
@@ -98,14 +100,14 @@ const Contact = () => {
                         />
                         {
                             errors.name && (
-                            <p className="text-red mt-1">
+                            <p className="text-accent mt-1">
                                 {errors.name.type === "required" && "This field is required."}
                                 {errors.name.type === "maxLength" && "Max length is 100 char."}
                             </p>
                         )}
 
                         <input
-                            className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-opaque-black p-3 mt-5"
+                            className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-gray-500 p-3 mt-5"
                             type="text"
                             placeholder="EMAIL"
                             {...register("email", {
@@ -115,13 +117,13 @@ const Contact = () => {
                         />
                         {
                             errors.email && (
-                            <p className="text-red mt-1">
+                            <p className="text-accent mt-1">
                                 {errors.email.type === "required" && "This field is required."}
                                 {errors.email.type === "pattern" && "Invalid email address."}
                             </p>
                         )}
 
-                        <textarea className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-opaque-black p-3 mt-5"
+                        <textarea className="w-full border border-primary border-2 rounded-xl font-semibold placeholder-gray-500 p-3 mt-5"
                             placeholder="MESSAGE"
                                 {...register("message", {
                                     required: true,
@@ -129,7 +131,7 @@ const Contact = () => {
                                 })}
                         />
                         {errors.message && (
-                        <p className="text-red mt-1">
+                        <p className="text-accent mt-1">
                             {errors.message.type === "required" &&
                             "This field is required."}
                             {errors.message.type === "maxLength" &&
@@ -140,6 +142,7 @@ const Contact = () => {
                         <Button
                             className="p-5 bg-otherDarkBlue font-semibold text-white mt-5 hover:bg-accent transition duration-500"
                             type="submit"
+                            disabled={isSubmitting}
                         >
                             SEND ME A MESSAGE
                         </Button>
