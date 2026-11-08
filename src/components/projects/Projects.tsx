@@ -409,7 +409,7 @@ export const NewMannheimProject: ProjectType = {
                             from OpenAPI. Deployed with Docker Compose, plus a self-updating <strong>Android</strong> app.
                         </p>
                         <p className="text-lg text-gray-600 italic">
-                            This version was vibe-coded: built almost entirely through agentic coding with Claude Code,
+                            Unlike the V1, this version was built mostly through AI-assisted coding with Claude Code,
                             with hooks that run the tests and type checks after every change.
                         </p>
                         <SourceLink href="https://github.com/Solype/Ul-s-World" />
