@@ -31,18 +31,17 @@ export const cloudProps: Omit<ICloud, "children"> = {
     outlineColour: "#0000",
     maxSpeed: 0.02,
     minSpeed: 0.00,
-    // dragControl: false,
   },
 }
 
-export const renderCustomIcon = (icon: SimpleIcon, theme: string, onClick?: (e: any) => void) => {
+export const renderCustomIcon = (icon: SimpleIcon, theme: string, onClick?: (target: HTMLElement) => void) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510"
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff"
   const minContrastRatio = theme === "dark" ? 2 : 1.2
 
-  const onIconClick = (e: any) => {
+  const onIconClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    onClick && onClick(e.target);
+    onClick?.(e.target as HTMLElement);
   }
 
   return renderSimpleIcon({
@@ -62,7 +61,7 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string, onClick?: (e: 
 
 export type DynamicCloudProps = {
   iconSlugs: string[],
-  onIconClick?: (e: any) => void
+  onIconClick?: (target: HTMLElement) => void
 }
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>
@@ -81,10 +80,10 @@ export function IconCloud({ iconSlugs, onIconClick }: DynamicCloudProps) {
     return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, theme || "light", onIconClick),
     )
-  }, [data, theme])
+  }, [data, theme, onIconClick])
 
   return (
-    // @ts-ignore
+    // @ts-expect-error react-icon-cloud children typing is incompatible with React 18 types
     <Cloud {...cloudProps}>
       <>{renderedIcons}</>
     </Cloud>

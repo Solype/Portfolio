@@ -36,7 +36,8 @@ export const AuthorCard = ({
             width={100}
             alt={`${author.name}'s avatar`}
             src={author.avatar}
-            className="h-10 w-10 rounded-full border-2 object-cover bg-white"
+            className="h-10 w-10 rounded-full border-2 object-contain bg-white p-1"
+            loading="lazy"
           />
           <div className="flex flex-col">
             <p className="font-normal text-base text-gray-50 relative z-10">
@@ -48,9 +49,9 @@ export const AuthorCard = ({
           </div>
         </div>
         <div className="text content p-4 bg-otherDarkBlue">
-          <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
+          <h3 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
             {content.title}
-          </h1>
+          </h3>
           <p className="font-normal text-sm text-gray-50 relative z-10 group-hover/card:my-4 
             opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out 
             group-hover/card:opacity-100 group-hover/card:max-h-40">

@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip";
 import { Button } from "@/components/ui/button";
-import photoFace from "@/assets/Photo.jpg";
-import frenchFlag from "@/assets/country/Flag_of_France.png";
+import photoFace from "@/assets/profile/photo.webp";
+import frenchFlag from "@/assets/country/flag-france-small.webp";
 import { FaExternalLinkAlt, FaDownload } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { useState } from "react";
-import CV from "@/assets/other/AmbroiseJACQUEMET_CV.pdf";
+import CV from "@/assets/contact/AmbroiseJACQUEMET_CV.pdf";
 
 import {
     DropdownMenu,
@@ -19,17 +19,12 @@ import {
 
 function DropdownNavBar() {
     const [isOpen, setIsOpen] = useState(false);
-  
-    const toggleMenu = () => {
-      setIsOpen((isOpen) => !isOpen);
-      console.log(isOpen);
-    };
 
     const classNameBiMenu = "text-3xl" + ( isOpen ? " transform rotate-90" : "" );
   
     return (
         <div className="flex md:hidden">
-                <DropdownMenu onOpenChange={toggleMenu}>
+                <DropdownMenu onOpenChange={setIsOpen}>
                     <DropdownMenuTrigger >
                             <BiMenu className={classNameBiMenu} />
                     </DropdownMenuTrigger>
@@ -37,9 +32,9 @@ function DropdownNavBar() {
                         <DropdownMenuLabel>Navigate</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <Link to="/"><DropdownMenuItem>Home</DropdownMenuItem></Link>
-                        <Link to="about"><DropdownMenuItem>About</DropdownMenuItem></Link>
-                        <Link to="projects"><DropdownMenuItem>Projects</DropdownMenuItem></Link>
-                        <Link to="contact"><DropdownMenuItem>Contact</DropdownMenuItem></Link>
+                        <Link to="/about"><DropdownMenuItem>About</DropdownMenuItem></Link>
+                        <Link to="/projects"><DropdownMenuItem>Projects</DropdownMenuItem></Link>
+                        <Link to="/contact"><DropdownMenuItem>Contact</DropdownMenuItem></Link>
                     </DropdownMenuContent>
                 </DropdownMenu>
         </div>
@@ -48,13 +43,13 @@ function DropdownNavBar() {
 
 
 function Navbar() {
+    const location = useLocation();
 
     function redirect() {
         window.open("https://github.com/Solype/Portfolio", "_blank");
     }
 
     const classNameLinkfct = (path: string) => {
-        const location = useLocation();
         const base_name = "p-3 hover:text-white transition duration-200 ease-in-out w-full text-center rounded-lg";
         if (location.pathname === path) {
             return base_name + " bg-otherDarkBlue text-white";
@@ -67,15 +62,15 @@ function Navbar() {
         <div className="sticky top-0 left-0 right-0 bg-primary text-background z-50 text-xl font-bold shadow-md">
             <div className="flex justify-between items-center px-4 h-16">
                     <div className="flex gap-4 items-center">
-                        <img src={photoFace} className="w-10 h-10 rounded-full" alt="A.JACQUEMET" />
-                        <p className="text-lg font-semibold">A.JACQUEMET</p>
-                        <img src={frenchFlag} className="w-8 h-5 rounded-sm" alt="French Flag" />
+                        <img src={photoFace} width={40} height={40} className="w-10 h-10 rounded-full object-cover" alt="A.JACQUEMET" />
+                        <p className="hidden sm:block text-lg font-semibold">A.JACQUEMET</p>
+                        <img src={frenchFlag} width={32} height={20} className="w-8 h-5 rounded-sm object-cover" alt="French Flag" />
                         <Button className="h-full flex justify-center items-center gap-2 hover:bg-accent" onClick={() => window.open(CV, "_blank")}>
                             <p>CV</p><FaDownload className="w-4 h-4"/>
                         </Button>
                     </div>
 
-                <div className="flex items-center hidden md:flex">
+                <div className="hidden md:flex items-center gap-4">
                     <div className="flex gap-6">
                         <Link className={classNameLinkfct("/")} to="/">Home</Link>
                         <Link className={classNameLinkfct("/about")} to="/about">About</Link>
