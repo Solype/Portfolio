@@ -30,7 +30,9 @@ const Contact = () => {
             await emailjs.send('service_f24tlra', 'template_9kapuey', { name, email, message }, { publicKey: 'RN0f5n96xAOQ3lyVE' });
             setAlertSuccess(true);
             reset();
-        } catch {
+        } catch (error) {
+            // EmailJSResponseStatus {status, text} for API errors, TypeError for network/TLS failures
+            console.error('EmailJS send failed:', error);
             setAlertSuccess(false);
         } finally {
             setAlertOpen(true);
