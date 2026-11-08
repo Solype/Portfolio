@@ -365,8 +365,7 @@ export const MannheimProject: ProjectType = {
                             The first version of the companion website for Mannheim, the tabletop role-playing game I play with my friends.
                         </p>
                         <p className="text-lg text-gray-600">
-                            Built in <strong>TypeScript</strong> with two friends from the group. We wrote the code ourselves,
-                            using ChatGPT only as a chatbot to ask questions, the way AI was used back then. It is the ancestor of
+                            Built in <strong>TypeScript</strong> with two friends from the group. It is the ancestor of
                             NewMannheim, the V2.
                         </p>
                         <SourceLink href="https://github.com/Solype/Mannheim" />
@@ -410,8 +409,8 @@ export const NewMannheimProject: ProjectType = {
                             from OpenAPI. Deployed with Docker Compose, plus a self-updating <strong>Android</strong> app.
                         </p>
                         <p className="text-lg text-gray-600 italic">
-                            Where the V1 used ChatGPT as a question-and-answer chatbot, this version was built mostly through
-                            agentic coding with Claude Code, with hooks that run the tests and type checks after every change.
+                            This version was vibe-coded: built almost entirely through agentic coding with Claude Code,
+                            with hooks that run the tests and type checks after every change.
                         </p>
                         <SourceLink href="https://github.com/Solype/Ul-s-World" />
                     </div>,
@@ -452,6 +451,9 @@ export const SolypengineProject: ProjectType = {
                             hot-reloaded shaders; a second renderer draws the same 3D world as coloured ASCII art in a terminal.
                             The in-house 3D physics uses a sequential-impulse solver with sleeping bodies and raycasts. Builds on Linux
                             and Windows. Networking (authoritative UDP server) is next on the roadmap.
+                        </p>
+                        <p className="text-lg text-gray-600 italic">
+                            I wrote the engine core myself; the demo game and the graphics side were built with AI (Claude Code).
                         </p>
                         <p className="text-sm text-gray-500 italic">Private repository.</p>
                     </div>,
