@@ -18,13 +18,17 @@ import PortfolioImage from "@/assets/projects/portfolio.webp";
 import SoulConnectionImage from "@/assets/projects/soul-connection.webp";
 import EpiTrelloImage from "@/assets/projects/epitrello.webp";
 import MannheimImage from "@/assets/projects/mannheim.webp";
+import KrcImage from "@/assets/projects/krc.webp";
+import AsteroidImage from "@/assets/projects/asteroid.webp";
+import CHttpImage from "@/assets/projects/c-http.webp";
+import FtraceImage from "@/assets/projects/ftrace.webp";
 
-function SourceLink({ href }: { href: string }) {
+function SourceLink({ href, label = "Source code" }: { href: string; label?: string }) {
     return (
         <Button asChild className="w-fit gap-2 bg-primary text-white hover:bg-accent">
             <a href={href} target="_blank" rel="noopener noreferrer">
                 <FaExternalLinkAlt />
-                <span>Source code</span>
+                <span>{label}</span>
             </a>
         </Button>
     );
@@ -127,7 +131,13 @@ export const RTypeProject: ProjectType = {
                                 The goal of the project was to create an ECS engine to handle the game's entities and components.
                                 It also includes networking capabilities, allowing players to connect to a server and play together.
                             </p>
-                            <SourceLink href="https://github.com/Nalistas/RType" />
+                            <p className="text-lg text-gray-600">
+                                I later extracted the core of this ECS (entity registry, sparse component arrays, zipper iterator) into a small standalone C++ library.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <SourceLink href="https://github.com/Nalistas/RType" />
+                                <SourceLink href="https://github.com/Solype/Cpp_basic_ecs" label="Standalone ECS" />
+                            </div>
                         </div>,
         images: [RTypeImage, RTypeImage2]
     }
@@ -219,10 +229,13 @@ export const RaytracerProject: ProjectType = {
                         <p className="text-lg text-gray-600 italic">
                             A raytracer calculates how light interacts with objects in a scene to create realistic shadows, reflections, and refractions.
                         </p>
-                        <p>
-                            Written in C++.
+                        <p className="text-lg text-gray-600">
+                            Written in C++. As a follow-up, I started a GPU version that runs the rendering in OpenCL kernels.
                         </p>
-                        <SourceLink href="https://github.com/Nalistas/Raytracer" />
+                        <div className="flex flex-wrap gap-2">
+                            <SourceLink href="https://github.com/Nalistas/Raytracer" />
+                            <SourceLink href="https://github.com/Solype/GPU_raytracer" label="GPU version" />
+                        </div>
                     </div>,
         images: [RaytracerImage]
     }
@@ -314,18 +327,169 @@ export const MannheimProject: ProjectType = {
         author : {
             name: "Web language",
             avatar: composeImageUrl("react"),
-            readTime: "3rd year project"
+            readTime: "Personal project"
         },
         backgroundImage: MannheimImage,
         content: {
             title: "Mannheim",
-            description: "Website for role-playing games with my friends"
+            description: "Character builder and live game tables for our tabletop RPG"
         },
     },
     projectProps: {
         badge : "Personal project",
         title: "Mannheim",
-        description: "Website for role-playing games with my friends",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A full-stack companion app for Mannheim, the tabletop role-playing game I play with my friends.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Players create characters, NPCs and monsters checked live against the rulebook, print character sheets
+                            and import or export them as JSON. Game masters open shared <strong>rooms</strong> with invitations,
+                            chat and live tracking of damage and statuses over <strong>WebSockets</strong>; hidden information is
+                            filtered on the server.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The new version runs on <strong>FastAPI</strong>, <strong>SQLAlchemy</strong> and <strong>PostgreSQL</strong>,
+                            with a <strong>React 19</strong>, <strong>Vite</strong> and <strong>Tailwind</strong> front end,
+                            Docker Compose, and an Android build.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            <SourceLink href="https://github.com/Solype/Ul-s-World" label="New version" />
+                            <SourceLink href="https://github.com/Solype/Mannheim" label="First version" />
+                        </div>
+                    </div>,
         images: [MannheimImage]
+    }
+}
+
+export const KrcProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Rust",
+            avatar: composeImageUrl("rust"),
+            readTime: "Chung-Ang University, 2026"
+        },
+        backgroundImage: KrcImage,
+        content: {
+            title: "Krc",
+            description: "A Korean programming language and its compiler, written in Rust"
+        },
+    },
+    projectProps: {
+        badge : "Compiler",
+        title: "Krc",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Krc is a programming language written in Korean: functions are verbs and arguments carry their particles.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The compiler is built from scratch in <strong>Rust</strong>: its own lexer, a particle-aware pre-parser,
+                            an <strong>LR(1)</strong> parser, a semantic checker, a typed IR, an <strong>x86-64</strong> encoder and
+                            an <strong>ELF</strong> object writer. It comes with CI, release binaries, a website and syntax highlighting
+                            for several editors.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            It started in the Compiler class at Chung-Ang University, where we first built an SLR(1) syntax analyzer
+                            as a team, and I kept developing it as a personal project.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            <SourceLink href="https://github.com/Solype/Krc" />
+                            <SourceLink href="https://solype.github.io/Krc" label="Website" />
+                            <SourceLink href="https://github.com/Solype/CAUCompilerClassSpring2026" label="Class project" />
+                        </div>
+                    </div>,
+        images: [KrcImage]
+    }
+}
+
+export const AsteroidProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "Rust",
+            avatar: composeImageUrl("rust"),
+            readTime: "Chung-Ang University, 2025"
+        },
+        backgroundImage: AsteroidImage,
+        content: {
+            title: "Asteroid",
+            description: "3D remake of the arcade classic, built with the Bevy engine"
+        },
+    },
+    projectProps: {
+        badge : "Game",
+        title: "Asteroid",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A 3D game inspired by the classic Asteroids arcade game, made with the <strong>Bevy</strong> engine in <strong>Rust</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The player flies a spaceship through an asteroid field, dodging and destroying asteroids to score points.
+                            Built by a team of four for the game software design course at Chung-Ang University.
+                        </p>
+                        <SourceLink href="https://github.com/Solype/Asteroid" />
+                    </div>,
+        images: [AsteroidImage]
+    }
+}
+
+export const CHttpProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C",
+            avatar: composeImageUrl("c"),
+            readTime: "Personal project"
+        },
+        backgroundImage: CHttpImage,
+        content: {
+            title: "C_HTTP",
+            description: "HTTP server library in C with a router and select()-based I/O"
+        },
+    },
+    projectProps: {
+        badge : "Personal project",
+        title: "C_HTTP",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            An HTTP/1.1 server library written from scratch in <strong>C</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            It parses requests and headers, builds responses with automatic 404/500 pages, routes requests through a
+                            route tree with wildcards, and handles connections with non-blocking <strong>select()</strong> I/O and
+                            a growable request buffer.
+                        </p>
+                        <SourceLink href="https://github.com/Solype/C_HTTP" />
+                    </div>,
+        images: [CHttpImage]
+    }
+}
+
+export const FtraceProject: ProjectType = {
+    cardProps: {
+        author : {
+            name: "C",
+            avatar: composeImageUrl("c"),
+            readTime: "2nd year project"
+        },
+        backgroundImage: FtraceImage,
+        content: {
+            title: "Ftrace",
+            description: "strace / ltrace-like tracer using ptrace and ELF symbols"
+        },
+    },
+    projectProps: {
+        badge : "Epitech project",
+        title: "Ftrace",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A partial rewrite of <strong>strace</strong> and <strong>ltrace</strong>: it traces the system calls and
+                            library calls of a running x86-64 program in real time.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            It uses <strong>ptrace</strong>, reads registers following the x86-64 calling convention and resolves
+                            function names from the ELF dynamic symbols (PLT/GOT). A bonus mode exports the call graph and renders it as an image.
+                        </p>
+                        <SourceLink href="https://github.com/Nalistas/Ftrace" />
+                    </div>,
+        images: [FtraceImage]
     }
 }
