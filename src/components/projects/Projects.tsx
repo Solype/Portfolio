@@ -25,7 +25,10 @@ import SolypengineImage1 from "@/assets/projects/solypengine-1.webp";
 import SolypengineImage2 from "@/assets/projects/solypengine-2.webp";
 import SolypengineImage3 from "@/assets/projects/solypengine-3.webp";
 import KrcImage from "@/assets/projects/krc.webp";
-import AsteroidImage from "@/assets/projects/asteroid.webp";
+import AsteroidImage1 from "@/assets/projects/asteroid-1.webp";
+import AsteroidImage2 from "@/assets/projects/asteroid-2.webp";
+import AsteroidImage3 from "@/assets/projects/asteroid-3.webp";
+import AsteroidImage4 from "@/assets/projects/asteroid-4.webp";
 import FtraceImage from "@/assets/projects/ftrace.webp";
 
 function SourceLink({ href, label = "Source code" }: { href: string; label?: string }) {
@@ -510,7 +513,7 @@ export const AsteroidProject: ProjectType = {
             avatar: composeImageUrl("rust"),
             readTime: "Chung-Ang University, 2025"
         },
-        backgroundImage: AsteroidImage,
+        backgroundImage: AsteroidImage1,
         content: {
             title: "Asteroid",
             description: "3D remake of the arcade classic, built with the Bevy engine"
@@ -524,12 +527,16 @@ export const AsteroidProject: ProjectType = {
                             A 3D game inspired by the classic Asteroids arcade game, made with the <strong>Bevy</strong> engine in <strong>Rust</strong>.
                         </p>
                         <p className="text-lg text-gray-600">
-                            The player flies a spaceship through an asteroid field, dodging and destroying asteroids to score points.
+                            From the cockpit, the player flies through a low-poly asteroid field, dodging and shooting asteroids to score points.
                             Built by a team of four for the game software design course at Chung-Ang University.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The menus are <strong>diegetic</strong>: the main menu, settings and game-over screens are displayed on the
+                            ship's dashboard inside the 3D scene, not as a flat overlay.
                         </p>
                         <SourceLink href="https://github.com/Solype/Asteroid" />
                     </div>,
-        images: [AsteroidImage],
+        images: [AsteroidImage1, AsteroidImage2, AsteroidImage3, AsteroidImage4],
         contributors: [
             ME,
             { login: "Popochounet", name: "Adrien Audiard" },
