@@ -7,8 +7,16 @@ import accordionPic from "@/assets/hobbies/accordion.webp";
 import englishIcon from "@/assets/country/flag-uk.webp";
 import frenchIcon from "@/assets/country/flag-france.webp";
 import germanIcon from "@/assets/country/flag-germany.webp";
+import koreanIcon from "@/assets/country/flag-korea.webp";
 import archerPic from "@/assets/hobbies/archery.webp";
 import { motion } from "framer-motion";
+
+const LANGUAGES = [
+    { name: "French", level: "Native", flag: frenchIcon },
+    { name: "English", level: "B2/C1", flag: englishIcon },
+    { name: "German", level: "A2", flag: germanIcon },
+    { name: "Korean", level: "A1 · learning", flag: koreanIcon },
+];
 
 export default function About() {
     return (
@@ -48,45 +56,23 @@ export default function About() {
                             </h3>
 
                             {/* Language proficiency */}
-                            <div className="grid grid-cols-3 w-full overflow-hidden rounded-lg">
-                                {/* French */}
-                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
-                                    <img 
-                                        src={frenchIcon} 
-                                        alt="French" 
-                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
-                                        loading="lazy" 
-                                    />
-                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                                        🇫🇷 French: Native
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
+                                {LANGUAGES.map(({ name, level, flag }) => (
+                                    <div key={name} className="group overflow-hidden rounded-lg border bg-background">
+                                        <div className="overflow-hidden">
+                                            <img
+                                                src={flag}
+                                                alt={`${name} flag`}
+                                                loading="lazy"
+                                                className="w-full h-24 object-cover transition-transform duration-300 group-hover:scale-110"
+                                            />
+                                        </div>
+                                        <div className="px-2 py-2 text-center">
+                                            <p className="font-semibold">{name}</p>
+                                            <p className="text-sm text-muted-foreground">{level}</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                {/* English */}
-                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
-                                    <img 
-                                        src={englishIcon} 
-                                        alt="English" 
-                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
-                                        loading="lazy" 
-                                    />
-                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                                        🇬🇧 English: B2/C1
-                                    </div>
-                                </div>
-
-                                {/* German */}
-                                <div className="relative group w-full overflow-hidden bg-otherDarkBlue">
-                                    <img 
-                                        src={germanIcon} 
-                                        alt="German" 
-                                        className="w-full h-32 object-cover transition-all duration-300 ease-in-out group-hover:opacity-0 group-hover:scale-110"
-                                        loading="lazy" 
-                                    />
-                                    <div className="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                                        🇩🇪 German: A2/B1
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </CardContent>
                     </Card>

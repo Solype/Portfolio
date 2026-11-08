@@ -12,6 +12,8 @@ export interface TechnoCardStepContentProps {
     level: string; // Skill level
     uses: string[]; // Uses and related projects
     image: string;
+    lastUsed?: string; // e.g. "Nov 2026"
+    lastProject?: string; // project where it was last used
 }
 
 export interface TechnoCardProps {
@@ -44,6 +46,12 @@ function TechnoCard({ isOpen, setOpen, stepContent }: TechnoCardProps) {
                     <div className="border-l-4 border-blue-500 pl-4">
                         <p className="text-lg font-semibold">Level</p>
                         <p className="text-gray-700">{stepContent.level}</p>
+                        {stepContent.lastUsed && (
+                            <p className="text-sm text-gray-500">
+                                Last used: {stepContent.lastUsed}
+                                {stepContent.lastProject && <> · {stepContent.lastProject}</>}
+                            </p>
+                        )}
                     </div>
 
                     {/* Uses */}
