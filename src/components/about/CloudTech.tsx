@@ -253,9 +253,9 @@ export function IconCloudDemo() {
         <div className="h-full items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
             <IconCloud 
                 iconSlugs={slugs} 
-                onIconClick={(e: any) => {
+                onIconClick={(target) => {
                     if (titleRefSetter.current) {
-                        titleRefSetter.current(e.title);
+                        titleRefSetter.current(target.title);
                     }
                 }} 
             />
