@@ -14,7 +14,8 @@ import MyRPGMap from "@/assets/projects/myrpg-map.webp";
 import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
 import CorewarImage from "@/assets/projects/corewar.webp";
 import Sh42Image from "@/assets/projects/42sh.webp";
-import DanteImage from "@/assets/projects/dante.webp";
+import DanteMaze from "@/assets/projects/dante-maze.webp";
+import DanteTerminal from "@/assets/projects/dante-terminal.webp";
 import AntmanImage from "@/assets/projects/antman.webp";
 import NavyImage from "@/assets/projects/navy.webp";
 import MyRadarImage from "@/assets/projects/my-radar.webp";
@@ -518,10 +519,10 @@ export const Sh42Project: ProjectType = {
 export const DanteProject: ProjectType = {
     cardProps: {
         author: firstYearC(),
-        backgroundImage: DanteImage,
+        backgroundImage: DanteMaze,
         content: {
             title: "Dante",
-            description: "Maze generator (Kruskal, growing tree) and A* solver"
+            description: "Perfect-maze generator (growing tree) and A* solver"
         },
     },
     projectProps: {
@@ -532,12 +533,15 @@ export const DanteProject: ProjectType = {
                             Two programs in <strong>C</strong>: one generates mazes, the other solves them.
                         </p>
                         <p className="text-lg text-gray-600">
-                            The generator builds perfect mazes with <strong>Kruskal's algorithm</strong> and a growing-tree
-                            variant, then can break walls to make imperfect ones. The solver finds the path with
-                            <strong> A*</strong> and a Manhattan-distance heuristic. A bonus generator comes on top.
+                            The generator builds <strong>perfect</strong> mazes (exactly one path between any two cells) with the
+                            <strong> growing-tree</strong> algorithm, and imperfect ones with loops on demand. The solver finds the exit
+                            with <strong>A*</strong> and a Manhattan-distance heuristic, and prints the path on the maze.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026: a 1000×1000 maze is generated in about 0.55 s and solved in 0.06 s, using about 6 MB of memory.
                         </p>
                     </div>,
-        images: [DanteImage],
+        images: [DanteMaze, DanteTerminal],
         contributors: [ME, ETIENNE]
     }
 };
