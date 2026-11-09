@@ -13,6 +13,8 @@ import RTypeImage from "@/assets/projects/rtype-2.webp";
 import RTypeImage2 from "@/assets/projects/rtype-1.webp";
 import PlazzaImage from "@/assets/projects/plazza.webp";
 import GomokuImage from "@/assets/projects/gomoku.webp";
+import GomokuMatch1 from "@/assets/projects/gomoku-match-1.webp";
+import GomokuMatch2 from "@/assets/projects/gomoku-match-2.webp";
 import PortfolioImage from "@/assets/projects/portfolio.webp";
 import SoulConnectionImage from "@/assets/projects/soul-connection.webp";
 import EpiTrelloImage from "@/assets/projects/epitrello.webp";
@@ -205,7 +207,7 @@ export const GomokuProject: ProjectType = {
         backgroundImage: GomokuImage,
         content: {
             title: "Gomoku",
-            description: "AI bot for Gomoku using Monte Carlo search and a thread pool"
+            description: "Gomoku AI bot: Monte Carlo playouts on a home-made thread pool"
         },
     },
     projectProps: {
@@ -217,11 +219,15 @@ export const GomokuProject: ProjectType = {
                             </p>
                             <p className="text-lg text-gray-600">
                                 The main challenge was choosing and implementing the right algorithm. We chose to master randomness with
-                                Monte Carlo tree search, and used a thread pool to parallelise the computation and speed up the bot.
+                                a Monte Carlo search: 50,000 random playouts per move, run on our own thread pool to parallelise the computation.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The bot speaks the <strong>Gomocup</strong> protocol, so it plays against other bots through liskvork,
+                                the game manager, whose web page shows the match live.
                             </p>
                             <SourceLink href="https://github.com/Solype/Gomoku" />
                         </div>,
-        images: [GomokuImage],
+        images: [GomokuImage, GomokuMatch1, GomokuMatch2],
         contributors: [ME, HUGO, SATINE]
     }
 }
