@@ -5,9 +5,42 @@ import About from './page/About';
 import Projects from './page/Projects';
 import Contact from './page/Contact';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect } from 'react';
+
+const SITE_URL = 'https://ambroise-jacquemet.netlify.app';
+
+const PAGE_META: Record<string, { title: string; description: string }> = {
+    '/': {
+        title: 'Ambroise Jacquemet · Full-Stack Developer Portfolio',
+        description: 'Portfolio of Ambroise Jacquemet, full-stack developer and Epitech student: C, C++, Rust, React and Python projects, from a Korean-language compiler to game engines.',
+    },
+    '/projects': {
+        title: 'Projects · Ambroise Jacquemet',
+        description: 'Projects by Ambroise Jacquemet: Krc compiler in Rust, Solypengine C++ game engine, R-Type, Corewar, 42sh, NewMannheim and more.',
+    },
+    '/about': {
+        title: 'About · Ambroise Jacquemet',
+        description: 'Skills, languages and hobbies of Ambroise Jacquemet: C, C++, Rust, TypeScript, React, Python, FastAPI, Docker and Linux.',
+    },
+    '/contact': {
+        title: 'Contact · Ambroise Jacquemet',
+        description: 'Contact Ambroise Jacquemet, full-stack developer: send a message or find him on GitHub and LinkedIn.',
+    },
+};
+
+function usePageMeta(pathname: string) {
+    useEffect(() => {
+        const path = PAGE_META[pathname] ? pathname : '/';
+        const { title, description } = PAGE_META[path];
+        document.title = title;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+        document.querySelector('link[rel="canonical"]')?.setAttribute('href', SITE_URL + (path === '/' ? '/' : path));
+    }, [pathname]);
+}
 
 function AppChild() {
     const location = useLocation();
+    usePageMeta(location.pathname);
 
     return (
         <div>

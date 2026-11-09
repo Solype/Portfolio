@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ambroise-jacquemet.netlify.app/sitemap.xml
