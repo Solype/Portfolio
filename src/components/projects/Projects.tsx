@@ -12,6 +12,12 @@ import MyRPGMenu from "@/assets/projects/myrpg-menu.webp";
 import MyRPGCharacter from "@/assets/projects/myrpg-character.webp";
 import MyRPGMap from "@/assets/projects/myrpg-map.webp";
 import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
+import CorewarImage from "@/assets/projects/corewar.webp";
+import Sh42Image from "@/assets/projects/42sh.webp";
+import DanteImage from "@/assets/projects/dante.webp";
+import AntmanImage from "@/assets/projects/antman.webp";
+import NavyImage from "@/assets/projects/navy.webp";
+import MyRadarImage from "@/assets/projects/my-radar.webp";
 import RTypeImage from "@/assets/projects/rtype-2.webp";
 import RTypeImage2 from "@/assets/projects/rtype-1.webp";
 import PlazzaImage from "@/assets/projects/plazza.webp";
@@ -446,6 +452,174 @@ export const NewMannheimProject: ProjectType = {
         contributors: [ME]
     }
 }
+
+const firstYearC = (readTime = "1st year project") => ({
+    name: "C",
+    avatar: composeImageUrl("c"),
+    readTime
+});
+
+export const CorewarProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: CorewarImage,
+        content: {
+            title: "Corewar",
+            description: "Assembler and virtual machine where programs fight for memory"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Corewar",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Corewar is a game where small programs, the "champions", fight inside the memory of a virtual machine.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            We wrote both halves in <strong>C</strong>: an <strong>assembler</strong> that compiles champions from
+                            their assembly language into bytecode, and the <strong>virtual machine</strong> that loads them into a shared
+                            circular memory and runs their processes until one is left alive. Memory dumps were compared against
+                            the reference implementation to test the VM.
+                        </p>
+                    </div>,
+        images: [CorewarImage],
+        contributors: [ME, ETIENNE, { name: "Marius Rousset" }, { name: "Iona Prigent" }]
+    }
+};
+
+export const Sh42Project: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: Sh42Image,
+        content: {
+            title: "42sh",
+            description: "A Unix shell written from scratch, inspired by tcsh"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "42sh",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            The end-of-year shell project: a command interpreter written from scratch in <strong>C</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Command lines go through an <strong>LL parser</strong> that builds the execution tree from operator
+                            priorities: pipes, redirections, <code>;</code>, <code>&amp;&amp;</code> and <code>||</code>.
+                            It also handles backticks, environment variable substitution, built-ins (cd, echo, setenv, unsetenv),
+                            signals, command history and line editing.
+                        </p>
+                    </div>,
+        images: [Sh42Image],
+        contributors: [ME, ETIENNE, { name: "Louis" }, { name: "Yanis" }, { name: "Lou Onezime" }]
+    }
+};
+
+export const DanteProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: DanteImage,
+        content: {
+            title: "Dante",
+            description: "Maze generator (Kruskal, growing tree) and A* solver"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Dante",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Two programs in <strong>C</strong>: one generates mazes, the other solves them.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The generator builds perfect mazes with <strong>Kruskal's algorithm</strong> and a growing-tree
+                            variant, then can break walls to make imperfect ones. The solver finds the path with
+                            <strong> A*</strong> and a Manhattan-distance heuristic. A bonus generator comes on top.
+                        </p>
+                    </div>,
+        images: [DanteImage],
+        contributors: [ME, ETIENNE]
+    }
+};
+
+export const AntmanProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: AntmanImage,
+        content: {
+            title: "Antman",
+            description: "Lossless file compression with LZW and a home-made hashmap"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Antman",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A lossless compressor (antman) and its decompressor (giantman), written in <strong>C</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Compression uses the <strong>LZW</strong> algorithm, with a dictionary stored in a hashmap we
+                            implemented ourselves for fast lookups.
+                        </p>
+                    </div>,
+        images: [AntmanImage],
+        contributors: [ME, ETIENNE]
+    }
+};
+
+export const NavyProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: NavyImage,
+        content: {
+            title: "Navy",
+            description: "Two-player battleship where processes talk only through signals"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Navy",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A terminal battleship game for two players, each running their own process.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The two processes communicate only through UNIX signals: every shot and every answer is encoded
+                            with <strong>SIGUSR1</strong> and <strong>SIGUSR2</strong>, handled with <code>sigaction</code>.
+                        </p>
+                    </div>,
+        images: [NavyImage],
+        contributors: [ME, ETIENNE]
+    }
+};
+
+export const MyRadarProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: MyRadarImage,
+        content: {
+            title: "My Radar",
+            description: "Air traffic simulation with CSFML and grid-based collision checks"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "My Radar",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            An air traffic simulation in <strong>C</strong> with <strong>CSFML</strong>: planes fly between airports,
+                            crash into each other, and are safe inside control tower areas.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            To keep many planes smooth, the screen is split into a grid and each plane is only checked for
+                            collisions against planes in the same cell.
+                        </p>
+                    </div>,
+        images: [MyRadarImage],
+        contributors: [ME]
+    }
+};
 
 export const SolypengineProject: ProjectType = {
     cardProps: {
