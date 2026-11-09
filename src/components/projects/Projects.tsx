@@ -12,11 +12,11 @@ import MyRPGMenu from "@/assets/projects/myrpg-menu.webp";
 import MyRPGCharacter from "@/assets/projects/myrpg-character.webp";
 import MyRPGMap from "@/assets/projects/myrpg-map.webp";
 import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
-import CorewarImage from "@/assets/projects/corewar.webp";
+import CorewarAsm from "@/assets/projects/corewar-asm.webp";
+import CorewarDump from "@/assets/projects/corewar-dump.webp";
 import Sh42Session from "@/assets/projects/42sh-session.webp";
 import DanteMaze from "@/assets/projects/dante-maze.webp";
 import DanteTerminal from "@/assets/projects/dante-terminal.webp";
-import AntmanImage from "@/assets/projects/antman.webp";
 import Navy1 from "@/assets/projects/navy-1.webp";
 import Navy2 from "@/assets/projects/navy-2.webp";
 import MyRadarImage from "@/assets/projects/my-radar.webp";
@@ -464,7 +464,7 @@ const firstYearC = (readTime = "1st year project") => ({
 export const CorewarProject: ProjectType = {
     cardProps: {
         author: firstYearC(),
-        backgroundImage: CorewarImage,
+        backgroundImage: CorewarAsm,
         content: {
             title: "Corewar",
             description: "Assembler and virtual machine where programs fight for memory"
@@ -480,11 +480,14 @@ export const CorewarProject: ProjectType = {
                         <p className="text-lg text-gray-600">
                             We wrote both halves in <strong>C</strong>: an <strong>assembler</strong> that compiles champions from
                             their assembly language into bytecode, and the <strong>virtual machine</strong> that loads them into a shared
-                            circular memory and runs their processes until one is left alive. Memory dumps were compared against
-                            the reference implementation to test the VM.
+                            circular memory and runs their processes until one is left alive.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026 against Epitech's reference virtual machine: our memory dumps are byte-identical to
+                            the reference ones up to cycle 500.
                         </p>
                     </div>,
-        images: [CorewarImage],
+        images: [CorewarAsm, CorewarDump],
         contributors: [ME, ETIENNE, { name: "Marius Rousset" }, { name: "Iona Prigent" }]
     }
 };
@@ -545,32 +548,6 @@ export const DanteProject: ProjectType = {
                         </p>
                     </div>,
         images: [DanteMaze, DanteTerminal],
-        contributors: [ME, ETIENNE]
-    }
-};
-
-export const AntmanProject: ProjectType = {
-    cardProps: {
-        author: firstYearC(),
-        backgroundImage: AntmanImage,
-        content: {
-            title: "Antman",
-            description: "Lossless file compression with LZW and a home-made hashmap"
-        },
-    },
-    projectProps: {
-        badge: "Epitech project",
-        title: "Antman",
-        description: <div className="space-y-4">
-                        <p className="text-xl text-gray-700">
-                            A lossless compressor (antman) and its decompressor (giantman), written in <strong>C</strong>.
-                        </p>
-                        <p className="text-lg text-gray-600">
-                            Compression uses the <strong>LZW</strong> algorithm, with a dictionary stored in a hashmap we
-                            implemented ourselves for fast lookups.
-                        </p>
-                    </div>,
-        images: [AntmanImage],
         contributors: [ME, ETIENNE]
     }
 };

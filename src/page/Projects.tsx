@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { AuthorCard } from "@/components/ui/content-card"
-import { AntmanProject, CorewarProject, DanteProject, MyRadarProject, NavyProject, Sh42Project, ArcadeProject, AreaProject, AsteroidProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, NewMannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SolypengineProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
+import { CorewarProject, DanteProject, MyRadarProject, NavyProject, Sh42Project, ArcadeProject, AreaProject, AsteroidProject, EpiTrelloProject, FtraceProject, KrcProject, GomokuProject, MannheimProject, NewMannheimProject, MyRPGProject, PlazzaProject, PortfolioProject, ProjectType, RaytracerProject, RTypeProject, SolypengineProject, SurvivorPoolTek3Project } from "@/components/projects/Projects";
 import LineGradient from "@/components/LineGradient";
 
 import {
@@ -33,7 +33,7 @@ const projectsList: GroupOfProjects[] = [
     { nameCategory: "Rust", projects: [ KrcProject, AsteroidProject ] },
     { nameCategory: "C++", projects: [ SolypengineProject, RTypeProject, ArcadeProject, RaytracerProject, PlazzaProject, GomokuProject ] },
     { nameCategory: "Web", projects: [ NewMannheimProject, MannheimProject, AreaProject, EpiTrelloProject, SurvivorPoolTek3Project, PortfolioProject ] },
-    { nameCategory: "C", projects: [ CorewarProject, Sh42Project, FtraceProject, DanteProject, MyRPGProject, MyRadarProject, AntmanProject, NavyProject ] },
+    { nameCategory: "C", projects: [ CorewarProject, Sh42Project, FtraceProject, DanteProject, MyRPGProject, MyRadarProject, NavyProject ] },
 ];
 
 function CarouselProject ({
