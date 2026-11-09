@@ -13,11 +13,12 @@ import MyRPGCharacter from "@/assets/projects/myrpg-character.webp";
 import MyRPGMap from "@/assets/projects/myrpg-map.webp";
 import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
 import CorewarImage from "@/assets/projects/corewar.webp";
-import Sh42Image from "@/assets/projects/42sh.webp";
+import Sh42Session from "@/assets/projects/42sh-session.webp";
 import DanteMaze from "@/assets/projects/dante-maze.webp";
 import DanteTerminal from "@/assets/projects/dante-terminal.webp";
 import AntmanImage from "@/assets/projects/antman.webp";
-import NavyImage from "@/assets/projects/navy.webp";
+import Navy1 from "@/assets/projects/navy-1.webp";
+import Navy2 from "@/assets/projects/navy-2.webp";
 import MyRadarImage from "@/assets/projects/my-radar.webp";
 import RTypeImage from "@/assets/projects/rtype-2.webp";
 import RTypeImage2 from "@/assets/projects/rtype-1.webp";
@@ -491,7 +492,7 @@ export const CorewarProject: ProjectType = {
 export const Sh42Project: ProjectType = {
     cardProps: {
         author: firstYearC(),
-        backgroundImage: Sh42Image,
+        backgroundImage: Sh42Session,
         content: {
             title: "42sh",
             description: "A Unix shell written from scratch, inspired by tcsh"
@@ -507,11 +508,13 @@ export const Sh42Project: ProjectType = {
                         <p className="text-lg text-gray-600">
                             Command lines go through an <strong>LL parser</strong> that builds the execution tree from operator
                             priorities: pipes, redirections, <code>;</code>, <code>&amp;&amp;</code> and <code>||</code>.
-                            It also handles backticks, environment variable substitution, built-ins (cd, echo, setenv, unsetenv),
-                            signals, command history and line editing.
+                            It also has the built-ins (cd, echo, setenv, unsetenv), tcsh-style error messages and command history.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026 against tcsh: 17 of 23 test commands give exactly the same output and exit status.
                         </p>
                     </div>,
-        images: [Sh42Image],
+        images: [Sh42Session],
         contributors: [ME, ETIENNE, { name: "Louis" }, { name: "Yanis" }, { name: "Lou Onezime" }]
     }
 };
@@ -575,7 +578,7 @@ export const AntmanProject: ProjectType = {
 export const NavyProject: ProjectType = {
     cardProps: {
         author: firstYearC(),
-        backgroundImage: NavyImage,
+        backgroundImage: Navy1,
         content: {
             title: "Navy",
             description: "Two-player battleship where processes talk only through signals"
@@ -589,11 +592,12 @@ export const NavyProject: ProjectType = {
                             A terminal battleship game for two players, each running their own process.
                         </p>
                         <p className="text-lg text-gray-600">
-                            The two processes communicate only through UNIX signals: every shot and every answer is encoded
-                            with <strong>SIGUSR1</strong> and <strong>SIGUSR2</strong>, handled with <code>sigaction</code>.
+                            The two processes communicate only through UNIX signals: player 2 connects using player 1's PID, then
+                            every shot and every answer is sent bit by bit as <strong>SIGUSR1</strong> / <strong>SIGUSR2</strong>
+                            signals (16 per shot), handled with <code>sigaction</code>. Invalid coordinates are rejected.
                         </p>
                     </div>,
-        images: [NavyImage],
+        images: [Navy1, Navy2],
         contributors: [ME, ETIENNE]
     }
 };
