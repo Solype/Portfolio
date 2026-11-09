@@ -8,11 +8,24 @@ import AreaImage from "@/assets/projects/area-2.webp";
 import ArcadeImage from "@/assets/projects/arcade-2.webp";
 import ArcadeImage2 from "@/assets/projects/arcade-1.webp";
 import RaytracerImage from "@/assets/projects/raytracer.webp";
-import MyRPGImage from "@/assets/projects/myrpg.webp";
+import MyRPGMenu from "@/assets/projects/myrpg-menu.webp";
+import MyRPGCharacter from "@/assets/projects/myrpg-character.webp";
+import MyRPGMap from "@/assets/projects/myrpg-map.webp";
+import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
+import CorewarAsm from "@/assets/projects/corewar-asm.webp";
+import CorewarDump from "@/assets/projects/corewar-dump.webp";
+import Sh42Session from "@/assets/projects/42sh-session.webp";
+import DanteMaze from "@/assets/projects/dante-maze.webp";
+import DanteTerminal from "@/assets/projects/dante-terminal.webp";
+import Navy1 from "@/assets/projects/navy-1.webp";
+import Navy2 from "@/assets/projects/navy-2.webp";
+import MyRadarImage from "@/assets/projects/my-radar.webp";
 import RTypeImage from "@/assets/projects/rtype-2.webp";
 import RTypeImage2 from "@/assets/projects/rtype-1.webp";
 import PlazzaImage from "@/assets/projects/plazza.webp";
 import GomokuImage from "@/assets/projects/gomoku.webp";
+import GomokuMatch1 from "@/assets/projects/gomoku-match-1.webp";
+import GomokuMatch2 from "@/assets/projects/gomoku-match-2.webp";
 import PortfolioImage from "@/assets/projects/portfolio.webp";
 import SoulConnectionImage from "@/assets/projects/soul-connection.webp";
 import EpiTrelloImage from "@/assets/projects/epitrello.webp";
@@ -205,7 +218,7 @@ export const GomokuProject: ProjectType = {
         backgroundImage: GomokuImage,
         content: {
             title: "Gomoku",
-            description: "AI bot for Gomoku using Monte Carlo search and a thread pool"
+            description: "Gomoku AI bot: Monte Carlo playouts on a home-made thread pool"
         },
     },
     projectProps: {
@@ -217,11 +230,15 @@ export const GomokuProject: ProjectType = {
                             </p>
                             <p className="text-lg text-gray-600">
                                 The main challenge was choosing and implementing the right algorithm. We chose to master randomness with
-                                Monte Carlo tree search, and used a thread pool to parallelise the computation and speed up the bot.
+                                a Monte Carlo search: 50,000 random playouts per move, run on our own thread pool to parallelise the computation.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                The bot speaks the <strong>Gomocup</strong> protocol, so it plays against other bots through liskvork,
+                                the game manager, whose web page shows the match live.
                             </p>
                             <SourceLink href="https://github.com/Solype/Gomoku" />
                         </div>,
-        images: [GomokuImage],
+        images: [GomokuImage, GomokuMatch1, GomokuMatch2],
         contributors: [ME, HUGO, SATINE]
     }
 }
@@ -272,11 +289,27 @@ export const MyRPGProject: ProjectType = {
             avatar: composeImageUrl("c"),
             readTime: "1st year project"
         },
-        backgroundImage: MyRPGImage,
+        backgroundImage: MyRPGMenu,
         content: {
             title: "MyRPG",
-            description: "RPG game fully made in C"
+            description: "Desert-themed 2D RPG written in C with CSFML"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "MyRPG",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Our first-year final graphical project: a 2D role-playing game set in an Egyptian desert, written entirely in
+                            <strong> C</strong> with the <strong>CSFML</strong> library.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            It has a main menu with settings and help, a character selection screen, a tile map to explore and an
+                            inventory with equipment slots. Built by a team of three in about a month (March–April 2023).
+                        </p>
+                    </div>,
+        images: [MyRPGMenu, MyRPGCharacter, MyRPGMap, MyRPGInventory],
+        contributors: [ME, { name: "Lou Onezime" }, { name: "Iona Prigent" }]
     }
 };
 
@@ -421,6 +454,157 @@ export const NewMannheimProject: ProjectType = {
         contributors: [ME]
     }
 }
+
+const firstYearC = (readTime = "1st year project") => ({
+    name: "C",
+    avatar: composeImageUrl("c"),
+    readTime
+});
+
+export const CorewarProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: CorewarAsm,
+        content: {
+            title: "Corewar",
+            description: "Assembler and virtual machine where programs fight for memory"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Corewar",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Corewar is a game where small programs, the "champions", fight inside the memory of a virtual machine.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            We wrote both halves in <strong>C</strong>: an <strong>assembler</strong> that compiles champions from
+                            their assembly language into bytecode, and the <strong>virtual machine</strong> that loads them into a shared
+                            circular memory and runs their processes until one is left alive.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026 against Epitech's reference virtual machine: our memory dumps are byte-identical to
+                            the reference ones up to cycle 500.
+                        </p>
+                    </div>,
+        images: [CorewarAsm, CorewarDump],
+        contributors: [ME, ETIENNE, { name: "Marius Rousset" }, { name: "Iona Prigent" }]
+    }
+};
+
+export const Sh42Project: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: Sh42Session,
+        content: {
+            title: "42sh",
+            description: "A Unix shell written from scratch, inspired by tcsh"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "42sh",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            The end-of-year shell project: a command interpreter written from scratch in <strong>C</strong>.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Command lines go through an <strong>LL parser</strong> that builds the execution tree from operator
+                            priorities: pipes, redirections, <code>;</code>, <code>&amp;&amp;</code> and <code>||</code>.
+                            It also has the built-ins (cd, echo, setenv, unsetenv), tcsh-style error messages and command history.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026 against tcsh: 17 of 23 test commands give exactly the same output and exit status.
+                        </p>
+                    </div>,
+        images: [Sh42Session],
+        contributors: [ME, ETIENNE, { name: "Louis" }, { name: "Yanis" }, { name: "Lou Onezime" }]
+    }
+};
+
+export const DanteProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: DanteMaze,
+        content: {
+            title: "Dante",
+            description: "Perfect-maze generator (growing tree) and A* solver"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Dante",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Two programs in <strong>C</strong>: one generates mazes, the other solves them.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The generator builds <strong>perfect</strong> mazes (exactly one path between any two cells) with the
+                            <strong> growing-tree</strong> algorithm, and imperfect ones with loops on demand. The solver finds the exit
+                            with <strong>A*</strong> and a Manhattan-distance heuristic, and prints the path on the maze.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            Re-tested in 2026: a 1000×1000 maze is generated in about 0.55 s and solved in 0.06 s, using about 6 MB of memory.
+                        </p>
+                    </div>,
+        images: [DanteMaze, DanteTerminal],
+        contributors: [ME, ETIENNE]
+    }
+};
+
+export const NavyProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: Navy1,
+        content: {
+            title: "Navy",
+            description: "Two-player battleship where processes talk only through signals"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "Navy",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            A terminal battleship game for two players, each running their own process.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            The two processes communicate only through UNIX signals: player 2 connects using player 1's PID, then
+                            every shot and every answer is sent bit by bit as <strong>SIGUSR1</strong> / <strong>SIGUSR2</strong>
+                            signals (16 per shot), handled with <code>sigaction</code>. Invalid coordinates are rejected.
+                        </p>
+                    </div>,
+        images: [Navy1, Navy2],
+        contributors: [ME, ETIENNE]
+    }
+};
+
+export const MyRadarProject: ProjectType = {
+    cardProps: {
+        author: firstYearC(),
+        backgroundImage: MyRadarImage,
+        content: {
+            title: "My Radar",
+            description: "Air traffic simulation with CSFML and grid-based collision checks"
+        },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "My Radar",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            An air traffic simulation in <strong>C</strong> with <strong>CSFML</strong>: planes fly between airports,
+                            crash into each other, and are safe inside control tower areas.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            To keep many planes smooth, the screen is split into a grid and each plane is only checked for
+                            collisions against planes in the same cell.
+                        </p>
+                    </div>,
+        images: [MyRadarImage],
+        contributors: [ME]
+    }
+};
 
 export const SolypengineProject: ProjectType = {
     cardProps: {

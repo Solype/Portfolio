@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 export interface Contributor {
-  login: string;
+  login?: string; // GitHub login; without it only the name is shown
   name?: string | null;
 }
 
@@ -27,7 +27,11 @@ function Contributors({ contributors }: { contributors: Contributor[] }) {
         Contributors
       </p>
       <div className="flex flex-wrap gap-3">
-        {contributors.map(({ login, name }) => (
+        {contributors.map(({ login, name }) => !login ? (
+          <span key={name} className="flex items-center rounded-full border bg-background px-3 py-1 text-sm">
+            {name}
+          </span>
+        ) : (
           <a
             key={login}
             href={`https://github.com/${login}`}

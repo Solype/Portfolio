@@ -9,9 +9,12 @@ const slugs = [
     "javascript",
     "react",
     "nodedotjs",
+    "tailwindcss",
     "mysql",
+    "postgresql",
     "cplusplus",
     "c",
+    "cmake",
     "python",
     "docker",
     "git",
@@ -24,39 +27,42 @@ const slugs = [
     "rust"
 ]
 
+// Levels re-rated in Nov 2026 from how recently and how much each tech appears in my repositories.
 const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
     "Rust": {
         title: "Rust",
         description: "Rust is a fast, memory-safe systems programming language designed to provide high performance without sacrificing safety.",
-        level: "familiar",
+        level: "Advanced",
         uses: [
-            "Create video game using the library 'bevy'"
+            "Krc: a Korean programming language and its compiler (lexer, LR(1) parser, x86-64 encoder, ELF writer)",
+            "Asteroid: a 3D game built with the Bevy engine",
+            "An SLR(1) syntax analyzer for the Compiler class at Chung-Ang University"
         ],
         image: "rust"
     },
-    "React": { 
+    "React": {
         title: "React.js",
         description: "A JavaScript library for building reactive and high-performance user interfaces.",
         level: "Advanced",
         uses: [
             "Building Single Page Applications",
-            "Creating dynamic and reactive interfaces",
+            "NewMannheim, EpiTrello, Area and professional projects",
             "This website is built with React.js, more specifically Vite.js"
         ],
         image: "react"
     },
-    "TypeScript": { 
+    "TypeScript": {
         title: "TypeScript",
         description: "A strongly typed superset of JavaScript that improves code robustness.",
-        level: "Intermediate",
+        level: "Advanced",
         uses: [
-            "Frontend and backend application development",
-            "Enhancing code maintainability",
-            "Reducing errors with static typing"
+            "My default language for frontend work, including professional projects",
+            "NewMannheim, Mannheim and this portfolio",
+            "Typed API clients generated from OpenAPI"
         ],
         image: "typescript"
     },
-    "JavaScript": { 
+    "JavaScript": {
         title: "JavaScript",
         description: "The primary programming language for web development.",
         level: "Intermediate",
@@ -67,75 +73,101 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         ],
         image: "javascript"
     },
-    "Node.js": { 
+    "Node.js": {
         title: "Node.js",
         description: "A JavaScript runtime environment for server-side applications, built on V8.",
         level: "Intermediate",
         uses: [
-            "Developing RESTful APIs and microservices",
-            "Building real-time applications with WebSockets",
-            "I used node.js multiple times for backend development"
+            "Server-side code in professional projects",
+            "Express backend for a hackathon chat app calling the OpenAI API"
         ],
         image: "nodedotjs"
     },
-    "MySQL": { 
-        title: "MySQL",
-        description: "A popular open-source relational database management system.",
+    "Tailwind CSS": {
+        title: "Tailwind CSS",
+        description: "A utility-first CSS framework for building custom designs directly in the markup.",
         level: "Intermediate",
         uses: [
-            "Storing and managing structured data",
-            "Handling relational databases for web applications",
-            "Optimizing queries for better performance",
-            "I used MySQL especially with python for backend development"
+            "Styling of this portfolio, NewMannheim and Mannheim",
+            "Used with shadcn/ui components"
+        ],
+        image: "tailwindcss"
+    },
+    "MySQL": {
+        title: "MySQL",
+        description: "A popular open-source relational database management system.",
+        level: "Familiar",
+        uses: [
+            "Backends of Mannheim (V1) and Area, until early 2025",
+            "Used with Python for backend development"
         ],
         image: "mysql"
     },
-    "C++": { 
+    "PostgreSQL": {
+        title: "PostgreSQL",
+        description: "A powerful open-source relational database.",
+        level: "Intermediate",
+        uses: [
+            "Database of NewMannheim, with SQLAlchemy and Alembic migrations",
+            "Professional projects"
+        ],
+        image: "postgresql"
+    },
+    "C++": {
         title: "C++",
         description: "A powerful high-performance programming language used for system and game development.",
         level: "Advanced",
         uses: [
-            "Developing high-performance applications",
-            "Game development, by building an ecs engine and multiplayer server",
-            "Also used for concurrent programming"
+            "Solypengine: my own C++20 parallel-ECS game engine",
+            "R-Type: ECS engine and multiplayer server",
+            "Concurrent programming: Plazza, Gomoku's thread pool"
         ],
         image: "cplusplus"
     },
-    "C": { 
+    "C": {
         title: "C",
         description: "A foundational programming language known for its efficiency and low-level memory access.",
         level: "Advanced",
         uses: [
-            "I have done a lot of projects in C, you can see them in the projects section",
-            "Solid understanding of low-level systems",
-            "Built an HTTP server in C"
+            "My most used language: many projects since 2022, see the projects section",
+            "Ftrace: a syscall and library call tracer using ptrace",
+            "Linux kernel work: a custom syscall and kernel modules"
         ],
         image: "c"
     },
-    "Python": { 
+    "CMake": {
+        title: "CMake",
+        description: "A cross-platform build system generator for C and C++.",
+        level: "Intermediate",
+        uses: [
+            "Builds of Solypengine (FetchContent, Linux and Windows) and R-Type",
+            "C and C++ libraries such as a basic ECS"
+        ],
+        image: "cmake"
+    },
+    "Python": {
         title: "Python",
         description: "A versatile, high-level programming language known for its simplicity and readability.",
         level: "Advanced",
         uses: [
-            "Data science and machine learning",
             "Backend development with FastAPI and Flask",
+            "Image processing for a university assignment",
             "Automation and scripting"
         ],
         image: "python"
     },
-    "Docker": { 
+    "Docker": {
         title: "Docker",
         description: "A platform for developing, shipping, and running applications in containers.",
         level: "Intermediate",
         uses: [
             "Containerizing applications for portability",
-            "Managing microservices architectures",
-            "CI/CD pipeline integration",
-            "I usually use it for Web Development, to encapsulate the frontend and backend applications"
+            "Docker Compose stacks for web apps (frontend, backend, database)",
+            "Building an Android APK inside a container for NewMannheim"
         ],
         image: "docker"
     },
-    "Git": { 
+    "Git": {
         title: "Git",
         description: "A distributed version control system for tracking code changes.",
         level: "Advanced",
@@ -146,68 +178,66 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
         ],
         image: "git"
     },
-    "Jira": { 
+    "Jira": {
         title: "Jira",
         description: "A project management tool for tracking issues and agile development workflows.",
-        level: "Intermediate",
+        level: "Familiar",
         uses: [
-            "Managing software development projects",
-            "Tracking issues and bugs",
-            "Organizing agile sprints"
+            "Tracking issues and organizing sprints in team projects"
         ],
         image: "jira"
     },
-    "GitHub": { 
+    "GitHub": {
         title: "GitHub",
         description: "A cloud-based platform for hosting and collaborating on Git repositories.",
         level: "Intermediate",
         uses: [
-            "Hosting and managing open-source projects",
+            "Hosting and managing my projects",
             "Collaborative coding with pull requests and issues",
-            "Using GitHub Actions for CI/CD automation"
+            "GitHub Actions for CI and releases (Krc, professional projects)"
         ],
         image: "github"
     },
-    "GNU Bash": { 
+    "GNU Bash": {
         title: "GNU Bash",
         description: "A command-line shell used for scripting and automating tasks.",
         level: "Intermediate",
         uses: [
             "Automating repetitive tasks with shell scripts",
-            "Managing Unix/Linux systems",
+            "Build and test scripts in most of my projects",
             "Handling file and process management"
         ],
         image: "gnubash"
     },
-    "Linux": { 
+    "Linux": {
         title: "Linux",
         description: "An open-source operating system used for servers, development, and security.",
-        level: "Intermediate",
+        level: "Advanced",
         uses: [
-            "Server management and deployment",
-            "Shell scripting"
+            "My daily development environment",
+            "Kernel programming: a custom syscall, a filesystem and kernel modules",
+            "Server management and deployment"
         ],
         image: "linux"
     },
-    "SQLite": { 
+    "SQLite": {
         title: "SQLite",
         description: "A lightweight, file-based relational database system.",
         level: "Familiar",
         uses: [
-            "Storing data in mobile and embedded applications",
-            "Local database management for small-scale projects",
+            "Development database of NewMannheim",
+            "Backend of the Epitech Survivor Pool project",
             "Rapid prototyping of database applications"
         ],
         image: "sqlite"
     },
-    "FastAPI": { 
+    "FastAPI": {
         title: "FastAPI",
         description: "A high-performance web framework for building APIs with Python.",
         level: "Intermediate",
         uses: [
-            "Developing fast and scalable APIs",
-            "Building real-time applications with WebSockets",
-            "I used FastAPI multiple times for backend development"
+            "Backends of NewMannheim, EpiTrello, Mannheim and Area",
+            "Building real-time applications with WebSockets"
         ],
         image: "fastapi"
     },
@@ -251,13 +281,13 @@ export function IconCloudDemo() {
 
     return (
         <div className="h-full items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
-            <IconCloud 
-                iconSlugs={slugs} 
+            <IconCloud
+                iconSlugs={slugs}
                 onIconClick={(target) => {
                     if (titleRefSetter.current) {
                         titleRefSetter.current(target.title);
                     }
-                }} 
+                }}
             />
             <Title titleSetter={titleRefSetter} />
         </div>
