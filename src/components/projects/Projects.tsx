@@ -8,7 +8,10 @@ import AreaImage from "@/assets/projects/area-2.webp";
 import ArcadeImage from "@/assets/projects/arcade-2.webp";
 import ArcadeImage2 from "@/assets/projects/arcade-1.webp";
 import RaytracerImage from "@/assets/projects/raytracer.webp";
-import MyRPGImage from "@/assets/projects/myrpg.webp";
+import MyRPGMenu from "@/assets/projects/myrpg-menu.webp";
+import MyRPGCharacter from "@/assets/projects/myrpg-character.webp";
+import MyRPGMap from "@/assets/projects/myrpg-map.webp";
+import MyRPGInventory from "@/assets/projects/myrpg-inventory.webp";
 import RTypeImage from "@/assets/projects/rtype-2.webp";
 import RTypeImage2 from "@/assets/projects/rtype-1.webp";
 import PlazzaImage from "@/assets/projects/plazza.webp";
@@ -278,11 +281,27 @@ export const MyRPGProject: ProjectType = {
             avatar: composeImageUrl("c"),
             readTime: "1st year project"
         },
-        backgroundImage: MyRPGImage,
+        backgroundImage: MyRPGMenu,
         content: {
             title: "MyRPG",
-            description: "RPG game fully made in C"
+            description: "Desert-themed 2D RPG written in C with CSFML"
         },
+    },
+    projectProps: {
+        badge: "Epitech project",
+        title: "MyRPG",
+        description: <div className="space-y-4">
+                        <p className="text-xl text-gray-700">
+                            Our first-year final graphical project: a 2D role-playing game set in an Egyptian desert, written entirely in
+                            <strong> C</strong> with the <strong>CSFML</strong> library.
+                        </p>
+                        <p className="text-lg text-gray-600">
+                            It has a main menu with settings and help, a character selection screen, a tile map to explore and an
+                            inventory with equipment slots. Built by a team of three in about a month (March–April 2023).
+                        </p>
+                    </div>,
+        images: [MyRPGMenu, MyRPGCharacter, MyRPGMap, MyRPGInventory],
+        contributors: [ME, { name: "Lou Onezime" }, { name: "Iona Prigent" }]
     }
 };
 
