@@ -223,7 +223,7 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
     "SQLite": {
         title: "SQLite",
         description: "A lightweight, file-based relational database system.",
-        level: "Intermediate",
+        level: "Familiar",
         uses: [
             "Development database of NewMannheim",
             "Backend of the Epitech Survivor Pool project",
