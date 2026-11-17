@@ -118,7 +118,7 @@ function HomePage4() {
             ),
         },
         {
-            title: "Mar – Dec 2023: Internship at Safran",
+            title: "Jul – Dec 2023: Internship at Safran",
             content: (
                 <div>
                     <p className={textClass}>I worked as a software developer at the French company Safran.</p>
