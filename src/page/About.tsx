@@ -10,6 +10,8 @@ import germanIcon from "@/assets/country/flag-germany.webp";
 import koreanIcon from "@/assets/country/flag-korea.webp";
 import archerPic from "@/assets/hobbies/archery.webp";
 import { motion } from "framer-motion";
+import SoftSkills from "@/components/about/SoftSkills";
+import LineGradient from "@/components/LineGradient";
 
 const LANGUAGES = [
     { name: "French", level: "Native", flag: frenchIcon },
@@ -20,6 +22,7 @@ const LANGUAGES = [
 
 export default function About() {
     return (
+        <>
         <div className="flex flex-col lg:flex-row items-center lg:justify-between px-6 md:px-12 py-16 gap-12">
             {/* Left side - IconCloud */}
             <motion.div 
@@ -105,5 +108,8 @@ export default function About() {
                 </motion.div>
             </motion.div>
         </div>
+        <LineGradient width="w-full" />
+        <SoftSkills />
+        </>
     );
 }
