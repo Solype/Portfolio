@@ -80,12 +80,12 @@ function CarouselProject ({
                 }}
                 className="w-full"
             >
-                <CarouselContent className="-ml-1">
+                <CarouselContent className="-ml-8">
                     {list_project.projects.map((project: ProjectType, index) => {
                         const { x: randomX, y: randomY, delay: randomDelay } = offsets[index];
 
                         return (
-                            <CarouselItem key={index} className="xl:basis-1/3 md:basis-1/2 basis-1/1" onClick={() => handleOnClick(project)}>
+                            <CarouselItem key={index} className="pl-8 xl:basis-1/3 md:basis-1/2 basis-1/1" onClick={() => handleOnClick(project)}>
                                 <motion.div
                                     className="p-1"
                                     initial={{ opacity: 0, x: randomX, y: randomY }}
@@ -114,9 +114,9 @@ function Projects() {
     const [ featurePropsCurrent, setFeaturePropsCurrent ] = useState<FeatureProps | null>(null);
 
     return (
-        <div className="w-4/5 mx-auto py-20 space-y-8">
+        <div className="w-4/5 mx-auto py-20 space-y-16">
             {projectsList.map((list_project: GroupOfProjects, index) => (
-                <div key={index} className="space-y-6">
+                <div key={index} className="space-y-10">
                     <div>
                         <motion.h2
                             className="text-2xl text-center font-semibold"

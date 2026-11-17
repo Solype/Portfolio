@@ -1,56 +1,21 @@
-import softPic from "@/assets/skills/soft-skills.webp";
-import useMediaQuery from '@/hooks/useMediaQuery';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import LineGradient from '../LineGradient';
+import { AuthorCard } from '@/components/ui/content-card';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Feature, FeatureProps } from '@/components/ui/feature-with-image-carousel';
+import { AreaProject, GomokuProject, KrcProject } from '@/components/projects/Projects';
 
-interface SoftSkillProps {
-    id : number
-    name : string
-    content : string
-}
-
-const SoftSkill: React.FC<SoftSkillProps> = ({ id, name, content }) => {
-    return (
-        <motion.div
-            className="md:w-1/3 mt-10"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-            variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-            }}
-        >
-            <div className="relative h-32">
-                <div className="z-10">
-                    <p className="font-playfair font-semibold text-5xl">{id}</p>
-                    <p className="font-playfair font-semibold text-3xl mt-3">{name}</p>
-                </div>
-                <div className="w-1/2 md:w-3/4 h-32 bg-other/20 absolute right-0 top-0"/>
-            </div>
-            <p className="mt-5">
-                {content}
-            </p>
-        </motion.div>
-    );
-};
+const TOP_PROJECTS = [KrcProject, AreaProject, GomokuProject];
 
 const HomePage2: React.FC = () => {
-
-    const propsSoftSkill : SoftSkillProps[] = [
-        { id : 1, name : "Autonomous", content : "Epitech taught me to be autonomous. The project-based learning and intense coding environment helped me to learn how to work autonomously." },
-        { id : 2, name : "Curiosity", content : "I have always been fascinated by technology. Especially how previous engineers shaped today's technology. I am always eager to learn new things and improve my skills." },
-        { id : 3, name : "Problem Solving", content : "Thanks to my education, I am able to persevere when a problem occurs. Sometimes with a lot of patience, I can solve problems." },
-        { id : 4, name : "Teamwork", content : "I am able to work in a team and be a good team player. With Epitech I had the experience to work in a team." },
-    ]
-    const isAboveLarge = useMediaQuery("(min-width: 1060px)");
+    const [current, setCurrent] = useState<FeatureProps | null>(null);
 
     return (
-        <div className="min-h-screen pt-10 pb-24 px-6 md:px-20">
-            <div className="md:flex md:justify-between md:gap-16 mt-32">
-                <motion.div
-                className="md:w-1/3"
+        <div className="pt-10 pb-24 px-6 md:px-20">
+            <motion.div
+                className="mt-32"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
@@ -59,33 +24,43 @@ const HomePage2: React.FC = () => {
                     hidden: { opacity: 0, x: -50 },
                     visible: { opacity: 1, x: 0 },
                 }}
-                >
+            >
                 <p className="font-playfair font-semibold text-4xl mb-5">
-                    MY <span className="text-accent">SOFT</span>  SKILLS
+                    MY <span className="text-accent">TOP</span> PROJECTS
                 </p>
                 <LineGradient width="w-1/3" />
-                </motion.div>
+            </motion.div>
 
-                <div className="mt-16 md:mt-0">
-                {isAboveLarge ? (
-                    <div
-                        className="relative z-0 ml-20 before:absolute before:-top-10 before:-left-10
-                        before:w-full before:h-full before:border-2 before:border-other before:z-[-1]"
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
+                {TOP_PROJECTS.map((project, index) => (
+                    <motion.div
+                        key={project.cardProps.content.title}
+                        className="flex justify-center"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.5, delay: index * 0.15 }}
+                        onClick={() => project.projectProps && setCurrent(project.projectProps)}
                     >
-                        <img alt="Soft skills illustration" className="w-full max-w-md h-auto object-contain" loading="lazy" src={softPic} />
-                    </div>
-                ) : (
-                    <img alt="Soft skills illustration" className="w-full max-w-md h-auto object-contain" loading="lazy" src={softPic} />
-                )}
-                </div>
-            </div>
-            <div className="justify-center items-center">
-                <div className="lg:flex lg:justify-between mt-16 gap-32">
-                {propsSoftSkill.map((softSkill, index) => (
-                    <SoftSkill key={index} {...softSkill} />
+                        <AuthorCard {...project.cardProps} />
+                    </motion.div>
                 ))}
-                </div>
             </div>
+
+            <div className="flex justify-center mt-12">
+                <Link
+                    to="/projects"
+                    className="rounded-md bg-primary px-6 py-3 font-semibold text-white transition hover:bg-accent"
+                >
+                    See all projects
+                </Link>
+            </div>
+
+            <Dialog open={current != null} onOpenChange={(open) => !open && setCurrent(null)}>
+                <DialogContent className="max-h-[85vh] overflow-y-auto w-[95vw] max-w-6xl flex flex-col justify-center items-center">
+                    {current && <Feature {...current} />}
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };

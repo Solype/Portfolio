@@ -47,6 +47,17 @@ function Gallery({ children }: { children: React.ReactNode }) {
 function HomePage4() {
     const data: TimelineEntry[] = [
         {
+            title: "Sep 2026 – today: Work-study at Incom Services",
+            content: (
+                <div>
+                    <p className={textClass}>
+                        Back from Korea, I joined Incom Services as a full-stack developer, in a work-study internship
+                        alongside my studies at Epitech.
+                    </p>
+                </div>
+            ),
+        },
+        {
             title: "Sep 2025 – Jun 2026: Exchange at Chung-Ang University",
             content: (
                 <div>
