@@ -54,7 +54,7 @@ const slugs2: { [id: string]: TechnoCardStepContentProps; } = {
     "TypeScript": {
         title: "TypeScript",
         description: "A strongly typed superset of JavaScript that improves code robustness.",
-        level: "Advanced",
+        level: "Intermediate",
         uses: [
             "My default language for frontend work, including professional projects",
             "NewMannheim, Mannheim and this portfolio",
